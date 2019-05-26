@@ -1,2 +1,2 @@
-public class Lucznik {
+public class Lucznik extends Jednostka {
 }

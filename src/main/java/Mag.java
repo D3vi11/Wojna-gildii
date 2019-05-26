@@ -1,2 +1,2 @@
-public class Mag {
+public class Mag extends Jednostka {
 }

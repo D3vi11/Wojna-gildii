@@ -1,2 +1,2 @@
-public class Wojownik {
+public class Wojownik extends Jednostka {
 }
