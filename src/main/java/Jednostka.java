@@ -1,12 +1,15 @@
+import java.util.Random;
+
 public abstract class Jednostka implements I_Wspolrzedne,I_Jednostka {
 
     private int hp; // ilosc pkt życia
     private int predkosc_ruchu; // wartosc predkosci ruchu
-    private int pancerz;  // ilosc pancerza
+    private int pancerz;  // ilosc pancerza 1 pancerza redukuje podstawowe obrażenia o 0,1%
     private int zasieg_ataku; // zasieg ataku
     private String nazwa; //nazwa
-    private int nr_pola; // nr pola pozwalający sprawdzić czy jednostka jest na odpowiednim polu
-    private int kryt; // szanse na trafienie krytyczne (x2)
+    private int wsp_x, wsp_y; // współrzędnę x i y
+    private int kryt; // szanse na trafienie krytyczne %
+    private int mod_kryt; // modyfikator trafienia krytycznego (x1,5;x2;x2,5)
     private int atak; // bazowa wartość ataku
 
 
@@ -14,7 +17,15 @@ public abstract class Jednostka implements I_Wspolrzedne,I_Jednostka {
 
     @Override
     public void ruch() {
-
+        Random generator = new Random();
+        int r=generator.nextInt(4);
+        switch(r)
+        {
+            case 0: wsp_x++;
+            case 1: wsp_x--;
+            case 2: wsp_y++;
+            case 3: wsp_y--;
+        }
     }
 
     @Override
@@ -83,15 +94,44 @@ public abstract class Jednostka implements I_Wspolrzedne,I_Jednostka {
     }
 
     @Override
-    public int getNr_pola() {
-        return nr_pola;
+    public int getKryt() {
+        return kryt;
     }
 
     @Override
-    public void setNr_pola(int nr_pola) {
-        this.nr_pola=nr_pola;
+    public void setKryt(int kryt) {
+        this.kryt=kryt;
     }
-    public abstract void kryt();
+
+    @Override
+    public int getMod_kryt() {
+        return mod_kryt;
+    }
+
+    @Override
+    public void setMod_kryt(int mod_kryt) {
+        this.mod_kryt=mod_kryt;
+    }
+
+    @Override
+    public int getWsp_x() {
+        return wsp_x;
+    }
+
+    @Override
+    public void setWsp_x(int wsp_x) {
+        this.wsp_x=wsp_x;
+    }
+    @Override
+    public int getWsp_y() {
+        return wsp_y;
+    }
+
+    @Override
+    public void setWsp_y(int wsp_y) {
+        this.wsp_y=wsp_y;
+    }
+    public abstract boolean kryt(Jednostka wrog, int mod_kryt);
 
 
 }

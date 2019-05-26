@@ -1,17 +1,35 @@
 public class Pole implements I_Wspolrzedne {
 
-    private int rozmiar = 1;
-    private int nr_pola;
+    private int rozmiar;
+    private int wsp_x ,wsp_y;
+
+    public Pole(int wsp_x,int wsp_y)
+    {
+        rozmiar=1;
+    }
+
+
 
     @Override
-    public int getNr_pola() {
-        return nr_pola;
+    public int getWsp_x() {
+        return wsp_x;
     }
 
     @Override
-    public void setNr_pola(int nr_pola) {
+    public void setWsp_x(int wsp_x) {
 
-        this.nr_pola=nr_pola;
+        this.wsp_x=wsp_x;
+
+    }
+    @Override
+    public int getWsp_y() {
+        return wsp_y;
+    }
+
+    @Override
+    public void setWsp_y(int wsp_y) {
+
+        this.wsp_y=wsp_y;
 
     }
 }

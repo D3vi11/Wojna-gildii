@@ -1,6 +1,6 @@
 public interface I_Jednostka {
     void ruch();
-    void atak();
+    void atak(Jednostka wrog);
     boolean czy_spotkanie();
     int getHp();
     void setHp(int hp);
@@ -14,5 +14,9 @@ public interface I_Jednostka {
     void setNazwa(String nazwa);
     int getAtak();
     void setAtak(int atak);
+    int getKryt();
+    void setKryt(int kryt);
+    int getMod_kryt();
+    void setMod_kryt(int mod_kryt);
 
 }
