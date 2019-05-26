@@ -18,82 +18,80 @@ public abstract class Jednostka implements I_Wspolrzedne,I_Jednostka {
     }
 
     @Override
-    public void atak() {
-
-    }
-
-    @Override
     public boolean czy_spotkanie() {
         return false;
     }
 
     @Override
     public int getHp() {
-        return 0;
+        return hp;
     }
 
     @Override
-    public void setHp() {
-
+    public void setHp(int hp) {
+        this.hp=hp;
     }
 
     @Override
     public int getPredkosc_ruchu() {
-        return 0;
+        return predkosc_ruchu;
     }
 
     @Override
-    public void setPredkosc_ruchu() {
-
+    public void setPredkosc_ruchu(int predkosc_ruchu) {
+        this.predkosc_ruchu=predkosc_ruchu;
     }
 
     @Override
     public int getPancerz() {
-        return 0;
+        return pancerz;
     }
 
     @Override
-    public void setPancerz() {
-
+    public void setPancerz(int pancerz) {
+        this.pancerz=pancerz;
     }
 
     @Override
     public int getZasieg_ataku() {
-        return 0;
+        return zasieg_ataku;
     }
 
     @Override
-    public void setZasieg_ataku() {
-
+    public void setZasieg_ataku(int zasieg_ataku) {
+        this.zasieg_ataku=zasieg_ataku;
     }
 
     @Override
     public String getNazwa() {
-        return null;
+        return nazwa;
     }
 
     @Override
-    public void setNazwa() {
-
+    public void setNazwa(String nazwa) {
+        this.nazwa=nazwa;
     }
 
     @Override
     public int getAtak() {
-        return 0;
+        return atak;
     }
 
     @Override
-    public void setAtak() {
-
+    public void setAtak(int atak) {
+        this.atak=atak;
     }
 
     @Override
     public int getNr_pola() {
-        return 0;
+        return nr_pola;
     }
 
     @Override
-    public void setNr_pola() {
-
+    public void setNr_pola(int nr_pola) {
+        this.nr_pola=nr_pola;
     }
+    public abstract void kryt();
+
+
 }

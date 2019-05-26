@@ -1,6 +1,6 @@
 public class Mapa implements I_Mapa {
 
-    private int rozmiar=5;
+    private int rozmiar;
     private Pole [] tablica_pol;
 
     @Override
@@ -10,11 +10,11 @@ public class Mapa implements I_Mapa {
 
     @Override
     public int getRozmiar() {
-        return 0;
+        return rozmiar;
     }
 
     @Override
-    public void setRozmiar() {
-
+    public void setRozmiar(int rozmiar) {
+        this.rozmiar=rozmiar;
     }
 }

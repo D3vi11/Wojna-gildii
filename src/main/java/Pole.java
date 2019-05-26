@@ -5,11 +5,13 @@ public class Pole implements I_Wspolrzedne {
 
     @Override
     public int getNr_pola() {
-        return 0;
+        return nr_pola;
     }
 
     @Override
-    public void setNr_pola() {
+    public void setNr_pola(int nr_pola) {
+
+        this.nr_pola=nr_pola;
 
     }
 }
