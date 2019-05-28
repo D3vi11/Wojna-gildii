@@ -1,7 +1,7 @@
 public class Gildia {
 
     public static void main(String [] args) {
-        System.out.println("cos");
+        System.out.println("tak"); //zmienilem napis "cos" na "tak'
     }
 
 
