@@ -1,9 +1,11 @@
 public class Gildia {
 
+
     public static void main(String [] args) {
         System.out.println("tak"); //zmienilem napis "cos" na "tak'
     }
 
+    Jednostka [] tablica_jedn;
 
     void ustaw_liczbe_gildii() {
     }
@@ -15,5 +17,7 @@ public class Gildia {
     }
 
     void ustaw_liczbe_jednostek() {
+
     }
+
 }
