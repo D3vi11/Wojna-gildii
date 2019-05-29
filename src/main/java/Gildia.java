@@ -13,10 +13,6 @@ public class Gildia {
             int max_liczba_iteracji=ustaw_liczbe_iteracji();
             int rozmiar_mapy=ustaw_rozmiar_mapy();
             uruchom_symulacje(liczba_jednostek,max_liczba_iteracji,rozmiar_mapy);
-            for(int i=0; i<3; i++)
-            {
-
-            }
 
             System.out.println("Czy chcesz powtorzyc symulacje?");
             System.out.println("1-TAK");
@@ -36,15 +32,44 @@ public class Gildia {
             Wojownik [] woj_tab = new Wojownik [liczba_jednostek];
             Lucznik [] luk_tab = new Lucznik[liczba_jednostek];
             Mag [] mag_tab = new Mag [liczba_jednostek];
-            Random random = new Random();
+
+            int x,y;
             for(int i=0;i<liczba_jednostek;i++)
             {
-                woj_tab[i]= new Wojownik("wojownik"+(i+1),random.nextInt(rozmiar_mapy),random.nextInt(rozmiar_mapy),i+1);
-                luk_tab[i]= new Lucznik("lucznik"+(i+1),random.nextInt(rozmiar_mapy),random.nextInt(rozmiar_mapy),i+1);
-                mag_tab[i]= new Mag("mag"+(i+1),random.nextInt(rozmiar_mapy),random.nextInt(rozmiar_mapy),i+1);
+                x=losuj(rozmiar_mapy);
+                y=losuj(rozmiar_mapy);
+                woj_tab[i]= new Wojownik("wojownik"+(i+1),x,y,i+1);
+                x=losuj(rozmiar_mapy);
+                y=losuj(rozmiar_mapy);
+                luk_tab[i]= new Lucznik("lucznik"+(i+1),x,y,i+1);
+                x=losuj(rozmiar_mapy);
+                y=losuj(rozmiar_mapy);
+                mag_tab[i]= new Mag("mag"+(i+1),x,y,i+1);
             }
             for(int i=0;i<liczba_iteracji;i++)
             {
+               for(int j=0;j<liczba_jednostek;j++)
+               {
+                   woj_tab[j].ruch(rozmiar_mapy);
+                   luk_tab[j].ruch(rozmiar_mapy);
+                   mag_tab[j].ruch(rozmiar_mapy);
+
+               }
+               for(int j=0;j<liczba_jednostek;j++)
+               {
+                   if (woj_tab[j].getWsp_x()==luk_tab[j].getWsp_x()&&woj_tab[j].getWsp_y()==luk_tab[j].getWsp_y())
+                   {
+                       woj_tab[j].atak(luk_tab[j]); luk_tab[j].atak(woj_tab[j]);
+                   }
+                   if (mag_tab[j].getWsp_x()==luk_tab[j].getWsp_x()&&mag_tab[j].getWsp_y()==luk_tab[j].getWsp_y())
+                   {
+                       mag_tab[j].atak(luk_tab[j]); luk_tab[j].atak(mag_tab[j]);
+                   }
+                   if (mag_tab[j].getWsp_x()==woj_tab[j].getWsp_x()&&mag_tab[j].getWsp_y()==woj_tab[j].getWsp_y())
+                   {
+                       woj_tab[j].atak(mag_tab[j]); mag_tab[j].atak(woj_tab[j]);
+                   }
+               }
 
             }
         }
@@ -81,5 +106,12 @@ public class Gildia {
             }
             return x;
 
+        }
+        private static int losuj(int rozmiar_mapy)
+        {
+            Random random = new Random();
+            int x=random.nextInt(rozmiar_mapy+1);
+            if(x==0)x++;
+            return x;
         }
     }
