@@ -15,11 +15,6 @@ public class Mapa implements I_Mapa {
     }
 
     @Override
-    public boolean jesli_poza_mapa() {
-        return false;
-    }
-
-    @Override
     public int getRozmiar() {
         return rozmiar;
     }

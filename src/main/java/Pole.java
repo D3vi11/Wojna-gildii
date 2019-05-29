@@ -1,11 +1,9 @@
 public class Pole implements I_Wspolrzedne {
 
-    private int rozmiar;
     private int wsp_x ,wsp_y;
 
     Pole(int wsp_x, int wsp_y)
     {
-        rozmiar=1;
         this.wsp_x=wsp_x;
         this.wsp_y=wsp_y;
     }
