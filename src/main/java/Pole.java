@@ -32,4 +32,5 @@ public class Pole implements I_Wspolrzedne {
         this.wsp_y=wsp_y;
 
     }
+
 }

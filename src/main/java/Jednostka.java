@@ -16,16 +16,22 @@ public abstract class Jednostka implements I_Wspolrzedne,I_Jednostka {
 
 
     @Override
-    public void ruch() {
+    public void ruch(int rozmiar) {
         Random generator = new Random();
-        int r=generator.nextInt(4);
-        switch(r)
-        {
-            case 0: wsp_x++;
-            case 1: wsp_x--;
-            case 2: wsp_y++;
-            case 3: wsp_y--;
-        }
+        int r;
+        do{
+            r = generator.nextInt(4);
+            switch (r) {
+                case 0:
+                    wsp_x++;
+                case 1:
+                    wsp_x--;
+                case 2:
+                    wsp_y++;
+                case 3:
+                    wsp_y--;
+            }
+        }while(wsp_x<1||wsp_y<1||wsp_x>rozmiar||wsp_y>rozmiar);
     }
 
     @Override
