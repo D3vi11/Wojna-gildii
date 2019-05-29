@@ -45,3 +45,4 @@ public class Mag extends Jednostka {
             else {wrog.setHp(mod_kryt*(wrog.getHp()-(getAtak()+10)+getPancerz()/10)); mana-=10;}
             return true;} return false;
     }
+}
