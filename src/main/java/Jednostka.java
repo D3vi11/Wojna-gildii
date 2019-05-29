@@ -9,11 +9,22 @@ public abstract class Jednostka implements I_Wspolrzedne,I_Jednostka {
     private String nazwa; //nazwa
     private int wsp_x, wsp_y; // współrzędnę x i y
     private int kryt; // szanse na trafienie krytyczne %
-    private int mod_kryt; // modyfikator trafienia krytycznego (x1,5;x2;x2,5)
+    private int mod_kryt; // modyfikator trafienia krytycznego (x2,x3)
     private int atak; // bazowa wartość ataku
+    private int nr_gildii;// numer gildii
+    private int nr_jednostki; // numer jednostki
 
-    Jednostka(int wsp_x, int wsp_y)
+    public int getNr_gildii() {
+        return nr_gildii;
+    }
+
+    public void setNr_gildii(int nr_gildii) {
+        this.nr_gildii = nr_gildii;
+    }
+
+    Jednostka(int wsp_x, int wsp_y, int nr_jednostki)
     {
+        this.nr_jednostki=nr_jednostki;
         this.wsp_x=wsp_x;
         this.wsp_y=wsp_y;
     }

@@ -1,9 +1,10 @@
 import java.util.Random;
 public class Lucznik extends Jednostka {
 
-   public Lucznik(String name, int wsp_x, int wsp_y)
+    Lucznik(String name, int wsp_x, int wsp_y, int nr_jednostki)
     {
-        super(wsp_x,wsp_y);
+        super(wsp_x,wsp_y,nr_jednostki);
+        setNr_gildii(2);
         setAtak(80);
         setHp(500);
         setNazwa(name);

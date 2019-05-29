@@ -18,5 +18,7 @@ public interface I_Jednostka {
     void setKryt(int kryt);
     int getMod_kryt();
     void setMod_kryt(int mod_kryt);
+    int getNr_gildii();
+    void setNr_gildii(int nr_gildii);
 
 }

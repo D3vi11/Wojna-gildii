@@ -1,3 +1,4 @@
+import java.util.Random;
 import java.util.Scanner;
 
 public class Gildia {
@@ -31,6 +32,17 @@ public class Gildia {
             Wojownik [] woj_tab = new Wojownik [liczba_jednostek];
             Lucznik [] luk_tab = new Lucznik[liczba_jednostek];
             Mag [] mag_tab = new Mag [liczba_jednostek];
+            Random random = new Random();
+            for(int i=0;i<liczba_jednostek;i++)
+            {
+                woj_tab[i]= new Wojownik("wojownik"+(i+1),random.nextInt(rozmiar_mapy),random.nextInt(rozmiar_mapy),i+1);
+                luk_tab[i]= new Lucznik("lucznik"+(i+1),random.nextInt(rozmiar_mapy),random.nextInt(rozmiar_mapy),i+1);
+                mag_tab[i]= new Mag("mag"+(i+1),random.nextInt(rozmiar_mapy),random.nextInt(rozmiar_mapy),i+1);
+            }
+            for(int i=0;i<liczba_iteracji;i++)
+            {
+
+            }
         }
 
         public void zapisz_wyniki () {
