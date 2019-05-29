@@ -13,6 +13,10 @@ public class Gildia {
             int max_liczba_iteracji=ustaw_liczbe_iteracji();
             int rozmiar_mapy=ustaw_rozmiar_mapy();
             uruchom_symulacje(liczba_jednostek,max_liczba_iteracji,rozmiar_mapy);
+            for(int i=0; i<3; i++)
+            {
+
+            }
 
             System.out.println("Czy chcesz powtorzyc symulacje?");
             System.out.println("1-TAK");
@@ -78,5 +82,4 @@ public class Gildia {
             return x;
 
         }
-
     }
