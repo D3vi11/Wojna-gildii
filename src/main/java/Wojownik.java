@@ -16,6 +16,7 @@ public class Wojownik extends Jednostka {
         setZasieg_ataku(1);
         setKryt(40);
         setMod_kryt(2);
+        setCzy_żywy(true);
     }
 
     @Override
@@ -23,6 +24,7 @@ public class Wojownik extends Jednostka {
         boolean x=kryt(wrog,getMod_kryt());
         if (!x)
         wrog.setHp((wrog.getHp()-getAtak())+wrog.getPancerz()/10);
+        smierc(getHp());
 
     }
 

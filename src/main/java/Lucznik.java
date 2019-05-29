@@ -14,6 +14,7 @@ public class Lucznik extends Jednostka {
         setZasieg_ataku(2);
         setKryt(30);
         setMod_kryt(3);
+        setCzy_żywy(true);
     }
 
     @Override
@@ -21,6 +22,7 @@ public class Lucznik extends Jednostka {
         boolean x=kryt(wrog,getMod_kryt());
         if (!x)
         wrog.setHp((wrog.getHp()-getAtak())+wrog.getPancerz()/10);
+        smierc(getHp());
 
     }
 

@@ -1,10 +1,9 @@
 public class Wynik {
     public static void zlicz_wojownik(int liczba_jednostek, Wojownik T[]){
         int ilosc_zywych=liczba_jednostek;
-        int ilosc_martwych;
         for(int i=1; i<=liczba_jednostek; i++)
         {
-            if(T[i]) ilosc_zywych--;
+            if(T[i].getCzy_żywy()) ilosc_zywych--;
         }
         System.out.println("Gildia wojownikow:"+ilosc_zywych);
         System.out.println("Ilosc zywych jednostek="+ilosc_zywych);
@@ -16,7 +15,7 @@ public class Wynik {
         int ilosc_zywych=liczba_jednostek;
         for(int i=1; i<=liczba_jednostek; i++)
         {
-            if(T[i]) ilosc_zywych--;
+            if(T[i].getCzy_żywy()) ilosc_zywych--;
         }
         System.out.println("Gildia lucznikow:"+ilosc_zywych);
         System.out.println("Ilosc zywych jednostek="+ilosc_zywych);
@@ -28,7 +27,7 @@ public class Wynik {
         int ilosc_zywych=liczba_jednostek;
         for(int i=1; i<=liczba_jednostek; i++)
         {
-            if(T[i]) ilosc_zywych--;
+            if(T[i].getCzy_żywy()) ilosc_zywych--;
         }
         System.out.println("Gildia magow:"+ilosc_zywych);
         System.out.println("Ilosc zywych jednostek="+ilosc_zywych);

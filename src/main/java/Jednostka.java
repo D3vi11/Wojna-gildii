@@ -13,6 +13,17 @@ public abstract class Jednostka implements I_Wspolrzedne,I_Jednostka {
     private int atak; // bazowa wartość ataku
     private int nr_gildii;// numer gildii
     private int nr_jednostki; // numer jednostki
+    private boolean czy_żywy; //flaga życia
+
+    public boolean getCzy_żywy() {
+        return czy_żywy;
+    }
+
+    public void setCzy_żywy(boolean czy_żywy) {
+        this.czy_żywy = czy_żywy;
+    }
+
+
 
     public int getNr_gildii() {
         return nr_gildii;
@@ -152,6 +163,11 @@ public abstract class Jednostka implements I_Wspolrzedne,I_Jednostka {
         this.wsp_y=wsp_y;
     }
     public abstract boolean kryt(Jednostka wrog, int mod_kryt);
+    public void smierc(int hp)
+    {
+        if(hp<=0) czy_żywy=false;
+        else czy_żywy=true;
+    }
 
 
 }

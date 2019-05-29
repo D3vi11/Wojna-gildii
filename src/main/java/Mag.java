@@ -16,6 +16,7 @@ public class Mag extends Jednostka {
         mana=100;
         setKryt(20);
         setMod_kryt(3);
+        setCzy_żywy(true);
     }
 
     private int mana; // dodatkowe obrażenia z many nie mogą trafić krytycznie
@@ -36,6 +37,7 @@ public class Mag extends Jednostka {
         if (!x){
         if(mana==0){wrog.setHp((wrog.getHp()-getAtak())+wrog.getPancerz()/10);}
         else {wrog.setHp(wrog.getHp()-(getAtak()+10)+getPancerz()/10); mana-=10;}}
+        smierc(getHp());
     }
 
     @Override
