@@ -19,7 +19,7 @@ public class Gildia {
             System.out.println("0-NIE");
             Scanner scan = new Scanner(System.in);
             int x = scan.nextInt();
-            if(x==0){System.exit(0);}
+            if(x==0){System.exit(0);} //dadf
         }
 
     }
