@@ -34,7 +34,6 @@ public abstract class Jednostka implements I_Wspolrzedne,I_Jednostka {
     public void ruch(int rozmiar) {
         Random generator = new Random();
         int r;
-
             r = generator.nextInt(4);
             switch (r) {
                 case 0: {if (wsp_x!=rozmiar)
@@ -47,7 +46,6 @@ public abstract class Jednostka implements I_Wspolrzedne,I_Jednostka {
                 case 3: {if (wsp_y!=1)
                     wsp_y--;}
             }
-
     }
 
     @Override
