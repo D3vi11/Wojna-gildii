@@ -24,7 +24,7 @@ public class Wynik {
 
     public void wynik_Hp(boolean czy_zywy, int ilosc_zycia, int numer_jednostki){
         if(czy_zywy==false) {
-            System.out.println("Jednostka jest zginela.");
+            System.out.println("Jednostka zginela.");
         }
             else System.out.println("Jednostce zostalo " + " punktow zycia");
     }
