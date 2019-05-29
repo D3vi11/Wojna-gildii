@@ -1,5 +1,5 @@
 public interface I_Jednostka {
-    void ruch();
+    void ruch(int rozmiar);
     void atak(Jednostka wrog);
     boolean czy_spotkanie();
     int getHp();
