@@ -8,8 +8,7 @@ public class Gildia {
 
         for ( ; ; ) {
             System.out.println("Wojna-gildii");
-            int liczba_gildii = ustaw_liczbe_gildii();
-            int liczba_jednostek;
+            int liczba_jednostek=ustaw_liczbe_jednostek();
             int max_liczba_iteracji;
 
 
@@ -23,15 +22,6 @@ public class Gildia {
     }
         Jednostka[][] tablica_jedn;
 
-        private static int ustaw_liczbe_gildii () {
-            int x = 0;
-            while (x < 2 || x > 5) {
-                System.out.println("Podaj liczbe gildii (od 2 do 5)");
-                Scanner scan = new Scanner(System.in);
-                x = scan.nextInt();
-            }
-            return x;
-        }
 
         public void uruchom_symulacje () {
 
@@ -41,8 +31,14 @@ public class Gildia {
         public void zapisz_wyniki () {
         }
 
-        public void ustaw_liczbe_jednostek () {
-
+        private static int  ustaw_liczbe_jednostek () {
+            int x = 0;
+            while (x < 1 || x > 10) {
+                System.out.println("ustaw liczbe jednostek(od 1 do 10)");
+                Scanner scan = new Scanner(System.in);
+                x = scan.nextInt();
+            }
+            return x;
         }
 
     }
