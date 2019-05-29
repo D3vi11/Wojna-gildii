@@ -12,7 +12,11 @@ public abstract class Jednostka implements I_Wspolrzedne,I_Jednostka {
     private int mod_kryt; // modyfikator trafienia krytycznego (x1,5;x2;x2,5)
     private int atak; // bazowa wartość ataku
 
-
+    Jednostka(int wsp_x, int wsp_y)
+    {
+        this.wsp_x=wsp_x;
+        this.wsp_y=wsp_y;
+    }
 
 
     @Override

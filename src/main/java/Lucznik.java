@@ -1,8 +1,9 @@
 import java.util.Random;
 public class Lucznik extends Jednostka {
 
-   public Lucznik(String name)
+   public Lucznik(String name, int wsp_x, int wsp_y)
     {
+        super(wsp_x,wsp_y);
         setAtak(80);
         setHp(500);
         setNazwa(name);

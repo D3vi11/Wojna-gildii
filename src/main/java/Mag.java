@@ -2,8 +2,9 @@ import java.util.Random;
 
 public class Mag extends Jednostka {
 
-    public Mag(String name)
+    public Mag(String name, int wsp_x, int wsp_y)
     {
+        super(wsp_x,wsp_y);
         setAtak(70);
         setHp(500);
         setNazwa(name);

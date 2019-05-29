@@ -3,8 +3,9 @@ import java.util.Random;
 public class Wojownik extends Jednostka {
 
 
-    public Wojownik(String name)
+    public Wojownik(int wsp_x,int wsp_y, String name)
     {
+        super(wsp_x,wsp_y);
         setAtak(100);
         setHp(1000);
         setNazwa(name);
