@@ -4,7 +4,7 @@ class Wynik {
         for(int i=0; i<liczba_jednostek; i++)
         {
             if(!T[i].getCzy_zywy()) ilosc_zywych--;
-        }0
+        }
         System.out.println("Gildia wojownikow:" + ilosc_zywych);
         System.out.println("Ilosc zywych jednostek=" + ilosc_zywych);
         int ilosc_martwych=liczba_jednostek-ilosc_zywych;
