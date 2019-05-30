@@ -8,7 +8,7 @@ public class Gildia {
 
 
         for ( ; ; ) {
-            System.out.println("Wojna-gildii");
+            System.out.println("Wojna-gildii:");
             int liczba_jednostek=ustaw_liczbe_jednostek();
             int max_liczba_iteracji=ustaw_liczbe_iteracji();
             int rozmiar_mapy=ustaw_rozmiar_mapy();
@@ -90,7 +90,7 @@ public class Gildia {
         private static int  ustaw_liczbe_jednostek () {
             int x = 0;
             while (x < 1 || x > 10) {
-                System.out.println("ustaw liczbe jednostek(od 1 do 10)");
+                System.out.println("ustaw liczbe jednostek(od 1 do 10):");
                 Scanner scan = new Scanner(System.in);
                 x = scan.nextInt();
             }
@@ -99,7 +99,7 @@ public class Gildia {
         private static int ustaw_liczbe_iteracji(){
             int x = 0;
             while (x < 1) {
-                System.out.println("ustaw maksymalna liczbe iteracji");
+                System.out.println("ustaw maksymalna liczbe iteracji:");
                 Scanner scan = new Scanner(System.in);
                 x = scan.nextInt();
             }
@@ -110,7 +110,7 @@ public class Gildia {
         {
             int x = 0;
             while (x < 1) {
-                System.out.println("ustaw rozmiar mapy");
+                System.out.println("ustaw rozmiar mapy:");
                 Scanner scan = new Scanner(System.in);
                 x = scan.nextInt();
             }
