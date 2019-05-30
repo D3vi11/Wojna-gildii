@@ -32,6 +32,8 @@ public class Lucznik extends Jednostka {
         int x = generator.nextInt(100);
         if(x>=0&&x<=getKryt()){
             wrog.setHp((wrog.getHp()-mod_kryt*getAtak())+wrog.getPancerz()/10);
-            return true;}return false;
+            if(wrog.getAtak()>=10) wrog.setAtak(wrog.getAtak()-5);
+            return true;}
+        return false;
     }
 }
