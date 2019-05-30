@@ -24,7 +24,7 @@ public class Wojownik extends Jednostka {
         boolean x=kryt(wrog,getMod_kryt());
         if (!x)
         wrog.setHp((wrog.getHp()-getAtak())+wrog.getPancerz()/10);
-        smierc(getHp());
+        wrog.smierc(wrog.getHp());
 
     }
 

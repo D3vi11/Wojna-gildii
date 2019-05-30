@@ -41,7 +41,7 @@ public class Mag extends Jednostka {
                 wrog.setHp(wrog.getHp() - (getAtak() + 10) + getPancerz() / 10);
                 mana -= 10;
             }
-            smierc(getHp());
+            wrog.smierc(wrog.getHp());
         }
     }
     @Override
