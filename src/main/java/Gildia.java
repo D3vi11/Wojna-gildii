@@ -49,9 +49,22 @@ public class Gildia {
             for(int i=0;i<liczba_iteracji;i++)
             {
                for(int j=0;j<liczba_jednostek;j++)
+               for(int k=0;k<liczba_jednostek;k++)
                {
+                   if (woj_tab[j].getWsp_x()==luk_tab[k].getWsp_x()&&woj_tab[j].getWsp_y()==luk_tab[k].getWsp_y()&&!luk_tab[k].getCzy_zywy())
+                       if (mag_tab[j].getWsp_x()==woj_tab[k].getWsp_x()&&mag_tab[j].getWsp_y()==woj_tab[k].getWsp_y()&&!mag_tab[j].getCzy_zywy())
+                           if (woj_tab[j].getWsp_x()!=luk_tab[k].getWsp_x()||woj_tab[j].getWsp_y()!=luk_tab[k].getWsp_y())
+                               if (mag_tab[j].getWsp_x()!=woj_tab[k].getWsp_x()||mag_tab[j].getWsp_y()!=woj_tab[k].getWsp_y())
                    woj_tab[j].ruch(rozmiar_mapy);
+                   if (woj_tab[j].getWsp_x()==luk_tab[k].getWsp_x()&&woj_tab[j].getWsp_y()==luk_tab[k].getWsp_y()&&!woj_tab[j].getCzy_zywy())
+                       if (mag_tab[j].getWsp_x()==luk_tab[k].getWsp_x()&&mag_tab[j].getWsp_y()==luk_tab[k].getWsp_y()&&!mag_tab[j].getCzy_zywy())
+                           if (woj_tab[j].getWsp_x()!=luk_tab[k].getWsp_x()||woj_tab[j].getWsp_y()!=luk_tab[k].getWsp_y())
+                               if (mag_tab[j].getWsp_x()!=luk_tab[k].getWsp_x()||mag_tab[j].getWsp_y()!=luk_tab[k].getWsp_y())
                    luk_tab[j].ruch(rozmiar_mapy);
+                   if (mag_tab[j].getWsp_x()==luk_tab[k].getWsp_x()&&mag_tab[j].getWsp_y()==luk_tab[k].getWsp_y()&&!luk_tab[k].getCzy_zywy())
+                       if (mag_tab[j].getWsp_x()==woj_tab[k].getWsp_x()&&mag_tab[j].getWsp_y()==woj_tab[k].getWsp_y()&&!woj_tab[k].getCzy_zywy())
+                           if (mag_tab[j].getWsp_x()!=luk_tab[k].getWsp_x()||mag_tab[j].getWsp_y()!=luk_tab[k].getWsp_y())
+                               if (mag_tab[j].getWsp_x()!=woj_tab[k].getWsp_x()||mag_tab[j].getWsp_y()!=woj_tab[k].getWsp_y())
                    mag_tab[j].ruch(rozmiar_mapy);
 
                }
