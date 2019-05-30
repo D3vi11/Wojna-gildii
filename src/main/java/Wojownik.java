@@ -21,8 +21,8 @@ public class Wojownik extends Jednostka {
 
     @Override
     public void atak(Jednostka wrog) {
-       // boolean x=kryt(wrog,getMod_kryt());
-       // if (!x)
+        boolean x=kryt(wrog,getMod_kryt());
+        if (!x)
         wrog.setHp((wrog.getHp()-getAtak())+wrog.getPancerz()/10);
         smierc(getHp());
 
@@ -33,7 +33,7 @@ public class Wojownik extends Jednostka {
         Random generator=new Random();
         int x = generator.nextInt(100);
         if(x>=0&&x<=getKryt()){
-            wrog.setHp((mod_kryt*(wrog.getHp()-getAtak()))+wrog.getPancerz()/10);
+            wrog.setHp((wrog.getHp()-mod_kryt*getAtak())+wrog.getPancerz()/10);
             return true;
         } else
         return false;

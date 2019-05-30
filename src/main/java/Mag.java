@@ -33,20 +33,24 @@ public class Mag extends Jednostka {
 
     @Override
     public void atak(Jednostka wrog) {
-        //boolean x=kryt(wrog,getMod_kryt());
-        //if (!x){
-        if(mana==0){wrog.setHp((wrog.getHp()-getAtak())+wrog.getPancerz()/10);}
-        else {wrog.setHp(wrog.getHp()-(getAtak()+10)+getPancerz()/10); mana-=10;}
-        smierc(getHp());
+        boolean x = kryt(wrog, getMod_kryt());
+        if (!x) {
+            if (mana == 0) {
+                wrog.setHp((wrog.getHp() - getAtak()) + wrog.getPancerz() / 10);
+            } else {
+                wrog.setHp(wrog.getHp() - (getAtak() + 10) + getPancerz() / 10);
+                mana -= 10;
+            }
+            smierc(getHp());
+        }
     }
-
     @Override
     public boolean kryt(Jednostka wrog,int mod_kryt) {
         Random generator=new Random();
         int x = generator.nextInt(100);
         if(x>=0&&x<=getKryt()){
-            if(mana==0){wrog.setHp((mod_kryt*(wrog.getHp()-getAtak())+wrog.getPancerz()/10));}
-            else {wrog.setHp(mod_kryt*(wrog.getHp()-(getAtak()+10)+getPancerz()/10)); mana-=10;}
+            if(mana==0){wrog.setHp((wrog.getHp()-mod_kryt*getAtak()+wrog.getPancerz()/10));}
+            else {wrog.setHp(wrog.getHp()-(mod_kryt*getAtak()+10)+getPancerz()/10); mana-=10;}
             return true;} return false;
     }
 }
