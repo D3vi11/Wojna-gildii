@@ -174,7 +174,7 @@ public abstract class Jednostka implements I_Wspolrzedne,I_Jednostka {
     public void setWsp_y(int wsp_y) {
         this.wsp_y=wsp_y;
     }
-    public abstract boolean kryt(Jednostka wrog, int mod_kryt);
+    public abstract void kryt(Jednostka wrog, int mod_kryt);
     void smierc(int hp)
     {
         if(hp<=0) czy_zywy=false;

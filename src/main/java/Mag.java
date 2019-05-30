@@ -19,7 +19,7 @@ public class Mag extends Jednostka {
         setCzy_zywy(true);
     }
 
-    private int mana; // dodatkowe obrażenia z many nie mogą trafić krytycznie
+    private int mana;
 
     public int getMana()
     {
@@ -33,8 +33,9 @@ public class Mag extends Jednostka {
 
     @Override
     public void atak(Jednostka wrog) {
-        boolean x = kryt(wrog, getMod_kryt());
-        if (!x) {
+      //  if (losuj_kryt()) {
+          //  kryt(wrog,getMod_kryt());
+       // } else {
             if (mana == 0) {
                 wrog.setHp((wrog.getHp() - getAtak()) + wrog.getPancerz() / 10);
             } else {
@@ -42,16 +43,26 @@ public class Mag extends Jednostka {
                 mana -= 10;
             }
 
-        }
+      //  }
         wrog.smierc(wrog.getHp());
     }
     @Override
-    public boolean kryt(Jednostka wrog,int mod_kryt) {
+    public void kryt(Jednostka wrog,int mod_kryt) {
+            if (mana == 0) {
+                wrog.setHp((wrog.getHp() - mod_kryt * getAtak() + wrog.getPancerz() / 10));
+            } else {
+                wrog.setHp(wrog.getHp() - (mod_kryt * getAtak() + 10) + getPancerz() / 10);
+                mana -= 10;
+            }
+    }
+    @Override
+    public boolean losuj_kryt() {
         Random generator=new Random();
         int x = generator.nextInt(100);
-        if(x>=0&&x<=getKryt()){
-            if(mana==0){wrog.setHp((wrog.getHp()-mod_kryt*getAtak()+wrog.getPancerz()/10));}
-            else {wrog.setHp(wrog.getHp()-(mod_kryt*getAtak()+10)+getPancerz()/10); mana-=10;}
-            return true;} return false;
+        if(x>=0&&x<getKryt()) {
+            return true;
+        }
+        else return false;
     }
+
 }

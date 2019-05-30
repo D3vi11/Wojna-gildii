@@ -24,5 +24,6 @@ public interface I_Jednostka {
     void setCzy_zywy(boolean czy_zywy);
     int getNr_jednostki();
     void setNr_jednostki(int nr_jednostki);
+    boolean losuj_kryt();
 
 }
