@@ -8,7 +8,7 @@ public abstract class Jednostka implements I_Wspolrzedne,I_Jednostka {
     private int zasieg_ataku; // zasieg ataku
     private String nazwa; //nazwa
     private int wsp_x, wsp_y; // współrzędnę x i y
-    private int kryt; // szanse na trafienie krytyczne %
+    private int kryt; // szanse na trafienie krytyczne % (nie wpływa na dodatkowe obrażenia maga)
     private int mod_kryt; // modyfikator trafienia krytycznego (x2,x3)
     private int atak; // bazowa wartość ataku
     private int nr_gildii;// numer gildii
@@ -175,7 +175,7 @@ public abstract class Jednostka implements I_Wspolrzedne,I_Jednostka {
         this.wsp_y=wsp_y;
     }
     public abstract boolean kryt(Jednostka wrog, int mod_kryt);
-    public void smierc(int hp)
+    void smierc(int hp)
     {
         if(hp<=0) czy_zywy=false;
         else czy_zywy=true;
