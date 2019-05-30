@@ -26,7 +26,7 @@ public class Gildia {
 
 
 
-        private static void uruchom_symulacje (int liczba_jednostek, int liczba_iteracji, int rozmiar_mapy)
+        private static void uruchom_symulacje (int liczba_jednostek, int liczba_iteracji, int rozmiar_mapy) // SYMULACJA
         {
             Mapa mapa= new Mapa(rozmiar_mapy);
             Wojownik [] woj_tab = new Wojownik [liczba_jednostek];
@@ -56,18 +56,19 @@ public class Gildia {
 
                }
                for(int j=0;j<liczba_jednostek;j++)
+               for(int k=0;k<liczba_jednostek;k++)
                {
-                   if (woj_tab[j].getWsp_x()==luk_tab[j].getWsp_x()&&woj_tab[j].getWsp_y()==luk_tab[j].getWsp_y())
+                   if (woj_tab[j].getWsp_x()==luk_tab[k].getWsp_x()&&woj_tab[j].getWsp_y()==luk_tab[k].getWsp_y())
                    {
-                       woj_tab[j].atak(luk_tab[j]); luk_tab[j].atak(woj_tab[j]);
+                       woj_tab[j].atak(luk_tab[k]); luk_tab[j].atak(woj_tab[k]);
                    }
-                   if (mag_tab[j].getWsp_x()==luk_tab[j].getWsp_x()&&mag_tab[j].getWsp_y()==luk_tab[j].getWsp_y())
+                   if (mag_tab[j].getWsp_x()==luk_tab[k].getWsp_x()&&mag_tab[j].getWsp_y()==luk_tab[k].getWsp_y())
                    {
-                       mag_tab[j].atak(luk_tab[j]); luk_tab[j].atak(mag_tab[j]);
+                       mag_tab[j].atak(luk_tab[k]); luk_tab[j].atak(mag_tab[k]);
                    }
-                   if (mag_tab[j].getWsp_x()==woj_tab[j].getWsp_x()&&mag_tab[j].getWsp_y()==woj_tab[j].getWsp_y())
+                   if (mag_tab[j].getWsp_x()==woj_tab[k].getWsp_x()&&mag_tab[j].getWsp_y()==woj_tab[k].getWsp_y())
                    {
-                       woj_tab[j].atak(mag_tab[j]); mag_tab[j].atak(woj_tab[j]);
+                       woj_tab[j].atak(mag_tab[k]); mag_tab[j].atak(woj_tab[k]);
                    }
                }
 
