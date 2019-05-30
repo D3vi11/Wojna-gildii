@@ -14,7 +14,7 @@ public class Lucznik extends Jednostka {
         setZasieg_ataku(2);
         setKryt(30);
         setMod_kryt(3);
-        setCzy_żywy(true);
+        setCzy_zywy(true);
     }
 
     @Override

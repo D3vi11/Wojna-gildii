@@ -16,7 +16,7 @@ public class Mag extends Jednostka {
         mana=100;
         setKryt(20);
         setMod_kryt(3);
-        setCzy_żywy(true);
+        setCzy_zywy(true);
     }
 
     private int mana; // dodatkowe obrażenia z many nie mogą trafić krytycznie

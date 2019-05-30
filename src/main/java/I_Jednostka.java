@@ -20,7 +20,9 @@ public interface I_Jednostka {
     void setMod_kryt(int mod_kryt);
     int getNr_gildii();
     void setNr_gildii(int nr_gildii);
-    public boolean getCzy_żywy();
-    public void setCzy_żywy(boolean czy_żywy);
+    boolean getCzy_zywy();
+    void setCzy_zywy(boolean czy_zywy);
+    int getNr_jednostki();
+    void setNr_jednostki(int nr_jednostki);
 
 }

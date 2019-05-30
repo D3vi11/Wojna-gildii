@@ -73,9 +73,18 @@ public class Gildia {
                }
 
             }
+            Wynik wynik= new Wynik();
+            wynik.zlicz_wojownik(liczba_jednostek,woj_tab);
+            wynik.zlicz_lucznik(liczba_jednostek,luk_tab);
+            wynik.zlicz_mag(liczba_jednostek,mag_tab);
+            wynik.jednostki_wojownik(liczba_jednostek,woj_tab);
+            wynik.jednostki_lucznik(liczba_jednostek,luk_tab);
+            wynik.jednostki_mag(liczba_jednostek,mag_tab);
         }
 
         public void zapisz_wyniki () {
+
+
         }
 
         private static int  ustaw_liczbe_jednostek () {

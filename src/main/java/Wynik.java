@@ -1,9 +1,9 @@
-public class Wynik {
-    public static void zlicz_wojownik(int liczba_jednostek, Wojownik [] T){
+class Wynik {
+     void zlicz_wojownik(int liczba_jednostek, Wojownik[] T){
         int ilosc_zywych=liczba_jednostek;
-        for(int i=1; i<=liczba_jednostek; i++)
+        for(int i=0; i<liczba_jednostek; i++)
         {
-            if(!T[i].getCzy_żywy()) ilosc_zywych--;
+            if(!T[i].getCzy_zywy()) ilosc_zywych--;
         }
         System.out.println("Gildia wojownikow:" + ilosc_zywych);
         System.out.println("Ilosc zywych jednostek=" + ilosc_zywych);
@@ -11,11 +11,11 @@ public class Wynik {
         System.out.println("Ilosc mertwych jednostek=" + ilosc_martwych);
     }
 
-    public static void zlicz_lucznik(int liczba_jednostek, Lucznik [] T) {
+     void zlicz_lucznik(int liczba_jednostek, Lucznik[] T) {
         int ilosc_zywych=liczba_jednostek;
-        for(int i=1; i<=liczba_jednostek; i++)
+        for(int i=0; i<liczba_jednostek; i++)
         {
-            if(!T[i].getCzy_żywy()) ilosc_zywych--;
+            if(!T[i].getCzy_zywy()) ilosc_zywych--;
         }
         System.out.println("Gildia lucznikow:" + ilosc_zywych);
         System.out.println("Ilosc zywych jednostek=" + ilosc_zywych);
@@ -23,11 +23,11 @@ public class Wynik {
         System.out.println("Ilosc mertwych jednostek=" + ilosc_martwych);
     }
 
-    public static void zlicz_mag(int liczba_jednostek, Mag [] T) {
+     void zlicz_mag(int liczba_jednostek, Mag[] T) {
         int ilosc_zywych=liczba_jednostek;
-        for(int i=1; i<=liczba_jednostek; i++)
+        for(int i=0; i<liczba_jednostek; i++)
         {
-            if(!T[i].getCzy_żywy()) ilosc_zywych--;
+            if(!T[i].getCzy_zywy()) ilosc_zywych--;
         }
         System.out.println("Gildia magow:" + ilosc_zywych);
         System.out.println("Ilosc zywych jednostek=" + ilosc_zywych);
@@ -35,24 +35,24 @@ public class Wynik {
         System.out.println("Ilosc mertwych jednostek=" + ilosc_martwych);
     }
 
-    public static void jednostki_wojownik(int liczba_jednostek, Wojownik [] T, int ilosc_Hp){
-        for(int i=1; i<=liczba_jednostek; i++)
+    void jednostki_wojownik(int liczba_jednostek, Wojownik[] T){
+        for(int i=0; i<liczba_jednostek; i++)
         {
-            if(T[i].getCzy_żywy()) System.out.println("Jednostce z gildii wojownikow nr " + i + "zostalo " + T[i].getHp() + "punktow zdrowia.");
+            if(T[i].getCzy_zywy()) System.out.println("Jednostce z gildii wojownikow nr " + T[i].getNr_jednostki() + "zostalo " + T[i].getHp() + "punktow zdrowia.");
         }
     }
 
-    public static void jednostki_lucznik(int liczba_jednostek, Wojownik [] T, int ilosc_Hp){
-        for(int i=1; i<=liczba_jednostek; i++)
+    void jednostki_lucznik(int liczba_jednostek, Lucznik[] T){
+        for(int i=0; i<liczba_jednostek; i++)
         {
-            if(T[i].getCzy_żywy()) System.out.println("Jednostce z gildii lucznikow nr " + i + "zostalo " + T[i].getHp() + "punktow zdrowia.");
+            if(T[i].getCzy_zywy()) System.out.println("Jednostce z gildii lucznikow nr " + T[i].getNr_jednostki() + "zostalo " + T[i].getHp() + "punktow zdrowia.");
         }
     }
 
-    public static void jednostki_mag(int liczba_jednostek, Wojownik [] T, int ilosc_Hp){
-        for(int i=1; i<=liczba_jednostek; i++)
+    void jednostki_mag(int liczba_jednostek, Mag[] T){
+        for(int i=0; i<liczba_jednostek; i++)
         {
-            if(T[i].getCzy_żywy()) System.out.println("Jednostce z gildii magow nr " + i + "zostalo " + T[i].getHp() + "punktow zdrowia.");
+            if(T[i].getCzy_zywy()) System.out.println("Jednostce z gildii magow nr " + T[i].getNr_jednostki() + "zostalo " + T[i].getHp() + "punktow zdrowia.");
         }
     }
 }

@@ -16,7 +16,7 @@ public class Wojownik extends Jednostka {
         setZasieg_ataku(1);
         setKryt(40);
         setMod_kryt(2);
-        setCzy_żywy(true);
+        setCzy_zywy(true);
     }
 
     @Override
