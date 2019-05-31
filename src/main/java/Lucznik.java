@@ -19,9 +19,9 @@ public class Lucznik extends Jednostka {
 
     @Override
     public void atak(Jednostka wrog) {
-      //  if (losuj_kryt()) {
-      //      kryt(wrog,getMod_kryt());
-     //   } else
+        if (losuj_kryt()) {
+            kryt(wrog,getMod_kryt());
+        } else
         wrog.setHp((wrog.getHp()-getAtak())+wrog.getPancerz()/10);
         wrog.smierc(wrog.getHp());
 

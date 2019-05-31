@@ -33,9 +33,9 @@ public class Mag extends Jednostka {
 
     @Override
     public void atak(Jednostka wrog) {
-      //  if (losuj_kryt()) {
-          //  kryt(wrog,getMod_kryt());
-       // } else {
+        if (losuj_kryt()) {
+            kryt(wrog,getMod_kryt());
+        } else {
             if (mana == 0) {
                 wrog.setHp((wrog.getHp() - getAtak()) + wrog.getPancerz() / 10);
             } else {
@@ -43,7 +43,7 @@ public class Mag extends Jednostka {
                 mana -= 10;
             }
 
-      //  }
+        }
         wrog.smierc(wrog.getHp());
     }
     @Override
