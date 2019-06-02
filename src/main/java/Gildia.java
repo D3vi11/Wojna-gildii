@@ -75,12 +75,15 @@ public class Gildia {
                        if(woj_tab[j].getCzy_zywy()) woj_tab[j].atak(mag_tab[k]); if(mag_tab[j].getCzy_zywy()) mag_tab[j].atak(woj_tab[k]);
                    }
                }
-
+                if(zwyciestwo(liczba_jednostek,woj_tab,luk_tab,mag_tab))break;
             }
             Wynik wynik= new Wynik();
             wynik.zlicz_wojownik(liczba_jednostek,woj_tab);
             wynik.zlicz_lucznik(liczba_jednostek,luk_tab);
             wynik.zlicz_mag(liczba_jednostek,mag_tab);
+            wynik.wypiszW(liczba_jednostek,wynik.getWojownicy());
+            wynik.wypiszL(liczba_jednostek,wynik.getLucznicy());
+            wynik.wypiszM(liczba_jednostek,wynik.getMagowie());
             wynik.jednostki_wojownik(liczba_jednostek,woj_tab);
             wynik.jednostki_lucznik(liczba_jednostek,luk_tab);
             wynik.jednostki_mag(liczba_jednostek,mag_tab);
@@ -89,6 +92,29 @@ public class Gildia {
         public void zapisz_wyniki () {
 
 
+        }
+
+        private static boolean zwyciestwo(int liczba_jednostek, Wojownik[] woj_tab, Lucznik[] luk_tab, Mag[] mag_tab){
+
+        Wynik jednostki = new Wynik();
+            jednostki.zlicz_wojownik(liczba_jednostek,woj_tab);
+            jednostki.zlicz_lucznik(liczba_jednostek,luk_tab);
+            jednostki.zlicz_mag(liczba_jednostek,mag_tab);
+        if(jednostki.getWojownicy()==0&&jednostki.getLucznicy()==0) {
+            System.out.println("WYGRALI MAGOWIE" );
+            return true;
+        }
+        if(jednostki.getWojownicy()==0&&jednostki.getMagowie()==0)
+        {
+            System.out.println("WYGRALI LUCZNICY");
+            return true;
+        }
+        if(jednostki.getLucznicy()==0&&jednostki.getMagowie()==0)
+        {
+            System.out.println("WYGRALI WOJOWNICY");
+            return true;
+        }
+            return false;
         }
 
         private static int  ustaw_liczbe_jednostek () {

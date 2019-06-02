@@ -1,14 +1,16 @@
 class Wynik {
+
+    private int wojownicy;
+    private int lucznicy;
+    private int magowie;
      void zlicz_wojownik(int liczba_jednostek, Wojownik[] T){
         int ilosc_zywych=liczba_jednostek;
         for(int i=0; i<liczba_jednostek; i++)
         {
             if(!T[i].getCzy_zywy()) ilosc_zywych--;
         }
-        System.out.println("Liczba jednostek gildii wojownikow: " + liczba_jednostek);
-        System.out.println("Ilosc zywych jednostek = " + ilosc_zywych);
-        int ilosc_martwych=liczba_jednostek-ilosc_zywych;
-        System.out.println("Ilosc martwych jednostek = " + ilosc_martwych);
+
+        wojownicy=ilosc_zywych;
     }
 
      void zlicz_lucznik(int liczba_jednostek, Lucznik[] T) {
@@ -17,22 +19,20 @@ class Wynik {
         {
             if(!T[i].getCzy_zywy()) ilosc_zywych--;
         }
-        System.out.println("Liczba jednostek gildii lucznikow: " + liczba_jednostek);
-        System.out.println("Ilosc zywych jednostek = " + ilosc_zywych);
-        int ilosc_martwych=liczba_jednostek-ilosc_zywych;
-        System.out.println("Ilosc martwych jednostek = " + ilosc_martwych);
+
+        lucznicy=ilosc_zywych;
     }
 
-     void zlicz_mag(int liczba_jednostek, Mag[] T) {
+
+
+    void zlicz_mag(int liczba_jednostek, Mag[] T) {
         int ilosc_zywych=liczba_jednostek;
         for(int i=0; i<liczba_jednostek; i++)
         {
             if(!T[i].getCzy_zywy()) ilosc_zywych--;
         }
-        System.out.println("Liczba jednostek gildii magow: " + liczba_jednostek);
-        System.out.println("Ilosc zywych jednostek = " + ilosc_zywych);
-        int ilosc_martwych=liczba_jednostek-ilosc_zywych;
-        System.out.println("Ilosc martwych jednostek = " + ilosc_martwych);
+
+        magowie=ilosc_zywych;
     }
 
     void jednostki_wojownik(int liczba_jednostek, Wojownik[] T){
@@ -54,5 +54,37 @@ class Wynik {
         {
             if(T[i].getCzy_zywy()) System.out.println("Jednostce z gildii magow nr " + T[i].getNr_jednostki() + " zostalo " + T[i].getHp() + " punktow zdrowia.");
         }
+    }
+    void wypiszW(int liczba_jednostek, int ilosc_zywych)
+    {
+        System.out.println("Liczba jednostek gildii wojownikow: " + liczba_jednostek);
+        System.out.println("Ilosc zywych jednostek = " + ilosc_zywych);
+        int ilosc_martwych=liczba_jednostek-ilosc_zywych;
+        System.out.println("Ilosc martwych jednostek = " + ilosc_martwych);
+    }
+    void wypiszL(int liczba_jednostek, int ilosc_zywych)
+    {
+        System.out.println("Liczba jednostek gildii lucznikow: " + liczba_jednostek);
+        System.out.println("Ilosc zywych jednostek = " + ilosc_zywych);
+        int ilosc_martwych=liczba_jednostek-ilosc_zywych;
+        System.out.println("Ilosc martwych jednostek = " + ilosc_martwych);
+    }
+
+    void wypiszM(int liczba_jednostek, int ilosc_zywych)
+    {
+        System.out.println("Liczba jednostek gildii magow: " + liczba_jednostek);
+        System.out.println("Ilosc zywych jednostek = " + ilosc_zywych);
+        int ilosc_martwych=liczba_jednostek-ilosc_zywych;
+        System.out.println("Ilosc martwych jednostek = " + ilosc_martwych);
+    }
+    int getWojownicy() {
+        return wojownicy;
+    }
+    int getLucznicy() {
+        return lucznicy;
+    }
+
+    int getMagowie() {
+        return magowie;
     }
 }
