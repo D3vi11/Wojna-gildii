@@ -1,3 +1,6 @@
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+
 class Wynik {
 
     private int wojownicy;
@@ -76,6 +79,40 @@ class Wynik {
         System.out.println("Ilosc zywych jednostek = " + ilosc_zywych);
         int ilosc_martwych=liczba_jednostek-ilosc_zywych;
         System.out.println("Ilosc martwych jednostek = " + ilosc_martwych);
+    }
+
+    void zapisz_wyniki_W(int liczba_jednostek, int ilosc_zywych, PrintWriter wyniki, Wojownik[] T)  {
+
+        wyniki.println( "Liczba jednostek gildii wojownikow: " + liczba_jednostek);
+        wyniki.println("Ilosc zywych jednostek = " + ilosc_zywych);
+        int ilosc_martwych=liczba_jednostek-ilosc_zywych;
+        wyniki.println("Ilosc martwych jednostek = " + ilosc_martwych);
+        for(int i=0; i<liczba_jednostek; i++)
+        {
+            if(T[i].getCzy_zywy()) wyniki.println("Jednostce z gildii wojownikow nr " + T[i].getNr_jednostki() + " zostalo " + T[i].getHp() + " punktow zdrowia.");
+        }
+    }
+    void zapisz_wyniki_L(int liczba_jednostek, int ilosc_zywych, PrintWriter wyniki, Lucznik[] T)  {
+
+        wyniki.println("Liczba jednostek gildii lucznikow: " + liczba_jednostek);
+        wyniki.println("Ilosc zywych jednostek = " + ilosc_zywych);
+        int ilosc_martwych=liczba_jednostek-ilosc_zywych;
+        wyniki.println("Ilosc martwych jednostek = " + ilosc_martwych);
+        for(int i=0; i<liczba_jednostek; i++)
+        {
+            if(T[i].getCzy_zywy()) wyniki.println("Jednostce z gildii lucznikow nr " + T[i].getNr_jednostki() + " zostalo " + T[i].getHp() + " punktow zdrowia.");
+        }
+    }
+    void zapisz_wyniki_M(int liczba_jednostek, int ilosc_zywych, PrintWriter wyniki, Mag[] T) {
+
+        wyniki.println("Liczba jednostek gildii magow: " + liczba_jednostek);
+        wyniki.println("Ilosc zywych jednostek = " + ilosc_zywych);
+        int ilosc_martwych=liczba_jednostek-ilosc_zywych;
+        wyniki.println("Ilosc martwych jednostek = " + ilosc_martwych);
+        for(int i=0; i<liczba_jednostek; i++)
+        {
+            if(T[i].getCzy_zywy()) wyniki.println("Jednostce z gildii magow nr " + T[i].getNr_jednostki() + " zostalo " + T[i].getHp() + " punktow zdrowia.");
+        }
     }
     int getWojownicy() {
         return wojownicy;

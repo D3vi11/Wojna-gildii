@@ -1,10 +1,12 @@
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.Random;
 import java.util.Scanner;
 
 public class Gildia {
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
 
 
         for ( ; ; ) {
@@ -26,7 +28,7 @@ public class Gildia {
 
 
 
-        private static void uruchom_symulacje (int liczba_jednostek, int liczba_iteracji, int rozmiar_mapy) // SYMULACJA
+        private static void uruchom_symulacje (int liczba_jednostek, int liczba_iteracji, int rozmiar_mapy) throws FileNotFoundException // SYMULACJA
         {
             Mapa mapa= new Mapa(rozmiar_mapy);
             Wojownik [] woj_tab = new Wojownik [liczba_jednostek];
@@ -46,6 +48,8 @@ public class Gildia {
                 y=losuj(rozmiar_mapy);
                 mag_tab[i]= new Mag("mag"+(i+1),x,y,i+1);
             }
+            Wynik wynik= new Wynik();
+            PrintWriter wyniki = new PrintWriter("Wyniki.txt");
             for(int i=0;i<liczba_iteracji;i++)
             {
                for(int j=0;j<liczba_jednostek;j++)
@@ -59,6 +63,7 @@ public class Gildia {
                         mag_tab[j].ruch(rozmiar_mapy);
 
                }
+
                for(int k=0;k<liczba_jednostek;k++)
                for(int j=0;j<liczba_jednostek;j++)
                {
@@ -75,9 +80,18 @@ public class Gildia {
                        if(woj_tab[j].getCzy_zywy()) woj_tab[j].atak(mag_tab[k]); if(mag_tab[j].getCzy_zywy()) mag_tab[j].atak(woj_tab[k]);
                    }
                }
+                wynik.zlicz_wojownik(liczba_jednostek,woj_tab);
+                wynik.zlicz_lucznik(liczba_jednostek,luk_tab);
+                wynik.zlicz_mag(liczba_jednostek,mag_tab);
+                wyniki.println(" ");
+                wyniki.println("ITERACJA NR "+ (i+1));
+                wyniki.println(" ");
+                wynik.zapisz_wyniki_W(liczba_jednostek,wynik.getWojownicy(),wyniki,woj_tab);
+                wynik.zapisz_wyniki_L(liczba_jednostek,wynik.getLucznicy(),wyniki,luk_tab);
+                wynik.zapisz_wyniki_M(liczba_jednostek,wynik.getMagowie(),wyniki,mag_tab);
                 if(zwyciestwo(liczba_jednostek,woj_tab,luk_tab,mag_tab))break;
             }
-            Wynik wynik= new Wynik();
+
             wynik.zlicz_wojownik(liczba_jednostek,woj_tab);
             wynik.zlicz_lucznik(liczba_jednostek,luk_tab);
             wynik.zlicz_mag(liczba_jednostek,mag_tab);
@@ -87,12 +101,10 @@ public class Gildia {
             wynik.jednostki_wojownik(liczba_jednostek,woj_tab);
             wynik.jednostki_lucznik(liczba_jednostek,luk_tab);
             wynik.jednostki_mag(liczba_jednostek,mag_tab);
+            wyniki.close();
         }
 
-        public void zapisz_wyniki () {
 
-
-        }
 
         private static boolean zwyciestwo(int liczba_jednostek, Wojownik[] woj_tab, Lucznik[] luk_tab, Mag[] mag_tab){
 
