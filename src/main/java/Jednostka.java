@@ -1,3 +1,4 @@
+import java.io.PrintWriter;
 import java.util.Random;
 
 public abstract class Jednostka implements I_Wspolrzedne,I_Jednostka {
@@ -57,17 +58,21 @@ public abstract class Jednostka implements I_Wspolrzedne,I_Jednostka {
     public void ruch(int rozmiar) {
         Random generator = new Random();
         int r;
+
             r = generator.nextInt(4);
             switch (r) {
                 case 0: {if (wsp_x!=rozmiar)
                     wsp_x++;
-                }
+                }break;
                 case 1:{ if (wsp_x!=1)
-                    wsp_x--;}
+                    wsp_x--;
+                }break;
                 case 2: {if (wsp_y!=rozmiar)
-                    wsp_y++;}
+                    wsp_y++;
+                }break;
                 case 3: {if (wsp_y!=1)
-                    wsp_y--;}
+                    wsp_y--;
+                }break;
             }
     }
 

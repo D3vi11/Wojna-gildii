@@ -89,6 +89,11 @@ class Wynik {
         wyniki.println("Ilosc martwych jednostek = " + ilosc_martwych);
         for(int i=0; i<liczba_jednostek; i++)
         {
+            if(T[i].getCzy_zywy()) wyniki.println("Jednostka z gildii wojownikow nr " + T[i].getNr_jednostki() + " jest na polu x: " + T[i].getWsp_x() + " y: " + T[i].getWsp_y());
+        }
+        wyniki.println(" ");
+        for(int i=0; i<liczba_jednostek; i++)
+        {
             if(T[i].getCzy_zywy()) wyniki.println("Jednostce z gildii wojownikow nr " + T[i].getNr_jednostki() + " zostalo " + T[i].getHp() + " punktow zdrowia.");
         }
     }
@@ -100,6 +105,11 @@ class Wynik {
         wyniki.println("Ilosc martwych jednostek = " + ilosc_martwych);
         for(int i=0; i<liczba_jednostek; i++)
         {
+            if(T[i].getCzy_zywy()) wyniki.println("Jednostka z gildii lucznikow nr " + T[i].getNr_jednostki() + " jest na polu x: " + T[i].getWsp_x() + " y: " + T[i].getWsp_y());
+        }
+        wyniki.println(" ");
+        for(int i=0; i<liczba_jednostek; i++)
+        {
             if(T[i].getCzy_zywy()) wyniki.println("Jednostce z gildii lucznikow nr " + T[i].getNr_jednostki() + " zostalo " + T[i].getHp() + " punktow zdrowia.");
         }
     }
@@ -109,6 +119,11 @@ class Wynik {
         wyniki.println("Ilosc zywych jednostek = " + ilosc_zywych);
         int ilosc_martwych=liczba_jednostek-ilosc_zywych;
         wyniki.println("Ilosc martwych jednostek = " + ilosc_martwych);
+        for(int i=0; i<liczba_jednostek; i++)
+        {
+            if(T[i].getCzy_zywy()) wyniki.println("Jednostka z gildii magow nr " + T[i].getNr_jednostki() + " jest na polu x: " + T[i].getWsp_x() + " y: " + T[i].getWsp_y());
+        }
+        wyniki.println(" ");
         for(int i=0; i<liczba_jednostek; i++)
         {
             if(T[i].getCzy_zywy()) wyniki.println("Jednostce z gildii magow nr " + T[i].getNr_jednostki() + " zostalo " + T[i].getHp() + " punktow zdrowia.");

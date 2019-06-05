@@ -7,14 +7,11 @@ public class Wojownik extends Jednostka {
     {
         super(wsp_x,wsp_y, nr_jednostki);
         setNr_gildii(1);
-        setAtak(100);
+        setAtak(65);
         setHp(1000);
         setNazwa(name);
-        //setNr_pola();
-        setPancerz(100);
-        setPredkosc_ruchu(100);
-        setZasieg_ataku(1);
-        setKryt(40);
+        setPancerz(70);
+        setKryt(35);
         setMod_kryt(2);
         setCzy_zywy(true);
     }

@@ -6,20 +6,19 @@ public class Mag extends Jednostka {
     {
         super(wsp_x,wsp_y, nr_jednostki);
         setNr_gildii(3);
-        setAtak(70);
-        setHp(500);
+        setAtak(80);
+        setHp(700);
         setNazwa(name);
-        //setNr_pola();
-        setPancerz(20);
-        setPredkosc_ruchu(100);
-        setZasieg_ataku(2);
-        mana=100;
-        setKryt(20);
-        setMod_kryt(3);
+        setPancerz(40);
+        mana=200;
+        obr_many=30;
+        setKryt(25);
+        setMod_kryt(2);
         setCzy_zywy(true);
     }
 
     private int mana;
+    private int obr_many;
 
     public int getMana()
     {
@@ -39,7 +38,7 @@ public class Mag extends Jednostka {
             if (mana == 0) {
                 wrog.setHp((wrog.getHp() - getAtak()) + wrog.getPancerz() / 10);
             } else {
-                wrog.setHp(wrog.getHp() - (getAtak() + 10) + getPancerz() / 10);
+                wrog.setHp(wrog.getHp() - (getAtak() + obr_many) + getPancerz() / 10);
                 mana -= 10;
             }
 
@@ -51,7 +50,7 @@ public class Mag extends Jednostka {
             if (mana == 0) {
                 wrog.setHp((wrog.getHp() - mod_kryt * getAtak() + wrog.getPancerz() / 10));
             } else {
-                wrog.setHp(wrog.getHp() - (mod_kryt * getAtak() + 10) + getPancerz() / 10);
+                wrog.setHp(wrog.getHp() - (mod_kryt * getAtak() + obr_many) + getPancerz() / 10);
                 mana -= 10;
             }
     }

@@ -5,13 +5,10 @@ public class Lucznik extends Jednostka {
     {
         super(wsp_x,wsp_y,nr_jednostki);
         setNr_gildii(2);
-        setAtak(80);
-        setHp(500);
+        setAtak(90);
+        setHp(800);
         setNazwa(name);
-        //setNr_pola();
-        setPancerz(50);
-        setPredkosc_ruchu(100);
-        setZasieg_ataku(2);
+        setPancerz(60);
         setKryt(30);
         setMod_kryt(3);
         setCzy_zywy(true);

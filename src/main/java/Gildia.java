@@ -52,34 +52,53 @@ public class Gildia {
             PrintWriter wyniki = new PrintWriter("Wyniki.txt");
             for(int i=0;i<liczba_iteracji;i++)
             {
-               for(int j=0;j<liczba_jednostek;j++)
-               for(int k=0;k<liczba_jednostek;k++)
-               {
-                   if ((woj_tab[j].getWsp_x()==luk_tab[k].getWsp_x()&&woj_tab[j].getWsp_y()==luk_tab[k].getWsp_y()&&!luk_tab[k].getCzy_zywy())||(mag_tab[j].getWsp_x()==woj_tab[k].getWsp_x()&&mag_tab[j].getWsp_y()==woj_tab[k].getWsp_y()&&!mag_tab[j].getCzy_zywy())||(woj_tab[j].getWsp_x()!=luk_tab[k].getWsp_x()||woj_tab[j].getWsp_y()!=luk_tab[k].getWsp_y())||(mag_tab[j].getWsp_x()!=woj_tab[k].getWsp_x()||mag_tab[j].getWsp_y()!=woj_tab[k].getWsp_y()))
-                        woj_tab[j].ruch(rozmiar_mapy);
-                   if ((woj_tab[j].getWsp_x()==luk_tab[k].getWsp_x()&&woj_tab[j].getWsp_y()==luk_tab[k].getWsp_y()&&!woj_tab[j].getCzy_zywy())||(mag_tab[j].getWsp_x()==luk_tab[k].getWsp_x()&&mag_tab[j].getWsp_y()==luk_tab[k].getWsp_y()&&!mag_tab[j].getCzy_zywy())||(woj_tab[j].getWsp_x()!=luk_tab[k].getWsp_x()||woj_tab[j].getWsp_y()!=luk_tab[k].getWsp_y())||(mag_tab[j].getWsp_x()!=luk_tab[k].getWsp_x()||mag_tab[j].getWsp_y()!=luk_tab[k].getWsp_y()))
-                        luk_tab[j].ruch(rozmiar_mapy);
-                   if ((mag_tab[j].getWsp_x()==luk_tab[k].getWsp_x()&&mag_tab[j].getWsp_y()==luk_tab[k].getWsp_y()&&!luk_tab[k].getCzy_zywy())||(mag_tab[j].getWsp_x()==woj_tab[k].getWsp_x()&&mag_tab[j].getWsp_y()==woj_tab[k].getWsp_y()&&!woj_tab[k].getCzy_zywy())||(mag_tab[j].getWsp_x()!=luk_tab[k].getWsp_x()||mag_tab[j].getWsp_y()!=luk_tab[k].getWsp_y())||(mag_tab[j].getWsp_x()!=woj_tab[k].getWsp_x()||mag_tab[j].getWsp_y()!=woj_tab[k].getWsp_y()))
-                        mag_tab[j].ruch(rozmiar_mapy);
+                for(int j=0;j<liczba_jednostek;j++)
+                    for(int k=0;k<liczba_jednostek;k++) {
 
-               }
+                        if ((woj_tab[j].getWsp_x() == luk_tab[k].getWsp_x() && woj_tab[j].getWsp_y() == luk_tab[k].getWsp_y() && luk_tab[k].getCzy_zywy())
+                                || (woj_tab[j].getWsp_x() == mag_tab[k].getWsp_x() && woj_tab[j].getWsp_y() == mag_tab[k].getWsp_y() && mag_tab[k].getCzy_zywy())) { break; }
+                        else {
+                            woj_tab[j].ruch(rozmiar_mapy);
+                        }
+                    }
+                for(int j=0;j<liczba_jednostek;j++)
+                    for(int k=0;k<liczba_jednostek;k++) {
+
+                        if ((luk_tab[j].getWsp_x() == woj_tab[k].getWsp_x() && luk_tab[j].getWsp_y() == woj_tab[k].getWsp_y() && woj_tab[k].getCzy_zywy())
+                                || (luk_tab[j].getWsp_x() == mag_tab[k].getWsp_x() && luk_tab[j].getWsp_y() == mag_tab[k].getWsp_y() && mag_tab[k].getCzy_zywy())) { break; }
+                        else {
+                            luk_tab[j].ruch(rozmiar_mapy);
+                        }
+                    }
+                for(int j=0;j<liczba_jednostek;j++)
+                    for(int k=0;k<liczba_jednostek;k++) {
+
+                        if((mag_tab[j].getWsp_x()==luk_tab[k].getWsp_x()&&mag_tab[j].getWsp_y()==luk_tab[k].getWsp_y()&&luk_tab[k].getCzy_zywy())
+                                ||(mag_tab[j].getWsp_x()==woj_tab[k].getWsp_x()&&mag_tab[j].getWsp_y()==woj_tab[k].getWsp_y()&woj_tab[k].getCzy_zywy())){break;}
+                        else {
+                            mag_tab[j].ruch(rozmiar_mapy);
+                        }
+                    }
 
                for(int k=0;k<liczba_jednostek;k++)
-               for(int j=0;j<liczba_jednostek;j++)
-               {
-                   if (woj_tab[j].getWsp_x()==luk_tab[k].getWsp_x()&&woj_tab[j].getWsp_y()==luk_tab[k].getWsp_y())
-                   {
-                      if(woj_tab[j].getCzy_zywy()) woj_tab[j].atak(luk_tab[k]); if(luk_tab[j].getCzy_zywy()) luk_tab[j].atak(woj_tab[k]);
-                   }
-                   if (mag_tab[j].getWsp_x()==luk_tab[k].getWsp_x()&&mag_tab[j].getWsp_y()==luk_tab[k].getWsp_y())
-                   {
-                       if(mag_tab[j].getCzy_zywy()) mag_tab[j].atak(luk_tab[k]); if(luk_tab[j].getCzy_zywy()) luk_tab[j].atak(mag_tab[k]);
-                   }
-                   if (mag_tab[j].getWsp_x()==woj_tab[k].getWsp_x()&&mag_tab[j].getWsp_y()==woj_tab[k].getWsp_y())
-                   {
-                       if(woj_tab[j].getCzy_zywy()) woj_tab[j].atak(mag_tab[k]); if(mag_tab[j].getCzy_zywy()) mag_tab[j].atak(woj_tab[k]);
-                   }
-               }
+                    for(int j=0;j<liczba_jednostek;j++)
+                     {
+                         if (woj_tab[j].getWsp_x()==luk_tab[k].getWsp_x()&&woj_tab[j].getWsp_y()==luk_tab[k].getWsp_y())
+                         {
+                              if(woj_tab[j].getCzy_zywy()&&luk_tab[k].getCzy_zywy()) woj_tab[j].atak(luk_tab[k]);
+                              if(luk_tab[j].getCzy_zywy()&&woj_tab[k].getCzy_zywy()) luk_tab[j].atak(woj_tab[k]);
+                         }
+                         if (mag_tab[j].getWsp_x()==luk_tab[k].getWsp_x()&&mag_tab[j].getWsp_y()==luk_tab[k].getWsp_y())
+                         {
+                               if(mag_tab[j].getCzy_zywy()&&luk_tab[k].getCzy_zywy()) mag_tab[j].atak(luk_tab[k]);
+                               if(luk_tab[j].getCzy_zywy()&&mag_tab[k].getCzy_zywy()) luk_tab[j].atak(mag_tab[k]);
+                         }
+                         if (mag_tab[j].getWsp_x()==woj_tab[k].getWsp_x()&&mag_tab[j].getWsp_y()==woj_tab[k].getWsp_y())
+                         {
+                            if(woj_tab[j].getCzy_zywy()&&mag_tab[k].getCzy_zywy()) woj_tab[j].atak(mag_tab[k]);
+                            if(mag_tab[j].getCzy_zywy()&&woj_tab[k].getCzy_zywy()) mag_tab[j].atak(woj_tab[k]);
+                         }
+                     }
                 wynik.zlicz_wojownik(liczba_jednostek,woj_tab);
                 wynik.zlicz_lucznik(liczba_jednostek,luk_tab);
                 wynik.zlicz_mag(liczba_jednostek,mag_tab);
@@ -131,8 +150,8 @@ public class Gildia {
 
         private static int  ustaw_liczbe_jednostek () {
             int x = 0;
-            while (x < 1 || x > 10) {
-                System.out.println("ustaw liczbe jednostek(od 1 do 10):");
+            while (x < 1 || x > 1000000) {
+                System.out.println("ustaw liczbe jednostek(od 1 do 1000000):");
                 Scanner scan = new Scanner(System.in);
                 x = scan.nextInt();
             }
