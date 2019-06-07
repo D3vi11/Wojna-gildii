@@ -20,15 +20,7 @@ public class Mag extends Jednostka {
     private int mana;
     private int obr_many;
 
-    public int getMana()
-    {
-        return mana;
-    }
-    public void setMana(int mana)
-    {
-        this.mana=mana;
 
-    }
 
     @Override
     public void atak(Jednostka wrog) {

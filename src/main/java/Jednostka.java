@@ -4,7 +4,6 @@ import java.util.Random;
 public abstract class Jednostka implements I_Wspolrzedne,I_Jednostka {
 
     private int hp; // ilosc pkt życia
-    private int predkosc_ruchu; // wartosc predkosci ruchu
     private int pancerz;  // ilosc pancerza 1 pancerza redukuje podstawowe obrażenia o 0,1%
     private int zasieg_ataku; // zasieg ataku
     private String nazwa; //nazwa
@@ -22,11 +21,6 @@ public abstract class Jednostka implements I_Wspolrzedne,I_Jednostka {
         return nr_jednostki;
     }
 
-    @Override
-    public void setNr_jednostki(int nr_jednostki) {
-        this.nr_jednostki = nr_jednostki;
-    }
-
 
     public boolean getCzy_zywy() {
         return czy_zywy;
@@ -36,11 +30,6 @@ public abstract class Jednostka implements I_Wspolrzedne,I_Jednostka {
         this.czy_zywy = czy_zywy;
     }
 
-
-
-    public int getNr_gildii() {
-        return nr_gildii;
-    }
 
     public void setNr_gildii(int nr_gildii) {
         this.nr_gildii = nr_gildii;
@@ -76,10 +65,6 @@ public abstract class Jednostka implements I_Wspolrzedne,I_Jednostka {
             }
     }
 
-    @Override
-    public boolean czy_spotkanie() {
-        return false;
-    }
 
     @Override
     public int getHp() {
@@ -91,15 +76,6 @@ public abstract class Jednostka implements I_Wspolrzedne,I_Jednostka {
         this.hp=hp;
     }
 
-    @Override
-    public int getPredkosc_ruchu() {
-        return predkosc_ruchu;
-    }
-
-    @Override
-    public void setPredkosc_ruchu(int predkosc_ruchu) {
-        this.predkosc_ruchu=predkosc_ruchu;
-    }
 
     @Override
     public int getPancerz() {
@@ -109,21 +85,6 @@ public abstract class Jednostka implements I_Wspolrzedne,I_Jednostka {
     @Override
     public void setPancerz(int pancerz) {
         this.pancerz=pancerz;
-    }
-
-    @Override
-    public int getZasieg_ataku() {
-        return zasieg_ataku;
-    }
-
-    @Override
-    public void setZasieg_ataku(int zasieg_ataku) {
-        this.zasieg_ataku=zasieg_ataku;
-    }
-
-    @Override
-    public String getNazwa() {
-        return nazwa;
     }
 
     @Override
@@ -167,18 +128,11 @@ public abstract class Jednostka implements I_Wspolrzedne,I_Jednostka {
     }
 
     @Override
-    public void setWsp_x(int wsp_x) {
-        this.wsp_x=wsp_x;
-    }
-    @Override
     public int getWsp_y() {
         return wsp_y;
     }
 
-    @Override
-    public void setWsp_y(int wsp_y) {
-        this.wsp_y=wsp_y;
-    }
+
     public abstract void kryt(Jednostka wrog, int mod_kryt);
     void smierc(int hp)
     {
