@@ -1,6 +1,7 @@
 import java.util.Random;
 
 /**
+ * \class Mag
  *  \brief klasa Mag
  *
  *  klasa magów dziedzicząca po klasie Jednostka
@@ -8,7 +9,7 @@ import java.util.Random;
 public class Mag extends Jednostka {
 
     /**
-     * \class
+     *
      * \brief konstruktor klasy Mag
      *
      * konstruktor ustawia współrzędne, numer jednostki a także statystyki jednostek w tej gildii

@@ -1,7 +1,7 @@
 import java.util.Random;
 
 /**
- * \class
+ * \class Lucznik
  * \brief klasa Lucznik
  *
  * klasa łuczników dziedzicząca po klasie jednostek

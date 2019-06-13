@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 
 /**
+ * \class Gildia
  * \brief Klasa Gildia
  *
  *  klasa w której odbywa się symulacja.

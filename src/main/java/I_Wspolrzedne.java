@@ -1,5 +1,5 @@
 /**
- * \interface
+ * \interface I_Wspolrzedne
  * \brief Interfejs zawierajacy metody uzywane w klasie Pole.
  */
 

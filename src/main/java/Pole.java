@@ -1,5 +1,5 @@
 /**
- * \class
+ * \class Pole
  * \brief Klasa pole.
  *
  * Klasa przypisuje wspolrzedne x i y do pola.

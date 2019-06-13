@@ -1,7 +1,7 @@
 import java.io.PrintWriter;
 
 /**
- * \class
+ * \class Wynik
  * \brief Klasa licząca i wypisująca wyniki.
  *
  * Klasa pobiera dane opisujące stan gildii oraz poszczegolnych jednostek i wypisuje je w wynikach.

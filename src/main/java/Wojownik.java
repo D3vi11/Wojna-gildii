@@ -1,7 +1,7 @@
 import java.util.Random;
 
 /**
- * \class
+ * \class Wojownik
  *  \brief Klasa jednostek z gildii wojownokow.
  *
  *  Klasa wojownik. Dzidziczy po klasie jednostka. Zwiera atrybuty i metody przypisane wowjownikowi.

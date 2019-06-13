@@ -1,5 +1,5 @@
 /**
- * \class
+ * \class Mapa
  * \brief Klasa tworzy mape.
  *
  * Klasa sluzy do stworzenia mapy zlonej z pol i mjacej dany rozmiar.

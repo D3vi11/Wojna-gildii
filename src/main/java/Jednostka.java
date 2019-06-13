@@ -1,7 +1,7 @@
 import java.util.Random;
 
 /**
- *  \class
+ *  \class Jednostka
  *  \brief klasa abstrakcyjna Jednostka
  *
  *  klasa jednostek po której dziedziczą klasy Wojownik, Lucznkik oraz Mag
