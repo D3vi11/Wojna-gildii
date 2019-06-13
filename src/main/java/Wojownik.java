@@ -6,7 +6,6 @@ public class Wojownik extends Jednostka {
     Wojownik(String name, int wsp_x,int wsp_y, int nr_jednostki)
     {
         super(wsp_x,wsp_y, nr_jednostki);
-        setNr_gildii(1);
         setAtak(65);
         setHp(1000);
         setNazwa(name);

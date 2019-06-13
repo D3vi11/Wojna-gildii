@@ -8,9 +8,9 @@ import java.io.PrintWriter;
 
 class Wynik {
 
-    private int wojownicy; /*! Zmienna przechowuje dane na temat liczby zywych wojownikow. */
-    private int lucznicy;  /*! Zmienna przechowuje dane na temat liczby zywych lucznikow. */
-    private int magowie;   /*! Zmienna przechowuje dane na temat liczby zywych magow. */
+    private int wojownicy; /**< Zmienna przechowuje dane na temat liczby zywych wojownikow. */
+    private int lucznicy;  /**< Zmienna przechowuje dane na temat liczby zywych lucznikow. */
+    private int magowie;   /**< Zmienna przechowuje dane na temat liczby zywych magow. */
 
     /**
      * \brief Metoda zlicza liczbe zywych wojownikow.

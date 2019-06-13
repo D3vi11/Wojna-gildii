@@ -4,7 +4,6 @@ public class Lucznik extends Jednostka {
     Lucznik(String name, int wsp_x, int wsp_y, int nr_jednostki)
     {
         super(wsp_x,wsp_y,nr_jednostki);
-        setNr_gildii(2);
         setAtak(90);
         setHp(800);
         setNazwa(name);
