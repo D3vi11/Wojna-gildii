@@ -36,7 +36,6 @@ class Wynik {
 
         magowie=ilosc_zywych;
     }
-
     void jednostki_wojownik(int liczba_jednostek, Wojownik[] T){
         for(int i=0; i<liczba_jednostek; i++)
         {
