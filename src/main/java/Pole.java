@@ -1,6 +1,12 @@
 public class Pole implements I_Wspolrzedne {
 
-    private int wsp_x ,wsp_y;
+    private int wsp_x ,wsp_y; /**< Zmienne przechowujace wspolrzedne x i y. */
+
+    /**
+     * /brief Metoda przypisuje wartsoci wspolrzednej x i y.
+     * @param wsp_x parametr przechowujacy wspolrzedna x.
+     * @param wsp_y parametr przechowujacy wspolrzedna y.
+     */
 
     Pole(int wsp_x, int wsp_y)
     {
@@ -8,12 +14,20 @@ public class Pole implements I_Wspolrzedne {
         this.wsp_y=wsp_y;
     }
 
-
+    /**
+     * \brief Metoda zwraca wspolrzedna x.
+     * @return wspolrzedna x.
+     */
 
     @Override
     public int getWsp_x() {
         return wsp_x;
     }
+
+    /**
+     * \brief Metoda zwraca wspolrzedna y.
+     * @return wspolrzedna y.
+     */
 
     @Override
     public int getWsp_y() {
