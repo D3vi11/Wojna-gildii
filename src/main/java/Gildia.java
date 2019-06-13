@@ -63,13 +63,13 @@ public class Gildia {
             {
                 x=losuj(rozmiar_mapy);
                 y=losuj(rozmiar_mapy);
-                woj_tab[i]= new Wojownik("wojownik"+(i+1),x,y,i+1);
+                woj_tab[i]= new Wojownik(x,y,i+1);
                 x=losuj(rozmiar_mapy);
                 y=losuj(rozmiar_mapy);
-                luk_tab[i]= new Lucznik("lucznik"+(i+1),x,y,i+1);
+                luk_tab[i]= new Lucznik(x,y,i+1);
                 x=losuj(rozmiar_mapy);
                 y=losuj(rozmiar_mapy);
-                mag_tab[i]= new Mag("mag"+(i+1),x,y,i+1);
+                mag_tab[i]= new Mag(x,y,i+1);
             }
             Wynik wynik= new Wynik();
             PrintWriter wyniki = new PrintWriter("Wyniki.txt");
