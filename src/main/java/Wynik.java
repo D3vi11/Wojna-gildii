@@ -5,16 +5,6 @@ class Wynik {
     private int wojownicy;
     private int lucznicy;
     private int magowie;
-
-    /**
-     * \brief Metoda zlicza liczbe zywych wojownikow.
-     *
-     * Metoda pobiera poczatkowa ilosc jednostek zadana przez uzytkownika oraz tablice przechowujaca obiekty z klasy wojownik i zlicza liczbe zywych jednostek z tej gildii.
-     *
-     * @param liczba_jednostek Parametr przechowuje ilosc jednostek zadanych na starcie przez uzytkownika.
-     * @param T Tablica przechowujaca jednostki z gildii wojownikow.
-     */
-
      void zlicz_wojownik(int liczba_jednostek, Wojownik[] T){
         int ilosc_zywych=liczba_jednostek;
         for(int i=0; i<liczba_jednostek; i++)
@@ -24,15 +14,6 @@ class Wynik {
 
         wojownicy=ilosc_zywych;
     }
-
-    /**
-     * \brief Metoda zlicza liczbe zywych lucznikow.
-     *
-     * Metoda pobiera poczatkowa ilosc jednostek zadana przez uzytkownika oraz tablice przechowująca obiekty z klasy lucznik i zlicza liczbe zywych jednostek z tej gildii.
-     *
-     * @param liczba_jednostek  Parametr przechowuje ilosc jednostek zadanych na starcie przez uzytkownika.
-     * @param T Tablica przechowujaca jednostki z gildii lucznikow.
-     */
 
      void zlicz_lucznik(int liczba_jednostek, Lucznik[] T) {
         int ilosc_zywych=liczba_jednostek;
@@ -44,14 +25,7 @@ class Wynik {
         lucznicy=ilosc_zywych;
     }
 
-    /**
-     * \brief Metoda zlicza liczbe zywych magow.
-     *
-     *  Metoda pobiera poczatkowa ilosc jednostek zadana przez uzytkownika oraz tablice przechowująca obiekty z klasy magow i zlicza liczbe zywych jednostek z tej gildii.
-     *
-     * @param liczba_jednostek a
-     * @param T  Tablica przechowujaca jednostki z gildii magow.
-     */
+
 
     void zlicz_mag(int liczba_jednostek, Mag[] T) {
         int ilosc_zywych=liczba_jednostek;
@@ -59,18 +33,9 @@ class Wynik {
         {
             if(!T[i].getCzy_zywy()) ilosc_zywych--;
         }
+
         magowie=ilosc_zywych;
     }
-
-    /**
-     * \brief Metoda wypisuje ilosc punktow Hp wojownika.
-     *
-     *  Metoda pobiera poczatkowa ilosc jednostek zadana przez uzytkownika oraz tablice przechowujaca obiekty z klasy wojownik oraz po sprawdzeniu metoda getCzy-zywy() czy jednostka zyje wypisuje ilosc jej punktow Hp.
-     *
-     * @param liczba_jednostek
-     * @param T
-     */
-
     void jednostki_wojownik(int liczba_jednostek, Wojownik[] T){
         for(int i=0; i<liczba_jednostek; i++)
         {
@@ -78,29 +43,12 @@ class Wynik {
         }
     }
 
-    /**
-     *  \brief  Metoda wypisuje ilosc punktow Hp lucznika.
-     *
-     *  Metoda pobiera poczatkowa ilosc jednostek zadana przez uzytkownika oraz tablice przechowujaca obiekty z klasy lucznik oraz po sprawdzeniu metoda getCzy-zywy() czy jednostka zyje wypisuje ilosc jej punktow Hp.
-     *
-     * @param liczba_jednostek
-     * @param T
-     */
-
     void jednostki_lucznik(int liczba_jednostek, Lucznik[] T){
         for(int i=0; i<liczba_jednostek; i++)
         {
             if(T[i].getCzy_zywy()) System.out.println("Jednostce z gildii lucznikow nr " + T[i].getNr_jednostki() + " zostalo " + T[i].getHp() + " punktow zdrowia.");
         }
     }
-
-    /**
-     *
-     *
-     *
-     * @param liczba_jednostek
-     * @param T
-     */
 
     void jednostki_mag(int liczba_jednostek, Mag[] T){
         for(int i=0; i<liczba_jednostek; i++)
