@@ -8,6 +8,7 @@ import java.util.Random;
 public class Mag extends Jednostka {
 
     /**
+     * \class
      * \brief konstruktor klasy Mag
      *
      * konstruktor ustawia współrzędne, numer jednostki a także statystyki jednostek w tej gildii
@@ -55,7 +56,7 @@ public class Mag extends Jednostka {
     }
 
     /**
-     * /brief metoda kryt
+     * \brief metoda kryt
      *
      * metoda mnoży obrażenia
      * @param wrog obiekt na którym zostanie wykonana operacja zadania obrażeń krytycznych
@@ -72,7 +73,7 @@ public class Mag extends Jednostka {
     }
 
     /**
-     * /brief metoda losuj_kryt
+     * \brief metoda losuj_kryt
      *
      * metoda losuje liczbę od 0 do 99 i sprawdza czy dana liczba to trafienie krytyczne
      * im większa szansa na trafienie krytyczne tym większy zakres liczb uruchomi to trafienie

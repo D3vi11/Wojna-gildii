@@ -1,4 +1,5 @@
 /**
+ * \interface
  * \brief Interfejs zawierajacy metody uzywane w klasie Pole.
  */
 

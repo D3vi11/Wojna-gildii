@@ -1,6 +1,7 @@
 import java.io.PrintWriter;
 
 /**
+ * \class
  * \brief Klasa licząca i wypisująca wyniki.
  *
  * Klasa pobiera dane opisujące stan gildii oraz poszczegolnych jednostek i wypisuje je w wynikach.
@@ -102,7 +103,7 @@ class Wynik {
     }
 
     /**
-     * /brief Metoda wypisuje ilosc punktow Hp maga.
+     * \brief Metoda wypisuje ilosc punktow Hp maga.
      *
      * Metoda pobiera poczatkowa liczbe jednostek zadana przez uzytkownika oraz tablice przechowujaca obiekty z klasy mag oraz po sprawdzeniu metoda getCzy-zywy() czy jednostka zyje wypisuje ilosc jej punktow Hp.
      *

@@ -1,4 +1,5 @@
 /**
+ *  \interface
  *  \brief interfejs I_Jednostka
  *
  *  interfejs zawierający metody używane w klasie Jednostka
