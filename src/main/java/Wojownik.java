@@ -62,11 +62,6 @@ public class Wojownik extends Jednostka {
     }
 
     /**
-     *
-     * @return
-     */
-
-    /**
      * \brief Metoda losujaca obrazenia krytyczne.
      *
      * Metoda w sposob losowy okresla czy obrazenia krytyczne maja wystapic u wojownika.
