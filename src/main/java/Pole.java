@@ -1,3 +1,9 @@
+/**
+ * \brief Klasa pole.
+ *
+ * Klasa przypisuje wspolrzedne x i y do pola.
+ */
+
 public class Pole implements I_Wspolrzedne {
 
     private int wsp_x ,wsp_y; /**< Zmienne przechowujace wspolrzedne x i y. */
