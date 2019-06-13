@@ -9,7 +9,7 @@ public class Pole implements I_Wspolrzedne {
     private int wsp_x ,wsp_y; /**< Zmienne przechowujace wspolrzedne x i y. */
 
     /**
-     * /brief Metoda przypisuje wartsoci wspolrzednej x i y.
+     * \brief Metoda przypisuje wartsoci wspolrzednej x i y.
      * @param wsp_x parametr przechowujacy wspolrzedna x.
      * @param wsp_y parametr przechowujacy wspolrzedna y.
      */

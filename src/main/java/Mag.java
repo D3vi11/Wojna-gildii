@@ -1,14 +1,14 @@
 import java.util.Random;
 
 /**
- *  /brief klasa Mag
+ *  \brief klasa Mag
  *
  *  klasa magów dziedzicząca po klasie Jednostka
  */
 public class Mag extends Jednostka {
 
     /**
-     * /brief konstruktor klasy Mag
+     * \brief konstruktor klasy Mag
      *
      * konstruktor ustawia współrzędne, numer jednostki a także statystyki jednostek w tej gildii
      * @param wsp_x współrzędna x
@@ -32,7 +32,7 @@ public class Mag extends Jednostka {
     private int obr_many; /**< dodatkowe obrażenia jakie zada mag gdy ma mane */
 
     /**
-     * /brief metoda atak
+     * \brief metoda atak
      *
      * metoda odbiera punkty zdrowia wrogowi w zależności od punktów ataku
      * @param wrog obiekt któremu zostanią odebrane punkty zdrowia

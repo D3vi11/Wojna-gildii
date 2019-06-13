@@ -1,7 +1,7 @@
 import java.util.Random;
 
 /**
- *  /brief klasa abstrakcyjna Jednostka
+ *  \brief klasa abstrakcyjna Jednostka
  *
  *  klasa jednostek po której dziedziczą klasy Wojownik, Lucznkik oraz Mag
  */
@@ -19,7 +19,7 @@ public abstract class Jednostka implements I_Wspolrzedne,I_Jednostka {
 
 
     /**
-     *  /brief metoda getNr_jednostki
+     *  \brief metoda getNr_jednostki
      *
      * @return metoda zwraca numer jednostki
      */
@@ -29,7 +29,7 @@ public abstract class Jednostka implements I_Wspolrzedne,I_Jednostka {
     }
 
     /**
-     * /brief metoda getCzy_zywy
+     * \brief metoda getCzy_zywy
      *
      * @return metoda zwraca true jeśli obiekt jest żywy i false jeśli obiekt jest martwy
      */
@@ -38,7 +38,7 @@ public abstract class Jednostka implements I_Wspolrzedne,I_Jednostka {
     }
 
     /**
-     * brief metoda setCzy_zywy
+     * \brief metoda setCzy_zywy
      *
      * metoda pozwala zmienić parametr czy_zywy
      * @param czy_zywy zmienna typu boolean na którą zostanie zmieniona oryginalna zmienna czy_zywy
@@ -48,7 +48,7 @@ public abstract class Jednostka implements I_Wspolrzedne,I_Jednostka {
     }
 
     /**
-     * /brief Konstruktor Jednostka
+     * \brief Konstruktor Jednostka
      *
      * konstruktor przy tworzeniu jednostki ustawia jej położenie oraz numer
      * @param wsp_x współrzędna x
@@ -63,7 +63,7 @@ public abstract class Jednostka implements I_Wspolrzedne,I_Jednostka {
     }
 
     /**
-     *  /brief metoda ruch
+     *  \brief metoda ruch
      *
      *  metoda losuje liczbę z zakresu od 0 do 3 i w zależnosci od wylosowanej liczby zmienia współrzędną x lub y
      *  współrzędne ograniczone są z jednej strony 1 a z drugiej rozmiarem mapy
@@ -92,7 +92,7 @@ public abstract class Jednostka implements I_Wspolrzedne,I_Jednostka {
     }
 
     /**
-     * /brief metoda getHp
+     * \brief metoda getHp
      *
      * @return zwraca wartosc punktów życia
      */
@@ -102,7 +102,7 @@ public abstract class Jednostka implements I_Wspolrzedne,I_Jednostka {
     }
 
     /**
-     * /brief metoda setHp
+     * \brief metoda setHp
      *
      * @param hp zmienna na którą zostanie zamieniona oryginalna zmienna hp
      */
@@ -112,7 +112,7 @@ public abstract class Jednostka implements I_Wspolrzedne,I_Jednostka {
     }
 
     /**
-     * /brief metoda getPancerz
+     * \brief metoda getPancerz
      *
      * @return metoda zwraca wartość pancerza
      */
@@ -122,7 +122,7 @@ public abstract class Jednostka implements I_Wspolrzedne,I_Jednostka {
     }
 
     /**
-     * /brief metoda setPancerz
+     * \brief metoda setPancerz
      *
      * @param pancerz zmienna na którą zostanie zamieniona oryginalna zmienna pancerz
      */
@@ -133,7 +133,7 @@ public abstract class Jednostka implements I_Wspolrzedne,I_Jednostka {
 
 
     /**
-     * /brief metoda getAtak
+     * \brief metoda getAtak
      *
      * @return zwraca wartość ataku
      */
@@ -143,7 +143,7 @@ public abstract class Jednostka implements I_Wspolrzedne,I_Jednostka {
     }
 
     /**
-     * /brief metoda setAtak
+     * \brief metoda setAtak
      *
      * @param atak zmienna na którą zostanie zamieniona oryginalna zmienna atak
      */
@@ -153,7 +153,7 @@ public abstract class Jednostka implements I_Wspolrzedne,I_Jednostka {
     }
 
     /**
-     * /brief metoda getKryt
+     * \brief metoda getKryt
      *
      * @return zwraca szanse na trafienie krytyczne w procentach
      */
@@ -163,7 +163,7 @@ public abstract class Jednostka implements I_Wspolrzedne,I_Jednostka {
     }
 
     /**
-     * /brief metoda setKryt
+     * \brief metoda setKryt
      *
      * @param kryt zmienna na którą zostanie zamieniona oryginalna zmienna kryt
      */
@@ -173,7 +173,7 @@ public abstract class Jednostka implements I_Wspolrzedne,I_Jednostka {
     }
 
     /**
-     * /brief metoda getMod_kryt
+     * \brief metoda getMod_kryt
      *
      * @return zwraca modyfikator trafienia krytycznego
      */
@@ -183,7 +183,7 @@ public abstract class Jednostka implements I_Wspolrzedne,I_Jednostka {
     }
 
     /**
-     * /brief metoda setMod_kryt
+     * \brief metoda setMod_kryt
      *
      * @param mod_kryt zmienna na którą zostanie zamieniona oryginalna zmienna mod_kryt
      */
@@ -193,7 +193,7 @@ public abstract class Jednostka implements I_Wspolrzedne,I_Jednostka {
     }
 
     /**
-     * /brief metoda getWsp_x
+     * \brief metoda getWsp_x
      *
      * @return zwraca współrzędną x
      */
@@ -203,7 +203,7 @@ public abstract class Jednostka implements I_Wspolrzedne,I_Jednostka {
     }
 
     /**
-     * /brief metoda getWsp_y
+     * \brief metoda getWsp_y
      *
      * @return zwraca wspórzędną y
      */
@@ -213,7 +213,7 @@ public abstract class Jednostka implements I_Wspolrzedne,I_Jednostka {
     }
 
     /**
-     * /brief metoda abstrakcyjna kryt
+     * \brief metoda abstrakcyjna kryt
      *
      * ciało metody zostało zaimplementowane w klasach Wojownik, Lucznik oraz Mag
      * @param wrog obiekt na którym zostanie wykonana operacja zadania obrażeń krytycznych
@@ -222,7 +222,7 @@ public abstract class Jednostka implements I_Wspolrzedne,I_Jednostka {
     public abstract void kryt(Jednostka wrog, int mod_kryt);
 
     /**
-     * /brief metoda smierc
+     * \brief metoda smierc
      *
      * metoda przyjmuje punkty zdrowia jednostki i jeśli punkty spadną do zera to zmienia flagę czy_zywy na false
      * @param hp aktualna wartosc punktów życia jednostki
