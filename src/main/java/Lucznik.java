@@ -1,12 +1,25 @@
 import java.util.Random;
+
+/**
+ * /brief klasa Lucznik
+ *
+ * klasa łuczników dziedzicząca po klasie jednostek
+ */
 public class Lucznik extends Jednostka {
 
-    Lucznik(String name, int wsp_x, int wsp_y, int nr_jednostki)
+    /**
+     * /brief konstruktor klasy Lucznik
+     *
+     * konstruktor ustawia współrzędne, numer jednostki a także statystyki jednostek w tej gildii
+     * @param wsp_x współrzędna x
+     * @param wsp_y współrzędna y
+     * @param nr_jednostki numer jednostki
+     */
+    Lucznik(int wsp_x, int wsp_y, int nr_jednostki)
     {
         super(wsp_x,wsp_y,nr_jednostki);
         setAtak(90);
         setHp(800);
-        setNazwa(name);
         setPancerz(60);
         setKryt(30);
         setMod_kryt(3);

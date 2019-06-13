@@ -10,7 +10,6 @@ public abstract class Jednostka implements I_Wspolrzedne,I_Jednostka {
 
     private int hp; /**< liczba punktów życia */
     private int pancerz;  /**< ilosc pancerza 1 pancerza redukuje podstawowe obrażenia o 0,1% */
-    private String nazwa; /**< nazwa */
     private int wsp_x, wsp_y; /**< współrzędnę x i y */
     private int kryt; /**< szanse na trafienie krytyczne % (nie wpływa na dodatkowe obrażenia maga) */
     private int mod_kryt; /**< modyfikator trafienia krytycznego jest to liczba przez którą zostaną pomnożone obrażenia w razie trafienia krytycznego */
@@ -132,15 +131,6 @@ public abstract class Jednostka implements I_Wspolrzedne,I_Jednostka {
         this.pancerz=pancerz;
     }
 
-    /**
-     * /brief metoda setNazwa
-     *
-     * @param nazwa obiekt na który zostanie zamieniony oryginalny obiekt nazwa
-     */
-    @Override
-    public void setNazwa(String nazwa) {
-        this.nazwa=nazwa;
-    }
 
     /**
      * /brief metoda getAtak
