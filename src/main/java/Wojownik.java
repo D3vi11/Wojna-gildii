@@ -9,9 +9,9 @@ import java.util.Random;
 public class Wojownik extends Jednostka {
 
     /**
-     * \brief Metoda nadpisujaca satystyki wojownika.
+     * \brief Konstruktor klasy Wojownik
      *
-     * Metoda nadpisuje satystyki wojownika o danym numerze na polu o dancyh wspolrzednych takie jak atak, punkty Hp, pancerz, obrazenia krytyczne modyfikator trafienia krytycznego. ustania równiez na początku stan wojownika na zywy.
+     * nadpisuje satystyki wojownika o danym numerze na polu o dancyh wspolrzednych takie jak atak, punkty Hp, pancerz, obrazenia krytyczne modyfikator trafienia krytycznego. ustania równiez na początku stan wojownika na zywy.
      *
      * @param wsp_x parametr zawierajacy wspolrzedna x.
      * @param wsp_y parametr zawierajacy wspolrzedna y.
