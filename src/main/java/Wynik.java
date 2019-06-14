@@ -2,7 +2,7 @@ import java.io.PrintWriter;
 
 /**
  * \class Wynik
- * \brief Klasa licząca i wypisująca wyniki.
+ * Klasa licząca i wypisująca wyniki.
  *
  * Klasa pobiera dane opisujące stan gildii oraz poszczegolnych jednostek i wypisuje je w wynikach.
  */
@@ -14,7 +14,7 @@ class Wynik {
     private int magowie;   /**< Zmienna przechowuje dane na temat liczby zywych magow. */
 
     /**
-     * \brief Metoda zlicza liczbe zywych wojownikow.
+     * Metoda zlicza liczbe zywych wojownikow.
      *
      * Metoda pobiera poczatkowa liczbe jednostek zadana przez uzytkownika oraz tablice przechowujaca obiekty z klasy wojownik i zlicza liczbe zywych jednostek z tej gildii.
      *
@@ -33,7 +33,7 @@ class Wynik {
     }
 
     /**
-     * \brief Metoda zlicza liczbe zywych lucznikow.
+     * Metoda zlicza liczbe zywych lucznikow.
      *
      * Metoda pobiera poczatkowa liczbe jednostek zadana przez uzytkownika oraz tablice przechowująca obiekty z klasy lucznik i zlicza liczbe zywych jednostek z tej gildii.
      *
@@ -52,7 +52,7 @@ class Wynik {
     }
 
     /**
-     * \brief Metoda zlicza liczbe zywych magow.
+     * Metoda zlicza liczbe zywych magow.
      *
      *  Metoda pobiera poczatkowa liczbe jednostek zadana przez uzytkownika oraz tablice przechowująca obiekty z klasy magow i zlicza liczbe zywych jednostek z tej gildii.
      *
@@ -71,7 +71,7 @@ class Wynik {
 
 
     /**
-     * \brief Metoda wypisuje ilosc punktow Hp wojownika.
+     *  Metoda wypisuje ilosc punktow Hp wojownika.
      *
      *  Metoda pobiera poczatkowa liczbe jednostek zadana przez uzytkownika oraz tablice przechowujaca obiekty z klasy wojownik oraz po sprawdzeniu metoda getCzy-zywy() czy jednostka zyje wypisuje ilosc jej punktow Hp.
      *
@@ -87,7 +87,7 @@ class Wynik {
     }
 
     /**
-     *  \brief  Metoda wypisuje ilosc punktow Hp lucznika.
+     *  Metoda wypisuje ilosc punktow Hp lucznika.
      *
      *  Metoda pobiera poczatkowa liczbe jednostek zadana przez uzytkownika oraz tablice przechowujaca obiekty z klasy lucznik oraz po sprawdzeniu metoda getCzy-zywy() czy jednostka zyje wypisuje ilosc jej punktow Hp.
      *
@@ -103,7 +103,7 @@ class Wynik {
     }
 
     /**
-     * \brief Metoda wypisuje ilosc punktow Hp maga.
+     * Metoda wypisuje ilosc punktow Hp maga.
      *
      * Metoda pobiera poczatkowa liczbe jednostek zadana przez uzytkownika oraz tablice przechowujaca obiekty z klasy mag oraz po sprawdzeniu metoda getCzy-zywy() czy jednostka zyje wypisuje ilosc jej punktow Hp.
      *
@@ -119,7 +119,7 @@ class Wynik {
     }
 
     /**
-     *  \brief Metoda wypisuje liczbe zywych wojownikow.
+     *  Metoda wypisuje liczbe zywych wojownikow.
      *
      *  Metoda pobiera poczatkowa liczbe jednostek zadana przez uzytkownika oraz liczbe zywych wojownikow i wypisuje te wartosci.
      *
@@ -136,7 +136,7 @@ class Wynik {
     }
 
     /**
-     *  \brief Metoda wypisuje liczbe zywych lucznikow.
+     *  Metoda wypisuje liczbe zywych lucznikow.
      *
      *  Metoda pobiera poczatkowa liczbe jednostek zadana przez uzytkownika oraz liczbe zywych lucznikow i wypisuje te wartosci.
      *
@@ -153,7 +153,7 @@ class Wynik {
     }
 
     /**
-     * \brief Metoda wypisuje liczbe zywych magow.
+     *  Metoda wypisuje liczbe zywych magow.
      *
      * Metoda pobiera poczatkowa liczbe jednostek zadana przez uzytkownika oraz liczbe zywych magow i wypisuje te wartosci.
      *
@@ -170,7 +170,7 @@ class Wynik {
     }
 
     /**
-     * \brief Metoda zapisuje wyniki dotyczace wojownikow w pliku.
+     *  Metoda zapisuje wyniki dotyczace wojownikow w pliku.
      *
      *  Metoda zapisuje paramtry dotyczace wojownikow w plik. Wypisyje liczbe zywych jednotsek, liczbe martwych jednostek oraz ilosc Hp i polozenie kazdej jednostki.
      *
@@ -198,7 +198,7 @@ class Wynik {
     }
 
     /**
-     * \brief Metoda zapisuje wyniki dotyczace lucznikow w pliku.
+     *  Metoda zapisuje wyniki dotyczace lucznikow w pliku.
      *
      *  Metoda zapisuje paramtry dotyczace lucznikow w plik. Wypisyje liczbe zywych jednotsek, liczbe martwych jednostek oraz ilosc Hp i polozenie kazdej jednostki.
      *
@@ -226,7 +226,7 @@ class Wynik {
     }
 
     /**
-     * \brief Metoda zapisuje wyniki dotyczace magow w pliku.
+     * Metoda zapisuje wyniki dotyczace magow w pliku.
      *
      * Metoda zapisuje paramtry dotyczace magow w plik. Wypisyje liczbe zywych jednotsek, liczbe martwych jednostek oraz ilosc Hp i polozenie kazdej jednostki.
      *
@@ -254,7 +254,7 @@ class Wynik {
     }
 
     /**
-     * \brief Metoda zwraca aktualna liczbe zywych wojownikow.
+     * Metoda zwraca aktualna liczbe zywych wojownikow.
      * @return aktualna liczbe zywych wojownikow.
      */
     int getWojownicy() {
@@ -262,7 +262,7 @@ class Wynik {
     }
 
     /**
-     * \brief Metoda zwraca aktualna liczbe zywych wojownikow.
+     *  Metoda zwraca aktualna liczbe zywych wojownikow.
      * @return aktualna liczbe zywych lucznikow.
      */
 
@@ -271,7 +271,7 @@ class Wynik {
     }
 
     /**
-     * \brief Metoda zwraca aktualna liczbe zywych wojownikow.
+     * Metoda zwraca aktualna liczbe zywych wojownikow.
      * @return aktualna liczbe zywych magow.
      */
 

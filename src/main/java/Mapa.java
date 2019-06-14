@@ -1,6 +1,6 @@
 /**
  * \class Mapa
- * \brief Klasa tworzy mape.
+ * Klasa tworzy mape.
  *
  * Klasa sluzy do stworzenia mapy zlonej z pol i mjacej dany rozmiar.
  */
@@ -11,7 +11,7 @@ public class Mapa {
     private Pole [][] tablica_pol; /**< Tablica przechowujaca pola o wspolrzednych x i y. */
 
     /**
-     * \brief Konstruktor klasy Mapa.
+     * Konstruktor klasy Mapa.
      *
      * Metoda pobiera zadana przez uzytkownika dlugosc boku mapy i na jego bazie tworzy te mape(kwadrat) zlozona z pol.
      *

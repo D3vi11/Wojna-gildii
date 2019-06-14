@@ -2,7 +2,7 @@ import java.util.Random;
 
 /**
  * \class Wojownik
- *  \brief Klasa jednostek z gildii wojownokow.
+ *  Klasa jednostek z gildii wojownokow.
  *
  *  Klasa wojownik. Dzidziczy po klasie jednostka. Zwiera atrybuty i metody przypisane wowjownikowi.
  */
@@ -10,7 +10,7 @@ import java.util.Random;
 public class Wojownik extends Jednostka {
 
     /**
-     * \brief Konstruktor klasy Wojownik
+     * Konstruktor klasy Wojownik
      *
      * nadpisuje satystyki wojownika o danym numerze na polu o dancyh wspolrzednych takie jak atak, punkty Hp, pancerz, obrazenia krytyczne modyfikator trafienia krytycznego. ustania równiez na początku stan wojownika na zywy.
      *
@@ -31,7 +31,7 @@ public class Wojownik extends Jednostka {
     }
 
     /**
-     * \brief Metoda okresla atak.
+     *  Metoda okresla atak.
      *
      * Metoda ustala wielkosc ataku oraz obrazzenia krytyczne.
      *
@@ -49,7 +49,7 @@ public class Wojownik extends Jednostka {
     }
 
     /**
-     * \brief Metoda okresla obrazenia krytyczne.
+     * Metoda okresla obrazenia krytyczne.
      *
      * Metoda okresla wielkosc obrazen krytycznych wojownika oraz modyfikator trfien krytycznych.
      *
@@ -63,7 +63,7 @@ public class Wojownik extends Jednostka {
     }
 
     /**
-     * \brief Metoda losujaca obrazenia krytyczne.
+     * Metoda losujaca obrazenia krytyczne.
      *
      * Metoda w sposob losowy okresla czy obrazenia krytyczne maja wystapic u wojownika.
      *

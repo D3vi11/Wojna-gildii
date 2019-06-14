@@ -2,7 +2,7 @@ import java.util.Random;
 
 /**
  * \class Mag
- *  \brief klasa Mag
+ *  klasa Mag
  *
  *  klasa magów dziedzicząca po klasie Jednostka
  */
@@ -10,7 +10,7 @@ public class Mag extends Jednostka {
 
     /**
      *
-     * \brief konstruktor klasy Mag
+     *  konstruktor klasy Mag
      *
      * konstruktor ustawia współrzędne, numer jednostki a także statystyki jednostek w tej gildii
      * @param wsp_x współrzędna x
@@ -34,7 +34,7 @@ public class Mag extends Jednostka {
     private int obr_many; /**< dodatkowe obrażenia jakie zada mag gdy ma mane */
 
     /**
-     * \brief metoda atak
+     *  metoda atak
      *
      * metoda odbiera punkty zdrowia wrogowi w zależności od punktów ataku
      * @param wrog obiekt któremu zostanią odebrane punkty zdrowia
@@ -57,7 +57,7 @@ public class Mag extends Jednostka {
     }
 
     /**
-     * \brief metoda kryt
+     *  metoda kryt
      *
      * metoda mnoży obrażenia
      * @param wrog obiekt na którym zostanie wykonana operacja zadania obrażeń krytycznych
@@ -74,7 +74,7 @@ public class Mag extends Jednostka {
     }
 
     /**
-     * \brief metoda losuj_kryt
+     * metoda losuj_kryt
      *
      * metoda losuje liczbę od 0 do 99 i sprawdza czy dana liczba to trafienie krytyczne
      * im większa szansa na trafienie krytyczne tym większy zakres liczb uruchomi to trafienie

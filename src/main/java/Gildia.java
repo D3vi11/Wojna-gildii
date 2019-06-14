@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 /**
  * \class Gildia
- * \brief Klasa Gildia
+ *  Klasa Gildia
  *
  *  klasa w której odbywa się symulacja.
  *
@@ -16,7 +16,7 @@ public class Gildia {
 
 
     /**
-     *  \brief metoda main
+     * metoda main
      *
      *  główna metoda od której zaczyna się symulacja
      * @param args parametr wymagany do działania metody
@@ -43,7 +43,7 @@ public class Gildia {
     }
 
     /**
-     * \brief metoda uruchom_symulacje
+     *  metoda uruchom_symulacje
      *
      * metoda tworzy mapę odpowiedniej wielkości oraz tworzy jednostki i rozmieszcza je na mapie, w następnej kolejności symuluje ruch jednostek i w razie ich spotkania atak
      *
@@ -180,7 +180,7 @@ public class Gildia {
 
 
     /**
-     * \brief metoda zwycięstwo
+     * metoda zwycięstwo
      *
      * metoda sprawdza liczbę żywych jednostek i w momencie gdy 2 gildie nie mają już żywych jednostek to wygrywa trzecia gildia
      * jest to zasygnalizowane komunikatem.
@@ -215,7 +215,7 @@ public class Gildia {
         }
 
     /**
-     * \brief metoda ustaw_liczbe_jednostek
+     * metoda ustaw_liczbe_jednostek
      *
      * metoda pobiera z klawiatury liczbę z zakresu od 1 do 1000000 i ją zwraca, w przypadku złej liczby ponawia prośbę o wprowadzenie nowej liczby
      *
@@ -232,7 +232,7 @@ public class Gildia {
         }
 
     /**
-     * \brief metoda ustaw_liczbe_iteracji
+     * metoda ustaw_liczbe_iteracji
      *
      * metoda pobiera z klawiatury liczbę i ją zwraca
      *
@@ -250,7 +250,7 @@ public class Gildia {
         }
 
     /**
-     * \brief metoda ustaw_rozmiar_mapy
+     * metoda ustaw_rozmiar_mapy
      *
      * metoda pobiera z klawiatury liczbę większą od 1 i ją zwraca
      * @return (rozmiar mapy) liczba większa od 1
@@ -268,7 +268,7 @@ public class Gildia {
         }
 
     /**
-     * \brief metoda losuj
+     * metoda losuj
      *
      * metoda losuje liczbe z zakresu od 1 do rozmiaru mapy a następnie ją zwraca
      * @param rozmiar_mapy rozmiar mapy
