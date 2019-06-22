@@ -16,6 +16,7 @@ import java.util.Scanner;
 public class Gildia {
 
     static BoolString napis= new BoolString();
+    public static MyFrame frame;
 
     /**
      * metoda main
@@ -28,7 +29,7 @@ public class Gildia {
         EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new MyFrame();
+                frame = new MyFrame();
             }
         });
 

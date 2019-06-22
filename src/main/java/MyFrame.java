@@ -9,7 +9,7 @@ public class MyFrame extends JFrame implements ActionListener {
     JLabel label= new JLabel("Wojna-Gildii");
     JPanel panel= new JPanel();
     JButton button= new JButton("Rozpocznij symulacje");
-    JTextField [] field= new JTextField[4];
+    JTextField [] field= new JTextField[3];
     JLabel [] tekst= new JLabel[3];
     Gildia gildia;
     public MyFrame()
@@ -42,13 +42,12 @@ public class MyFrame extends JFrame implements ActionListener {
             panel.add(tekst[i]);
         }
 
-        for(int i=0;i<4;i++)
+        for(int i=0;i<3;i++)
         {
             field[i] = new JTextField();
             field[i].setBounds(210,10+((i+1)*40),200,25);
             panel.add(field[i]);
         }
-        field[3].setLocation(220,170);
 
         button.setBounds(10,170,200,25);
         button.setForeground(Color.RED.darker());
@@ -61,13 +60,13 @@ public class MyFrame extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent ewt) {
 
-       // if(ewt.getSource()==button) {
+        if(ewt.getSource()==button) {
 
             try {
               new Gildia(Integer.valueOf(field[0].getText()), Integer.valueOf(field[1].getText()), Integer.valueOf(field[2].getText()));
             }catch(FileNotFoundException exeption){}
-            field[3].setText(gildia.getNapis().napis);
-       // }
+            JOptionPane.showMessageDialog(gildia.frame,gildia.getNapis().napis,"ZWYCIESTWO",JOptionPane.INFORMATION_MESSAGE);
+        }
     }
 
 }
