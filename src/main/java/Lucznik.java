@@ -19,7 +19,7 @@ public class Lucznik extends Jednostka {
     Lucznik(int wsp_x, int wsp_y, int nr_jednostki)
     {
         super(wsp_x,wsp_y,nr_jednostki);
-        setAtak(90);
+        setAtak(70);
         setHp(800);
         setPancerz(60);
         setKryt(30);

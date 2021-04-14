@@ -210,6 +210,7 @@ public class Gildia {
             return napis;
         }
             napis.setX(false);
+            napis.setNapis("WALKA NIEROZSTRZYGNIĘTA");
             return napis;
         }
 
