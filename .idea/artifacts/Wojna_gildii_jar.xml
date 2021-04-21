@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="Wojna-gildii:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Wojna_gildii_jar</output-path>
+    <root id="archive" name="Wojna-gildii_jar.jar">
+      <element id="module-output" name="Wojna-gildii" />
+    </root>
+  </artifact>
+</component>
