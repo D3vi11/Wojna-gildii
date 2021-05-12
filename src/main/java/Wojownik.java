@@ -1,4 +1,3 @@
-import java.util.Random;
 
 /**
  * \class Wojownik
@@ -14,14 +13,12 @@ public class Wojownik extends Jednostka {
      *
      * nadpisuje satystyki wojownika o danym numerze na polu o dancyh wspolrzednych takie jak atak, punkty Hp, pancerz, obrazenia krytyczne modyfikator trafienia krytycznego. ustania równiez na początku stan wojownika na zywy.
      *
-     * @param wsp_x parametr zawierajacy wspolrzedna x.
-     * @param wsp_y parametr zawierajacy wspolrzedna y.
      * @param nr_jednostki parametr zawierajacy numer jednostki.
      */
 
-    Wojownik(int wsp_x,int wsp_y, int nr_jednostki)
+    Wojownik(int nr_jednostki)
     {
-        super(wsp_x,wsp_y, nr_jednostki);
+        super(nr_jednostki);
         setAtak(65);
         setHp(1000);
         setPancerz(70);
@@ -39,13 +36,14 @@ public class Wojownik extends Jednostka {
      */
 
     @Override
-    public void atak(Jednostka wrog) {
-        if (losuj_kryt())
-            kryt(wrog,getMod_kryt());
-        else
-        wrog.setHp((wrog.getHp()-getAtak())+wrog.getPancerz()/10);
-        wrog.smierc(wrog.getHp());
-
+    public void atak(I_Jednostka wrog) {
+        if(!checkInstance(wrog)) {
+            if (losuj_kryt())
+                kryt(wrog, getMod_kryt());
+            else
+                wrog.setHp((wrog.getHp() - getAtak()) + wrog.getPancerz() / 10);
+            wrog.smierc(wrog.getHp());
+        }
     }
 
     /**
@@ -58,7 +56,7 @@ public class Wojownik extends Jednostka {
      */
 
     @Override
-    public void kryt(Jednostka wrog,int mod_kryt) {
+    public void kryt(I_Jednostka wrog,int mod_kryt) {
             wrog.setHp((wrog.getHp()-mod_kryt*getAtak())+wrog.getPancerz()/10);
     }
 
@@ -69,12 +67,4 @@ public class Wojownik extends Jednostka {
      *
      * @return czy uzyc obrazen krytycznych
      */
-    @Override
-    public boolean losuj_kryt() {
-        Random generator=new Random();
-        int x = generator.nextInt(100);
-        if(x>=0&&x<getKryt())
-        return true;
-        else return false;
-    }
 }

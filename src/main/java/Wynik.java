@@ -19,237 +19,63 @@ class Wynik {
      * Metoda pobiera poczatkowa liczbe jednostek zadana przez uzytkownika oraz tablice przechowujaca obiekty z klasy wojownik i zlicza liczbe zywych jednostek z tej gildii.
      *
      * @param liczba_jednostek parametr przechowuje ilosc jednostek zadanych na starcie przez uzytkownika.
-     * @param T tablica przechowujaca jednostki z gildii wojownikow.
      */
 
-     void zlicz_wojownik(int liczba_jednostek, Wojownik[] T){
-        int ilosc_zywych=liczba_jednostek;
-        for(int i=0; i<liczba_jednostek; i++)
-        {
-            if(!T[i].getCzy_zywy()) ilosc_zywych--;
-        }
+     void zlicz(int liczba_jednostek,Pole [][] pole, int rozmiar){
+        int iloscZywychW=liczba_jednostek;
+        int iloscZywychL=liczba_jednostek;
+        int iloscZywychM=liczba_jednostek;
+        for(int i=0; i<rozmiar;i++)
+            for (int j = 0;j<rozmiar;j++)
+                for(I_Jednostka jednostka:pole[i][j].get_list())
+                    {
+                         if(!jednostka.getCzy_zywy() && jednostka instanceof Wojownik) iloscZywychW--;
+                         if(!jednostka.getCzy_zywy() && jednostka instanceof Lucznik) iloscZywychL--;
+                         if(!jednostka.getCzy_zywy() && jednostka instanceof Mag) iloscZywychM--;
+                    }
 
-        wojownicy=ilosc_zywych;
+        wojownicy=iloscZywychW;
+        lucznicy = iloscZywychL;
+        magowie = iloscZywychM;
     }
 
+
     /**
-     * Metoda zlicza liczbe zywych lucznikow.
+     *  Metoda zapisuje wyniki w pliku.
      *
-     * Metoda pobiera poczatkowa liczbe jednostek zadana przez uzytkownika oraz tablice przechowująca obiekty z klasy lucznik i zlicza liczbe zywych jednostek z tej gildii.
+     *  Metoda zapisuje paramtry w pliku. Wypisyje liczbe zywych jednotsek, liczbe martwych jednostek oraz ilosc Hp i polozenie kazdej jednostki.
      *
      * @param liczba_jednostek  parametr przechowuje ilosc jednostek zadanych na starcie przez uzytkownika.
-     * @param T tablica przechowujaca jednostki z gildii lucznikow.
-     */
-
-     void zlicz_lucznik(int liczba_jednostek, Lucznik[] T) {
-        int ilosc_zywych=liczba_jednostek;
-        for(int i=0; i<liczba_jednostek; i++)
-        {
-            if(!T[i].getCzy_zywy()) ilosc_zywych--;
-        }
-
-        lucznicy=ilosc_zywych;
-    }
-
-    /**
-     * Metoda zlicza liczbe zywych magow.
-     *
-     *  Metoda pobiera poczatkowa liczbe jednostek zadana przez uzytkownika oraz tablice przechowująca obiekty z klasy magow i zlicza liczbe zywych jednostek z tej gildii.
-     *
-     * @param liczba_jednostek parametr przechowuje ilosc jednostek zadanych na starcie przez uzytkownika.
-     * @param T  tablica przechowujaca jednostki z gildii magow.
-     */
-
-    void zlicz_mag(int liczba_jednostek, Mag[] T) {
-        int ilosc_zywych=liczba_jednostek;
-        for(int i=0; i<liczba_jednostek; i++)
-        {
-            if(!T[i].getCzy_zywy()) ilosc_zywych--;
-        }
-        magowie=ilosc_zywych;
-    }
-
-
-    /**
-     *  Metoda wypisuje ilosc punktow Hp wojownika.
-     *
-     *  Metoda pobiera poczatkowa liczbe jednostek zadana przez uzytkownika oraz tablice przechowujaca obiekty z klasy wojownik oraz po sprawdzeniu metoda getCzy-zywy() czy jednostka zyje wypisuje ilosc jej punktow Hp.
-     *
-     * @param liczba_jednostek parametr przechowuje ilosc jednostek zadanych na starcie przez uzytkownika.
-     * @param T tablica przechowujaca jednostki z gildii wojownikow.
-     */
-
-    void jednostki_wojownik(int liczba_jednostek, Wojownik[] T){
-        for(int i=0; i<liczba_jednostek; i++)
-        {
-            if(T[i].getCzy_zywy()) System.out.println("Jednostce z gildii wojownikow nr " + T[i].getNr_jednostki() + " zostalo " + T[i].getHp() + " punktow zdrowia.");
-        }
-    }
-
-    /**
-     *  Metoda wypisuje ilosc punktow Hp lucznika.
-     *
-     *  Metoda pobiera poczatkowa liczbe jednostek zadana przez uzytkownika oraz tablice przechowujaca obiekty z klasy lucznik oraz po sprawdzeniu metoda getCzy-zywy() czy jednostka zyje wypisuje ilosc jej punktow Hp.
-     *
-     * @param liczba_jednostek parametr przechowuje ilosc jednostek zadanych na starcie przez uzytkownika.
-     * @param T tablica przechowujaca jednostki z gildii lucznikow.
-     */
-
-    void jednostki_lucznik(int liczba_jednostek, Lucznik[] T){
-        for(int i=0; i<liczba_jednostek; i++)
-        {
-            if(T[i].getCzy_zywy()) System.out.println("Jednostce z gildii lucznikow nr " + T[i].getNr_jednostki() + " zostalo " + T[i].getHp() + " punktow zdrowia.");
-        }
-    }
-
-    /**
-     * Metoda wypisuje ilosc punktow Hp maga.
-     *
-     * Metoda pobiera poczatkowa liczbe jednostek zadana przez uzytkownika oraz tablice przechowujaca obiekty z klasy mag oraz po sprawdzeniu metoda getCzy-zywy() czy jednostka zyje wypisuje ilosc jej punktow Hp.
-     *
-     * @param liczba_jednostek parametr przechowuje ilosc jednostek zadanych na starcie przez uzytkownika.
-     * @param T tablica przechowujaca jednostki z gildii magow.
-     */
-
-    void jednostki_mag(int liczba_jednostek, Mag[] T){
-        for(int i=0; i<liczba_jednostek; i++)
-        {
-            if(T[i].getCzy_zywy()) System.out.println("Jednostce z gildii magow nr " + T[i].getNr_jednostki() + " zostalo " + T[i].getHp() + " punktow zdrowia.");
-        }
-    }
-
-    /**
-     *  Metoda wypisuje liczbe zywych wojownikow.
-     *
-     *  Metoda pobiera poczatkowa liczbe jednostek zadana przez uzytkownika oraz liczbe zywych wojownikow i wypisuje te wartosci.
-     *
-     * @param liczba_jednostek  parametr przechowuje ilosc jednostek zadanych na starcie przez uzytkownika.
-     * @param ilosc_zywych parametr przechowujacy ilosc zywych jednostek.
-     */
-
-    void wypiszW(int liczba_jednostek, int ilosc_zywych)
-    {
-        System.out.println("Liczba jednostek gildii wojownikow: " + liczba_jednostek);
-        System.out.println("Ilosc zywych jednostek = " + ilosc_zywych);
-        int ilosc_martwych=liczba_jednostek-ilosc_zywych;
-        System.out.println("Ilosc martwych jednostek = " + ilosc_martwych);
-    }
-
-    /**
-     *  Metoda wypisuje liczbe zywych lucznikow.
-     *
-     *  Metoda pobiera poczatkowa liczbe jednostek zadana przez uzytkownika oraz liczbe zywych lucznikow i wypisuje te wartosci.
-     *
-     * @param liczba_jednostek parametr przechowuje ilosc jednostek zadanych na starcie przez uzytkownika.
-     * @param ilosc_zywych parametr przechowujacy ilosc zywych jednostek.
-     */
-
-    void wypiszL(int liczba_jednostek, int ilosc_zywych)
-    {
-        System.out.println("Liczba jednostek gildii lucznikow: " + liczba_jednostek);
-        System.out.println("Ilosc zywych jednostek = " + ilosc_zywych);
-        int ilosc_martwych=liczba_jednostek-ilosc_zywych;
-        System.out.println("Ilosc martwych jednostek = " + ilosc_martwych);
-    }
-
-    /**
-     *  Metoda wypisuje liczbe zywych magow.
-     *
-     * Metoda pobiera poczatkowa liczbe jednostek zadana przez uzytkownika oraz liczbe zywych magow i wypisuje te wartosci.
-     *
-     * @param liczba_jednostek  parametr przechowuje ilosc jednostek zadanych na starcie przez uzytkownika.
-     * @param ilosc_zywych parametr przechowujacy ilosc zywych jednostek.
-     */
-
-    void wypiszM(int liczba_jednostek, int ilosc_zywych)
-    {
-        System.out.println("Liczba jednostek gildii magow: " + liczba_jednostek);
-        System.out.println("Ilosc zywych jednostek = " + ilosc_zywych);
-        int ilosc_martwych=liczba_jednostek-ilosc_zywych;
-        System.out.println("Ilosc martwych jednostek = " + ilosc_martwych);
-    }
-
-    /**
-     *  Metoda zapisuje wyniki dotyczace wojownikow w pliku.
-     *
-     *  Metoda zapisuje paramtry dotyczace wojownikow w plik. Wypisyje liczbe zywych jednotsek, liczbe martwych jednostek oraz ilosc Hp i polozenie kazdej jednostki.
-     *
-     * @param liczba_jednostek  parametr przechowuje ilosc jednostek zadanych na starcie przez uzytkownika.
-     * @param ilosc_zywych parametr przechowujacy ilosc zywych jednostek.
      * @param wyniki obiekt umozliwiajacy zapisanie wynikow  w pliku
-     * @param T tablica przechowujaca jednostki z gildii wojownikow.
      */
 
-    void zapisz_wyniki_W(int liczba_jednostek, int ilosc_zywych, PrintWriter wyniki, Wojownik[] T)  {
-
+    public void zapisz_wyniki(int liczba_jednostek, int iloscZywychWojownikow,int iloscZywychLucznikow, int iloscZywychMagow, PrintWriter wyniki, Mapa mapa){
+        int ilosc_martwychW=liczba_jednostek-iloscZywychWojownikow;
+        int ilosc_martwychL=liczba_jednostek-iloscZywychLucznikow;
+        int ilosc_martwychM=liczba_jednostek-iloscZywychMagow;
         wyniki.println( "Liczba jednostek gildii wojownikow: " + liczba_jednostek);
-        wyniki.println("Ilosc zywych jednostek = " + ilosc_zywych);
-        int ilosc_martwych=liczba_jednostek-ilosc_zywych;
-        wyniki.println("Ilosc martwych jednostek = " + ilosc_martwych);
-        for(int i=0; i<liczba_jednostek; i++)
-        {
-            if(T[i].getCzy_zywy()) wyniki.println("Jednostka z gildii wojownikow nr " + T[i].getNr_jednostki() + " jest na polu x: " + T[i].getWsp_x() + " y: " + T[i].getWsp_y());
-        }
-        wyniki.println(" ");
-        for(int i=0; i<liczba_jednostek; i++)
-        {
-            if(T[i].getCzy_zywy()) wyniki.println("Jednostce z gildii wojownikow nr " + T[i].getNr_jednostki() + " zostalo " + T[i].getHp() + " punktow zdrowia.");
-        }
-    }
+        wyniki.println("Ilosc zywych jednostek = " + iloscZywychWojownikow);
+        wyniki.println("Ilosc martwych jednostek = " + ilosc_martwychW);
+        wyniki.println( "Liczba jednostek gildii łuczników: " + liczba_jednostek);
+        wyniki.println("Ilosc zywych jednostek = " + iloscZywychLucznikow);
+        wyniki.println("Ilosc martwych jednostek = " + ilosc_martwychL);
+        wyniki.println( "Liczba jednostek gildii magów: " + liczba_jednostek);
+        wyniki.println("Ilosc zywych jednostek = " + iloscZywychMagow);
+        wyniki.println("Ilosc martwych jednostek = " + ilosc_martwychM);
 
-    /**
-     *  Metoda zapisuje wyniki dotyczace lucznikow w pliku.
-     *
-     *  Metoda zapisuje paramtry dotyczace lucznikow w plik. Wypisyje liczbe zywych jednotsek, liczbe martwych jednostek oraz ilosc Hp i polozenie kazdej jednostki.
-     *
-     * @param liczba_jednostek parametr przechowuje ilosc jednostek zadanych na starcie przez uzytkownika.
-     * @param ilosc_zywych parametr przechowujacy ilosc zywych jednostek.
-     * @param wyniki obiekt umozliwiajacy zapisanie wynikow  w pliku
-     * @param T tablica przechowujaca jednostki z gildii lucznikow.
-     */
-
-    void zapisz_wyniki_L(int liczba_jednostek, int ilosc_zywych, PrintWriter wyniki, Lucznik[] T)  {
-
-        wyniki.println("Liczba jednostek gildii lucznikow: " + liczba_jednostek);
-        wyniki.println("Ilosc zywych jednostek = " + ilosc_zywych);
-        int ilosc_martwych=liczba_jednostek-ilosc_zywych;
-        wyniki.println("Ilosc martwych jednostek = " + ilosc_martwych);
-        for(int i=0; i<liczba_jednostek; i++)
-        {
-            if(T[i].getCzy_zywy()) wyniki.println("Jednostka z gildii lucznikow nr " + T[i].getNr_jednostki() + " jest na polu x: " + T[i].getWsp_x() + " y: " + T[i].getWsp_y());
-        }
-        wyniki.println(" ");
-        for(int i=0; i<liczba_jednostek; i++)
-        {
-            if(T[i].getCzy_zywy()) wyniki.println("Jednostce z gildii lucznikow nr " + T[i].getNr_jednostki() + " zostalo " + T[i].getHp() + " punktow zdrowia.");
-        }
-    }
-
-    /**
-     * Metoda zapisuje wyniki dotyczace magow w pliku.
-     *
-     * Metoda zapisuje paramtry dotyczace magow w plik. Wypisyje liczbe zywych jednotsek, liczbe martwych jednostek oraz ilosc Hp i polozenie kazdej jednostki.
-     *
-     * @param liczba_jednostek parametr przechowuje ilosc jednostek zadanych na starcie przez uzytkownika.
-     * @param ilosc_zywych  parametr przechowujacy ilosc zywych jednostek.
-     * @param wyniki obiekt umozliwiajacy zapisanie wynikow  w pliku
-     * @param T tablica przechowujaca jednostki z gildii magow.
-     */
-
-    void zapisz_wyniki_M(int liczba_jednostek, int ilosc_zywych, PrintWriter wyniki, Mag[] T) {
-
-        wyniki.println("Liczba jednostek gildii magow: " + liczba_jednostek);
-        wyniki.println("Ilosc zywych jednostek = " + ilosc_zywych);
-        int ilosc_martwych=liczba_jednostek-ilosc_zywych;
-        wyniki.println("Ilosc martwych jednostek = " + ilosc_martwych);
-        for(int i=0; i<liczba_jednostek; i++)
-        {
-            if(T[i].getCzy_zywy()) wyniki.println("Jednostka z gildii magow nr " + T[i].getNr_jednostki() + " jest na polu x: " + T[i].getWsp_x() + " y: " + T[i].getWsp_y());
-        }
-        wyniki.println(" ");
-        for(int i=0; i<liczba_jednostek; i++)
-        {
-            if(T[i].getCzy_zywy()) wyniki.println("Jednostce z gildii magow nr " + T[i].getNr_jednostki() + " zostalo " + T[i].getHp() + " punktow zdrowia.");
+        for(int i=0;i<mapa.getRozmiar();i++){
+            for(int j=0;j<mapa.getRozmiar();j++){
+                for(int k=0;k<mapa.getPole(i,j).get_list().size();k++){
+                    if(mapa.getPole(i,j).getUnit(k).getCzy_zywy()) {
+                        if (mapa.getPole(i, j).getUnit(k) instanceof Wojownik)
+                            wyniki.println("Jednostka z gildii wojowników nr " + mapa.getPole(i, j).getUnit(k).getNr_jednostki() + " jest na polu x: " + mapa.getPole(i, j).getWsp_x() + " y: " + mapa.getPole(i, j).getWsp_y());
+                        if (mapa.getPole(i, j).getUnit(k) instanceof Lucznik)
+                            wyniki.println("Jednostka z gildii luczników nr " + mapa.getPole(i, j).getUnit(k).getNr_jednostki() + " jest na polu x: " + mapa.getPole(i, j).getWsp_x() + " y: " + mapa.getPole(i, j).getWsp_y());
+                        if (mapa.getPole(i, j).getUnit(k) instanceof Mag)
+                            wyniki.println("Jednostka z gildii Magów nr " + mapa.getPole(i, j).getUnit(k).getNr_jednostki() + " jest na polu x: " + mapa.getPole(i, j).getWsp_x() + " y: " + mapa.getPole(i, j).getWsp_y());
+                    }
+                }
+             }
         }
     }
 
@@ -277,5 +103,29 @@ class Wynik {
 
     int getMagowie() {
         return magowie;
+    }
+    public BoolString zwyciestwo(int liczba_jednostek, BoolString napis, Pole [][] pole, int rozmiar){
+
+        zlicz(liczba_jednostek, pole, rozmiar);
+        if(wojownicy==0&&lucznicy==0) {
+            napis.setNapis("WYGRALI MAGOWIE");
+            napis.setX(true);
+            return napis;
+        }
+        if(wojownicy==0&&magowie==0)
+        {
+            napis.setNapis("WYGRALI LUCZNICY");
+            napis.setX(true);
+            return napis;
+        }
+        if(lucznicy==0&&magowie==0)
+        {
+            napis.setNapis("WYGRALI WOJOWNICY");
+            napis.setX(true);
+            return napis;
+        }
+        napis.setX(false);
+        napis.setNapis("WALKA NIEROZSTRZYGNIĘTA");
+        return napis;
     }
 }

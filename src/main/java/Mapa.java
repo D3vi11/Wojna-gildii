@@ -1,3 +1,5 @@
+import java.util.Random;
+
 /**
  * \class Mapa
  * Klasa tworzy mape.
@@ -7,8 +9,8 @@
 
 public class Mapa {
 
-    private int rozmiar; /**< Zmienne przechowujace dlugosc boku mapy */
     private Pole [][] tablica_pol; /**< Tablica przechowujaca pola o wspolrzednych x i y. */
+    private final int rozmiar;
 
     /**
      * Konstruktor klasy Mapa.
@@ -20,7 +22,7 @@ public class Mapa {
 
     Mapa(int rozmiar)
     {
-        this.rozmiar=rozmiar;
+        this.rozmiar = rozmiar;
         tablica_pol= new Pole[rozmiar][rozmiar];
         for(int i=0;i<rozmiar;i++)
         for(int j=0;j<rozmiar;j++)
@@ -29,4 +31,58 @@ public class Mapa {
         }
     }
 
+    public Pole[][] getTablica_pol(){
+        return tablica_pol;
+    }
+
+    public Pole getPoleByXY(int x, int y){
+        return tablica_pol[x-1][y-1];
+    }
+    public Pole getPole(int x, int y){
+        return tablica_pol[x][y];
+    }
+
+    public int gerNumberOfFields(){
+        return rozmiar^2;
+    }
+    public int getRozmiar(){return rozmiar;}
+    public void ruch(int rozmiar) {
+        Random generator = new Random();
+        int r;
+        for(int i = 0; i < rozmiar; i++)
+        for(int j = 0; j < rozmiar; j++)
+        for(int k = 0; k< tablica_pol[i][j].get_list().size();k++){
+            r = generator.nextInt(4);
+            switch (r) {
+                case 0: {
+                    if (tablica_pol[i][j].getWsp_x() < rozmiar) {
+                        tablica_pol[i+1][j].addUnit(tablica_pol[i][j].getUnit(k));
+                        tablica_pol[i][j].removeUnit(k);
+                    }
+                }
+                break;
+                case 1: {
+                    if (tablica_pol[i][j].getWsp_x() > 1) {
+                        tablica_pol[i-1][j].addUnit(tablica_pol[i][j].getUnit(k));
+                        tablica_pol[i][j].removeUnit(k);
+                    }
+                }
+                break;
+                case 2: {
+                    if (tablica_pol[i][j].getWsp_y() < rozmiar) {
+                        tablica_pol[i][j+1].addUnit(tablica_pol[i][j].getUnit(k));
+                        tablica_pol[i][j].removeUnit(k);
+                    }
+                }
+                break;
+                case 3: {
+                    if (tablica_pol[i][j].getWsp_y() > 1) {
+                        tablica_pol[i][j-1].addUnit(tablica_pol[i][j].getUnit(k));
+                        tablica_pol[i][j].removeUnit(k);
+                    }
+                }
+                break;
+            }
+        }
+    }
 }

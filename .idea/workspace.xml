@@ -4,11 +4,50 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f2a215f-b801-4c88-a129-4459c2a6e654" name="Default Changelist" comment="draw" />
+    <list default="true" id="5f2a215f-b801-4c88-a129-4459c2a6e654" name="Default Changelist" comment="draw">
+      <change beforePath="$PROJECT_DIR$/.idea/Wojna-gildii.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Wojna-gildii.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Wyniki.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Wyniki.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Wojna_gildii_jar/Wojna-gildii_jar.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Wojna_gildii_jar/Wojna-gildii_jar.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Wojna-gildii/Gildia$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Wojna-gildii/Gildia$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Wojna-gildii/Gildia.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Wojna-gildii/Gildia.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Wojna-gildii/I_Jednostka.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Wojna-gildii/I_Jednostka.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Wojna-gildii/Jednostka.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Wojna-gildii/Jednostka.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Wojna-gildii/Lucznik.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Wojna-gildii/Lucznik.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Wojna-gildii/Mag.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Wojna-gildii/Mag.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Wojna-gildii/Mapa.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Wojna-gildii/Mapa.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Wojna-gildii/Pole.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Wojna-gildii/Pole.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Wojna-gildii/Wojownik.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Wojna-gildii/Wojownik.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Wojna-gildii/Wynik.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Wojna-gildii/Wynik.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Gildia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gildia.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/I_Jednostka.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/I_Jednostka.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Jednostka.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Jednostka.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Lucznik.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Lucznik.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Mag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Mag.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Mapa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Mapa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Pole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Pole.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Wojownik.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Wojownik.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Wynik.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Wynik.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/GildiaTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/JednostkaTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/LucznikTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/MagTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/MapaTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/PoleTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/WojownikTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/WynikTest.java" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JUnit5 Test Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -22,9 +61,20 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="Wojna-gildii" type="Application" factoryName="Application">

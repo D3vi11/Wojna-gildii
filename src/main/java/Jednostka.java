@@ -6,16 +6,15 @@ import java.util.Random;
  *
  *  klasa jednostek po której dziedziczą klasy Wojownik, Lucznkik oraz Mag
  */
-public abstract class Jednostka implements I_Wspolrzedne,I_Jednostka {
+public abstract class Jednostka implements I_Jednostka {
 
 
     private int hp; /**< liczba punktów życia */
     private int pancerz;  /**< ilosc pancerza 1 pancerza redukuje podstawowe obrażenia o 0,1% */
-    private int wsp_x/**< współrzędna x */, wsp_y; /**< współrzędna y */
     private int kryt; /**< szanse na trafienie krytyczne % (nie wpływa na dodatkowe obrażenia maga) */
     private int mod_kryt; /**< modyfikator trafienia krytycznego jest to liczba przez którą zostaną pomnożone obrażenia w razie trafienia krytycznego */
     private int atak; /**< bazowa wartość ataku */
-    private int nr_jednostki; /**< numer jednostki */
+    private final int nr_jednostki; /**< numer jednostki */
     private boolean czy_zywy; /**< flaga stanu życia */
 
 
@@ -54,45 +53,13 @@ public abstract class Jednostka implements I_Wspolrzedne,I_Jednostka {
      * Konstruktor Jednostka
      *
      * konstruktor przy tworzeniu jednostki ustawia jej położenie oraz numer
-     * @param wsp_x współrzędna x
-     * @param wsp_y współrzędna y
      * @param nr_jednostki numer jednostki
      */
-    Jednostka(int wsp_x, int wsp_y, int nr_jednostki)
+    Jednostka(int nr_jednostki)
     {
         this.nr_jednostki=nr_jednostki;
-        this.wsp_x=wsp_x;
-        this.wsp_y=wsp_y;
     }
 
-    /**
-     *  metoda ruch
-     *
-     *  metoda losuje liczbę z zakresu od 0 do 3 i w zależnosci od wylosowanej liczby zmienia współrzędną x lub y
-     *  współrzędne ograniczone są z jednej strony 1 a z drugiej rozmiarem mapy
-     * @param rozmiar rozmiar mapy
-     */
-    @Override
-    public void ruch(int rozmiar) {
-        Random generator = new Random();
-        int r;
-
-            r = generator.nextInt(4);
-            switch (r) {
-                case 0: {if (wsp_x!=rozmiar)
-                    wsp_x++;
-                }break;
-                case 1:{ if (wsp_x!=1)
-                    wsp_x--;
-                }break;
-                case 2: {if (wsp_y!=rozmiar)
-                    wsp_y++;
-                }break;
-                case 3: {if (wsp_y!=1)
-                    wsp_y--;
-                }break;
-            }
-    }
 
     /**
      * metoda getHp
@@ -195,25 +162,6 @@ public abstract class Jednostka implements I_Wspolrzedne,I_Jednostka {
         this.mod_kryt=mod_kryt;
     }
 
-    /**
-     *  metoda getWsp_x
-     *
-     * @return zwraca współrzędną x
-     */
-    @Override
-    public int getWsp_x() {
-        return wsp_x;
-    }
-
-    /**
-     * metoda getWsp_y
-     *
-     * @return zwraca wspórzędną y
-     */
-    @Override
-    public int getWsp_y() {
-        return wsp_y;
-    }
 
     /**
      * metoda abstrakcyjna kryt
@@ -222,7 +170,7 @@ public abstract class Jednostka implements I_Wspolrzedne,I_Jednostka {
      * @param wrog obiekt na którym zostanie wykonana operacja zadania obrażeń krytycznych
      * @param mod_kryt modyfikator trafienia krytycznego
      */
-    public abstract void kryt(Jednostka wrog, int mod_kryt);
+    public abstract void kryt(I_Jednostka wrog, int mod_kryt);
 
     /**
      * metoda smierc
@@ -230,11 +178,44 @@ public abstract class Jednostka implements I_Wspolrzedne,I_Jednostka {
      * metoda przyjmuje punkty zdrowia jednostki i jeśli punkty spadną do zera to zmienia flagę czy_zywy na false
      * @param hp aktualna wartosc punktów życia jednostki
      */
-    void smierc(int hp)
+
+    @Override
+    public void smierc(int hp)
     {
-        if(hp<=0) czy_zywy=false;
-        else czy_zywy=true;
+        czy_zywy = hp > 0;
     }
 
+    @Override
+    public boolean losuj_kryt() {
+        Random generator=new Random();
+        int x = generator.nextInt(100);
+        return x < getKryt();
+    }
+    //zwraca true jeśli jednostki są tym samym typem i false jeśli nie są
+    protected boolean checkInstance(I_Jednostka jednostka){
+        boolean woj = false, luk = false, m = false;
+        boolean woj2 = false, luk2 = false, m2 = false;
+        if(this instanceof Wojownik){
+            woj = true;
+        }
+        if(this instanceof Lucznik){
+            luk = true;
+        }
+        if(this instanceof Mag){
+            m = true;
+        }
+        if(jednostka instanceof Wojownik){
+            woj2 = true;
+        }
+        if(jednostka instanceof Lucznik){
+            luk2 = true;
+        }
+        if(jednostka instanceof Mag){
+            m2 = true;
+        }
+        if(woj && woj2 || luk && luk2 || m && m2 )
+        return true;
+        else return false;
+    }
 
 }

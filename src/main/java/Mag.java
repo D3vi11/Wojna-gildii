@@ -1,4 +1,3 @@
-import java.util.Random;
 
 /**
  * \class Mag
@@ -13,13 +12,11 @@ public class Mag extends Jednostka {
      *  konstruktor klasy Mag
      *
      * konstruktor ustawia współrzędne, numer jednostki a także statystyki jednostek w tej gildii
-     * @param wsp_x współrzędna x
-     * @param wsp_y współrzędna y
      * @param nr_jednostki numer jednostki
      */
-    Mag(int wsp_x, int wsp_y, int nr_jednostki)
+    Mag(int nr_jednostki)
     {
-        super(wsp_x,wsp_y, nr_jednostki);
+        super(nr_jednostki);
         setAtak(80);
         setHp(700);
         setPancerz(40);
@@ -41,19 +38,21 @@ public class Mag extends Jednostka {
      */
 
     @Override
-    public void atak(Jednostka wrog) {
-        if (losuj_kryt()) {
-            kryt(wrog,getMod_kryt());
-        } else {
-            if (mana == 0) {
-                wrog.setHp((wrog.getHp() - getAtak()) + wrog.getPancerz() / 10);
+    public void atak(I_Jednostka wrog) {
+        if(!checkInstance(wrog)) {
+            if (losuj_kryt()) {
+                kryt(wrog, getMod_kryt());
             } else {
-                wrog.setHp(wrog.getHp() - (getAtak() + obr_many) + getPancerz() / 10);
-                mana -= 10;
-            }
+                if (mana == 0) {
+                    wrog.setHp((wrog.getHp() - getAtak()) + wrog.getPancerz() / 10);
+                } else {
+                    wrog.setHp(wrog.getHp() - (getAtak() + obr_many) + getPancerz() / 10);
+                    mana -= 10;
+                }
 
+            }
+            wrog.smierc(wrog.getHp());
         }
-        wrog.smierc(wrog.getHp());
     }
 
     /**
@@ -64,7 +63,7 @@ public class Mag extends Jednostka {
      * @param mod_kryt modyfikator trafienia krytycznego
      */
     @Override
-    public void kryt(Jednostka wrog,int mod_kryt) {
+    public void kryt(I_Jednostka wrog,int mod_kryt) {
             if (mana == 0) {
                 wrog.setHp((wrog.getHp() - mod_kryt * getAtak() + wrog.getPancerz() / 10));
             } else {
@@ -81,14 +80,5 @@ public class Mag extends Jednostka {
      * @return zwraca true jeśli trafienie krytyczne i false jeśli nie
      *
      */
-    @Override
-    public boolean losuj_kryt() {
-        Random generator=new Random();
-        int x = generator.nextInt(100);
-        if(x>=0&&x<getKryt()) {
-            return true;
-        }
-        else return false;
-    }
 
 }

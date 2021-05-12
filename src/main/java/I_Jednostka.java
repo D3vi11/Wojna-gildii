@@ -6,21 +6,12 @@
  */
 public interface I_Jednostka {
     /**
-     *  metoda ruch
-     *
-     *  metoda losuje liczbę z zakresu od 0 do 3 i w zależnosci od wylosowanej liczby zmienia współrzędną x lub y
-     *  współrzędne ograniczone są z jednej strony 1 a z drugiej rozmiarem mapy
-     * @param rozmiar rozmiar mapy
-     */
-    void ruch(int rozmiar);
-
-    /**
      * metoda atak
      *
      * metoda odbiera punkty zdrowia wrogowi w zależności od punktów ataku
      * @param wrog obiekt któremu zostanią odebrane punkty zdrowia
      */
-    void atak(Jednostka wrog);
+    void atak(I_Jednostka wrog);
     /**
      * metoda getHp
      *
@@ -109,5 +100,7 @@ public interface I_Jednostka {
      * @return zwraca true jeśli trafienie krytyczne i false jeśli nie
      */
     boolean losuj_kryt();
+
+    void smierc(int hp);
 
 }
