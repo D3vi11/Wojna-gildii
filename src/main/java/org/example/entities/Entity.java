@@ -12,8 +12,11 @@ public abstract class Entity {
     private int attack;
     private final int entityNumber;
     private boolean isAlive;
-
+    public Entity(int entityNumber) {
+        this.entityNumber = entityNumber;
+    }
     public abstract void attack(Entity enemy);
+    public abstract void crit(Entity enemy, int critModifier);
 
     public int getEntityNumber() {
         return entityNumber;
@@ -25,10 +28,6 @@ public abstract class Entity {
 
     public void setAlive(boolean alive) {
         this.isAlive = alive;
-    }
-
-    Entity(int entityNumber) {
-        this.entityNumber = entityNumber;
     }
 
     public int getHp() {
@@ -71,8 +70,6 @@ public abstract class Entity {
         this.critModifier = critModifier;
     }
 
-    public abstract void crit(Entity enemy, int critModifier);
-
     public void death(int hp) {
         isAlive = hp > 0;
     }
@@ -109,5 +106,6 @@ public abstract class Entity {
             return true;
         else return false;
     }
+
 
 }

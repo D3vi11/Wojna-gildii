@@ -2,26 +2,22 @@ package org.example.map;
 
 import java.util.Random;
 
-public class Map {
+public class Ground {
 
     private Field[][] fieldTable;
     private final int size;
 
-    public Map(int size) {
+    public Ground(int size) {
         this.size = size;
         fieldTable = new Field[size][size];
         for (int i = 0; i < size; i++)
             for (int j = 0; j < size; j++) {
-                fieldTable[i][j] = new Field(i + 1, j + 1);
+                fieldTable[i][j] = new Field();
             }
     }
 
     public Field[][] getFieldTable() {
         return fieldTable;
-    }
-
-    public Field getFieldByXY(int x, int y) {
-        return fieldTable[x - 1][y - 1];
     }
 
     public Field getField(int x, int y) {
@@ -41,32 +37,32 @@ public class Map {
         int r;
         for (int i = 0; i < size; i++)
             for (int j = 0; j < size; j++)
-                for (int k = 0; k < fieldTable[i][j].get_list().size(); k++) {
+                for (int k = 0; k < fieldTable[i][j].getEntities().size(); k++) {
                     r = generator.nextInt(4);
                     switch (r) {
                         case 0: {
-                            if (fieldTable[i][j].getX() < size) {
+                            if (i < size-1) {
                                 fieldTable[i + 1][j].addUnit(fieldTable[i][j].getUnit(k));
                                 fieldTable[i][j].removeUnit(k);
                             }
                         }
                         break;
                         case 1: {
-                            if (fieldTable[i][j].getX() > 1) {
+                            if (i > 0) {
                                 fieldTable[i - 1][j].addUnit(fieldTable[i][j].getUnit(k));
                                 fieldTable[i][j].removeUnit(k);
                             }
                         }
                         break;
                         case 2: {
-                            if (fieldTable[i][j].getY() < size) {
+                            if (j < size-1) {
                                 fieldTable[i][j + 1].addUnit(fieldTable[i][j].getUnit(k));
                                 fieldTable[i][j].removeUnit(k);
                             }
                         }
                         break;
                         case 3: {
-                            if (fieldTable[i][j].getY() > 1) {
+                            if (j > 0) {
                                 fieldTable[i][j - 1].addUnit(fieldTable[i][j].getUnit(k));
                                 fieldTable[i][j].removeUnit(k);
                             }

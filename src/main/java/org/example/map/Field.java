@@ -9,25 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Field {
-
-    private final int xCoordinate;
-    private final int yCoordinate;
     List<Entity> entities = new ArrayList<>();
-
-
-    public Field(int xCoordinate, int yCoordinate) {
-        this.xCoordinate = xCoordinate;
-        this.yCoordinate = yCoordinate;
-    }
-
-    public int getX() {
-        return xCoordinate;
-    }
-
-
-    public int getY() {
-        return yCoordinate;
-    }
 
     public void addUnit(Entity entity) {
         entities.add(entity);
@@ -60,7 +42,7 @@ public class Field {
         } else return true;
     }
 
-    public List<Entity> get_list() {
+    public List<Entity> getEntities() {
         return entities;
     }
 }

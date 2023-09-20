@@ -14,7 +14,7 @@ public class Warrior extends Entity {
 
     @Override
     public void attack(Entity enemy) {
-        if (!checkInstance(enemy)) {
+        if (checkInstance(enemy)) {
             if (rollCrit())
                 crit(enemy, getCritModifier());
             else

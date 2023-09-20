@@ -1,6 +1,8 @@
 package org.example.entities;
 
 public class Mage extends Entity {
+    private int mana;
+    private final int manaDmg;
 
     public Mage(int entityNumber) {
         super(entityNumber);
@@ -14,12 +16,9 @@ public class Mage extends Entity {
         setAlive(true);
     }
 
-    private int mana;
-    private int manaDmg;
-
     @Override
     public void attack(Entity enemy) {
-        if (!checkInstance(enemy)) {
+        if (checkInstance(enemy)) {
             if (rollCrit()) {
                 crit(enemy, getCritModifier());
             } else {
