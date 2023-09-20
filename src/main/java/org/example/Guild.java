@@ -1,5 +1,10 @@
 package org.example;
 
+import org.example.entities.Archer;
+import org.example.entities.Mage;
+import org.example.entities.Warrior;
+import org.example.map.Map;
+
 import java.awt.*;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;

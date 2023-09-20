@@ -1,5 +1,12 @@
 package org.example;
 
+import org.example.entities.Archer;
+import org.example.entities.EntityInterface;
+import org.example.entities.Mage;
+import org.example.entities.Warrior;
+import org.example.map.Field;
+import org.example.map.Map;
+
 import java.io.PrintWriter;
 
 /**

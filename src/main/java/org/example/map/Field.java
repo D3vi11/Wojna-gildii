@@ -1,4 +1,9 @@
-package org.example;
+package org.example.map;
+
+import org.example.entities.Archer;
+import org.example.entities.EntityInterface;
+import org.example.entities.Mage;
+import org.example.entities.Warrior;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +15,7 @@ import java.util.List;
  * Klasa przypisuje wspolrzedne x i y do pola.
  */
 
-public class Field implements Coordinates {
+public class Field {
 
     private final int xCoorinate /**< współrzędna x */, yCoordinate; /**< współrzędna y */
     List<EntityInterface> entities = new ArrayList<>();
@@ -32,7 +37,6 @@ public class Field implements Coordinates {
      * @return wspolrzedna x.
      */
 
-    @Override
     public int getX() {
         return xCoorinate;
     }
@@ -42,7 +46,6 @@ public class Field implements Coordinates {
      * @return wspolrzedna y.
      */
 
-    @Override
     public int getY() {
         return yCoordinate;
     }
