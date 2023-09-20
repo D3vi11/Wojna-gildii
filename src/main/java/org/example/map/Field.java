@@ -34,15 +34,12 @@ public class Field {
         for (Entity entity : entities) {
             if (entity instanceof Warrior && entity.getAlive()) {
                 warrior = true;
-                System.out.println("Warrior "+warrior);
             }
             if (entity instanceof Archer && entity.getAlive()) {
                 archer = true;
-                System.out.println("Archer "+archer);
             }
             if (entity instanceof Mage && entity.getAlive()) {
                 mage = true;
-                System.out.println("Mage"+ mage);
             }
         }
         if (warrior && archer || warrior && mage || archer && mage) {
