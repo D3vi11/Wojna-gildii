@@ -1,3 +1,5 @@
+package org.example;
+
 public class BoolString {
     public static String napis= new String();
     private boolean x;

@@ -1,3 +1,5 @@
+package org.example;
+
 import java.io.PrintWriter;
 
 /**
@@ -21,7 +23,7 @@ class Wynik {
      * @param liczba_jednostek parametr przechowuje ilosc jednostek zadanych na starcie przez uzytkownika.
      */
 
-     void zlicz(int liczba_jednostek,Pole [][] pole, int rozmiar){
+     void zlicz(int liczba_jednostek, Pole[][] pole, int rozmiar){
         int iloscZywychW=liczba_jednostek;
         int iloscZywychL=liczba_jednostek;
         int iloscZywychM=liczba_jednostek;
@@ -104,7 +106,7 @@ class Wynik {
     int getMagowie() {
         return magowie;
     }
-    public BoolString zwyciestwo(int liczba_jednostek, BoolString napis, Pole [][] pole, int rozmiar){
+    public BoolString zwyciestwo(int liczba_jednostek, BoolString napis, Pole[][] pole, int rozmiar){
 
         zlicz(liczba_jednostek, pole, rozmiar);
         if(wojownicy==0&&lucznicy==0) {

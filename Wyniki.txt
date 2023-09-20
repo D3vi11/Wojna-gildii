@@ -1,196 +1,419 @@
  
 ITERACJA NR 1
  
-Liczba jednostek gildii wojownikow: 20
-Ilosc zywych jednostek = 19
-Ilosc martwych jednostek = 1
-Liczba jednostek gildii łuczników: 20
-Ilosc zywych jednostek = 19
-Ilosc martwych jednostek = 1
-Liczba jednostek gildii magów: 20
-Ilosc zywych jednostek = 18
-Ilosc martwych jednostek = 2
-Jednostka z gildii wojowników nr 1 jest na polu x: 1 y: 1
-Jednostka z gildii Magów nr 5 jest na polu x: 1 y: 1
-Jednostka z gildii luczników nr 7 jest na polu x: 1 y: 1
-Jednostka z gildii Magów nr 12 jest na polu x: 1 y: 1
-Jednostka z gildii wojowników nr 16 jest na polu x: 1 y: 1
-Jednostka z gildii luczników nr 19 jest na polu x: 1 y: 1
-Jednostka z gildii Magów nr 19 jest na polu x: 1 y: 1
-Jednostka z gildii wojowników nr 4 jest na polu x: 1 y: 2
-Jednostka z gildii Magów nr 4 jest na polu x: 1 y: 2
-Jednostka z gildii wojowników nr 8 jest na polu x: 1 y: 2
-Jednostka z gildii wojowników nr 12 jest na polu x: 1 y: 2
-Jednostka z gildii Magów nr 15 jest na polu x: 1 y: 2
-Jednostka z gildii wojowników nr 19 jest na polu x: 1 y: 2
-Jednostka z gildii luczników nr 20 jest na polu x: 1 y: 2
-Jednostka z gildii luczników nr 1 jest na polu x: 1 y: 3
-Jednostka z gildii Magów nr 2 jest na polu x: 1 y: 3
-Jednostka z gildii wojowników nr 6 jest na polu x: 1 y: 3
-Jednostka z gildii luczników nr 11 jest na polu x: 1 y: 3
-Jednostka z gildii wojowników nr 14 jest na polu x: 1 y: 3
-Jednostka z gildii luczników nr 14 jest na polu x: 1 y: 3
-Jednostka z gildii wojowników nr 15 jest na polu x: 1 y: 3
-Jednostka z gildii luczników nr 15 jest na polu x: 1 y: 3
-Jednostka z gildii wojowników nr 7 jest na polu x: 2 y: 1
+Liczba jednostek gildii wojownikow: 10
+Ilosc zywych jednostek = 10
+Ilosc martwych jednostek = 0
+Liczba jednostek gildii łuczników: 10
+Ilosc zywych jednostek = 10
+Ilosc martwych jednostek = 0
+Liczba jednostek gildii magów: 10
+Ilosc zywych jednostek = 10
+Ilosc martwych jednostek = 0
+Jednostka z gildii luczników nr 1 jest na polu x: 1 y: 1
+Jednostka z gildii Magów nr 4 jest na polu x: 1 y: 1
+Jednostka z gildii wojowników nr 5 jest na polu x: 1 y: 1
+Jednostka z gildii Magów nr 8 jest na polu x: 1 y: 2
+Jednostka z gildii luczników nr 10 jest na polu x: 1 y: 2
+Jednostka z gildii luczników nr 3 jest na polu x: 1 y: 3
+Jednostka z gildii wojowników nr 4 jest na polu x: 1 y: 3
+Jednostka z gildii luczników nr 4 jest na polu x: 1 y: 3
+Jednostka z gildii wojowników nr 7 jest na polu x: 1 y: 3
+Jednostka z gildii luczników nr 2 jest na polu x: 2 y: 1
 Jednostka z gildii wojowników nr 9 jest na polu x: 2 y: 1
-Jednostka z gildii luczników nr 12 jest na polu x: 2 y: 1
-Jednostka z gildii Magów nr 13 jest na polu x: 2 y: 1
-Jednostka z gildii wojowników nr 18 jest na polu x: 2 y: 1
-Jednostka z gildii wojowników nr 20 jest na polu x: 2 y: 1
-Jednostka z gildii luczników nr 6 jest na polu x: 2 y: 2
-Jednostka z gildii Magów nr 7 jest na polu x: 2 y: 2
-Jednostka z gildii luczników nr 9 jest na polu x: 2 y: 2
-Jednostka z gildii luczników nr 10 jest na polu x: 2 y: 2
-Jednostka z gildii Magów nr 10 jest na polu x: 2 y: 2
-Jednostka z gildii luczników nr 17 jest na polu x: 2 y: 2
+Jednostka z gildii Magów nr 2 jest na polu x: 2 y: 2
+Jednostka z gildii Magów nr 3 jest na polu x: 2 y: 2
+Jednostka z gildii luczników nr 8 jest na polu x: 2 y: 2
+Jednostka z gildii wojowników nr 10 jest na polu x: 2 y: 2
 Jednostka z gildii Magów nr 1 jest na polu x: 2 y: 3
-Jednostka z gildii luczników nr 3 jest na polu x: 2 y: 3
-Jednostka z gildii Magów nr 3 jest na polu x: 2 y: 3
-Jednostka z gildii luczników nr 5 jest na polu x: 2 y: 3
-Jednostka z gildii Magów nr 11 jest na polu x: 2 y: 3
-Jednostka z gildii wojowników nr 13 jest na polu x: 2 y: 3
-Jednostka z gildii luczników nr 16 jest na polu x: 2 y: 3
-Jednostka z gildii Magów nr 18 jest na polu x: 2 y: 3
-Jednostka z gildii wojowników nr 2 jest na polu x: 3 y: 1
-Jednostka z gildii luczników nr 2 jest na polu x: 3 y: 1
-Jednostka z gildii Magów nr 6 jest na polu x: 3 y: 1
-Jednostka z gildii luczników nr 8 jest na polu x: 3 y: 1
-Jednostka z gildii Magów nr 16 jest na polu x: 3 y: 1
-Jednostka z gildii luczników nr 18 jest na polu x: 3 y: 1
-Jednostka z gildii wojowników nr 3 jest na polu x: 3 y: 2
-Jednostka z gildii wojowników nr 5 jest na polu x: 3 y: 2
-Jednostka z gildii luczników nr 13 jest na polu x: 3 y: 2
-Jednostka z gildii Magów nr 14 jest na polu x: 3 y: 2
-Jednostka z gildii wojowników nr 17 jest na polu x: 3 y: 2
-Jednostka z gildii Magów nr 17 jest na polu x: 3 y: 2
-Jednostka z gildii wojowników nr 10 jest na polu x: 3 y: 3
-Jednostka z gildii Magów nr 20 jest na polu x: 3 y: 3
+Jednostka z gildii wojowników nr 6 jest na polu x: 2 y: 3
+Jednostka z gildii Magów nr 6 jest na polu x: 2 y: 3
+Jednostka z gildii Magów nr 7 jest na polu x: 2 y: 3
+Jednostka z gildii Magów nr 9 jest na polu x: 2 y: 3
+Jednostka z gildii Magów nr 10 jest na polu x: 2 y: 3
+Jednostka z gildii wojowników nr 3 jest na polu x: 3 y: 1
+Jednostka z gildii luczników nr 5 jest na polu x: 3 y: 1
+Jednostka z gildii luczników nr 7 jest na polu x: 3 y: 1
+Jednostka z gildii Magów nr 5 jest na polu x: 3 y: 2
+Jednostka z gildii luczników nr 6 jest na polu x: 3 y: 2
+Jednostka z gildii luczników nr 9 jest na polu x: 3 y: 2
+Jednostka z gildii wojowników nr 1 jest na polu x: 3 y: 3
+Jednostka z gildii wojowników nr 2 jest na polu x: 3 y: 3
+Jednostka z gildii wojowników nr 8 jest na polu x: 3 y: 3
  
 ITERACJA NR 2
  
-Liczba jednostek gildii wojownikow: 20
+Liczba jednostek gildii wojownikow: 10
+Ilosc zywych jednostek = 9
+Ilosc martwych jednostek = 1
+Liczba jednostek gildii łuczników: 10
 Ilosc zywych jednostek = 10
-Ilosc martwych jednostek = 10
-Liczba jednostek gildii łuczników: 20
-Ilosc zywych jednostek = 7
-Ilosc martwych jednostek = 13
-Liczba jednostek gildii magów: 20
-Ilosc zywych jednostek = 3
-Ilosc martwych jednostek = 17
-Jednostka z gildii Magów nr 5 jest na polu x: 1 y: 1
-Jednostka z gildii Magów nr 19 jest na polu x: 1 y: 1
-Jednostka z gildii wojowników nr 4 jest na polu x: 1 y: 2
-Jednostka z gildii wojowników nr 8 jest na polu x: 1 y: 2
-Jednostka z gildii wojowników nr 12 jest na polu x: 1 y: 2
-Jednostka z gildii wojowników nr 19 jest na polu x: 1 y: 2
-Jednostka z gildii wojowników nr 7 jest na polu x: 2 y: 1
+Ilosc martwych jednostek = 0
+Liczba jednostek gildii magów: 10
+Ilosc zywych jednostek = 10
+Ilosc martwych jednostek = 0
+Jednostka z gildii luczników nr 1 jest na polu x: 1 y: 1
+Jednostka z gildii Magów nr 4 jest na polu x: 1 y: 1
+Jednostka z gildii wojowników nr 5 jest na polu x: 1 y: 1
+Jednostka z gildii Magów nr 8 jest na polu x: 1 y: 2
+Jednostka z gildii luczników nr 10 jest na polu x: 1 y: 2
+Jednostka z gildii luczników nr 3 jest na polu x: 1 y: 3
+Jednostka z gildii wojowników nr 4 jest na polu x: 1 y: 3
+Jednostka z gildii luczników nr 4 jest na polu x: 1 y: 3
+Jednostka z gildii wojowników nr 7 jest na polu x: 1 y: 3
+Jednostka z gildii luczników nr 2 jest na polu x: 2 y: 1
 Jednostka z gildii wojowników nr 9 jest na polu x: 2 y: 1
-Jednostka z gildii wojowników nr 18 jest na polu x: 2 y: 1
-Jednostka z gildii wojowników nr 20 jest na polu x: 2 y: 1
-Jednostka z gildii luczników nr 6 jest na polu x: 2 y: 2
-Jednostka z gildii luczników nr 9 jest na polu x: 2 y: 2
-Jednostka z gildii luczników nr 10 jest na polu x: 2 y: 2
-Jednostka z gildii luczników nr 17 jest na polu x: 2 y: 2
-Jednostka z gildii luczników nr 2 jest na polu x: 3 y: 1
-Jednostka z gildii luczników nr 8 jest na polu x: 3 y: 1
-Jednostka z gildii luczników nr 18 jest na polu x: 3 y: 1
-Jednostka z gildii wojowników nr 5 jest na polu x: 3 y: 2
-Jednostka z gildii wojowników nr 10 jest na polu x: 3 y: 3
-Jednostka z gildii Magów nr 20 jest na polu x: 3 y: 3
+Jednostka z gildii Magów nr 2 jest na polu x: 2 y: 2
+Jednostka z gildii Magów nr 3 jest na polu x: 2 y: 2
+Jednostka z gildii luczników nr 8 jest na polu x: 2 y: 2
+Jednostka z gildii wojowników nr 10 jest na polu x: 2 y: 2
+Jednostka z gildii Magów nr 1 jest na polu x: 2 y: 3
+Jednostka z gildii Magów nr 6 jest na polu x: 2 y: 3
+Jednostka z gildii Magów nr 7 jest na polu x: 2 y: 3
+Jednostka z gildii Magów nr 9 jest na polu x: 2 y: 3
+Jednostka z gildii Magów nr 10 jest na polu x: 2 y: 3
+Jednostka z gildii wojowników nr 3 jest na polu x: 3 y: 1
+Jednostka z gildii luczników nr 5 jest na polu x: 3 y: 1
+Jednostka z gildii luczników nr 7 jest na polu x: 3 y: 1
+Jednostka z gildii Magów nr 5 jest na polu x: 3 y: 2
+Jednostka z gildii luczników nr 6 jest na polu x: 3 y: 2
+Jednostka z gildii luczników nr 9 jest na polu x: 3 y: 2
+Jednostka z gildii wojowników nr 1 jest na polu x: 3 y: 3
+Jednostka z gildii wojowników nr 2 jest na polu x: 3 y: 3
+Jednostka z gildii wojowników nr 8 jest na polu x: 3 y: 3
  
 ITERACJA NR 3
  
-Liczba jednostek gildii wojownikow: 20
-Ilosc zywych jednostek = 7
-Ilosc martwych jednostek = 13
-Liczba jednostek gildii łuczników: 20
-Ilosc zywych jednostek = 2
-Ilosc martwych jednostek = 18
-Liczba jednostek gildii magów: 20
-Ilosc zywych jednostek = 1
-Ilosc martwych jednostek = 19
-Jednostka z gildii wojowników nr 8 jest na polu x: 1 y: 2
-Jednostka z gildii wojowników nr 12 jest na polu x: 1 y: 2
-Jednostka z gildii wojowników nr 7 jest na polu x: 2 y: 1
+Liczba jednostek gildii wojownikow: 10
+Ilosc zywych jednostek = 8
+Ilosc martwych jednostek = 2
+Liczba jednostek gildii łuczników: 10
+Ilosc zywych jednostek = 10
+Ilosc martwych jednostek = 0
+Liczba jednostek gildii magów: 10
+Ilosc zywych jednostek = 10
+Ilosc martwych jednostek = 0
+Jednostka z gildii luczników nr 1 jest na polu x: 1 y: 1
+Jednostka z gildii Magów nr 4 jest na polu x: 1 y: 1
+Jednostka z gildii wojowników nr 5 jest na polu x: 1 y: 1
+Jednostka z gildii Magów nr 8 jest na polu x: 1 y: 2
+Jednostka z gildii luczników nr 10 jest na polu x: 1 y: 2
+Jednostka z gildii luczników nr 3 jest na polu x: 1 y: 3
+Jednostka z gildii wojowników nr 4 jest na polu x: 1 y: 3
+Jednostka z gildii luczników nr 4 jest na polu x: 1 y: 3
+Jednostka z gildii wojowników nr 7 jest na polu x: 1 y: 3
+Jednostka z gildii luczników nr 2 jest na polu x: 2 y: 1
 Jednostka z gildii wojowników nr 9 jest na polu x: 2 y: 1
-Jednostka z gildii wojowników nr 18 jest na polu x: 2 y: 1
-Jednostka z gildii wojowników nr 20 jest na polu x: 2 y: 1
-Jednostka z gildii luczników nr 8 jest na polu x: 3 y: 1
-Jednostka z gildii luczników nr 18 jest na polu x: 3 y: 1
-Jednostka z gildii wojowników nr 10 jest na polu x: 3 y: 3
-Jednostka z gildii Magów nr 20 jest na polu x: 3 y: 3
+Jednostka z gildii Magów nr 2 jest na polu x: 2 y: 2
+Jednostka z gildii Magów nr 3 jest na polu x: 2 y: 2
+Jednostka z gildii luczników nr 8 jest na polu x: 2 y: 2
+Jednostka z gildii Magów nr 1 jest na polu x: 2 y: 3
+Jednostka z gildii Magów nr 6 jest na polu x: 2 y: 3
+Jednostka z gildii Magów nr 7 jest na polu x: 2 y: 3
+Jednostka z gildii Magów nr 9 jest na polu x: 2 y: 3
+Jednostka z gildii Magów nr 10 jest na polu x: 2 y: 3
+Jednostka z gildii wojowników nr 3 jest na polu x: 3 y: 1
+Jednostka z gildii luczników nr 5 jest na polu x: 3 y: 1
+Jednostka z gildii luczników nr 7 jest na polu x: 3 y: 1
+Jednostka z gildii Magów nr 5 jest na polu x: 3 y: 2
+Jednostka z gildii luczników nr 6 jest na polu x: 3 y: 2
+Jednostka z gildii luczników nr 9 jest na polu x: 3 y: 2
+Jednostka z gildii wojowników nr 1 jest na polu x: 3 y: 3
+Jednostka z gildii wojowników nr 2 jest na polu x: 3 y: 3
+Jednostka z gildii wojowników nr 8 jest na polu x: 3 y: 3
  
 ITERACJA NR 4
  
-Liczba jednostek gildii wojownikow: 20
-Ilosc zywych jednostek = 4
-Ilosc martwych jednostek = 16
-Liczba jednostek gildii łuczników: 20
-Ilosc zywych jednostek = 0
-Ilosc martwych jednostek = 20
-Liczba jednostek gildii magów: 20
-Ilosc zywych jednostek = 1
-Ilosc martwych jednostek = 19
-Jednostka z gildii wojowników nr 7 jest na polu x: 2 y: 1
+Liczba jednostek gildii wojownikow: 10
+Ilosc zywych jednostek = 7
+Ilosc martwych jednostek = 3
+Liczba jednostek gildii łuczników: 10
+Ilosc zywych jednostek = 9
+Ilosc martwych jednostek = 1
+Liczba jednostek gildii magów: 10
+Ilosc zywych jednostek = 8
+Ilosc martwych jednostek = 2
+Jednostka z gildii luczników nr 1 jest na polu x: 1 y: 1
+Jednostka z gildii Magów nr 4 jest na polu x: 1 y: 1
+Jednostka z gildii wojowników nr 5 jest na polu x: 1 y: 1
+Jednostka z gildii Magów nr 8 jest na polu x: 1 y: 2
+Jednostka z gildii luczników nr 10 jest na polu x: 1 y: 2
+Jednostka z gildii luczników nr 3 jest na polu x: 1 y: 3
+Jednostka z gildii luczników nr 4 jest na polu x: 1 y: 3
+Jednostka z gildii wojowników nr 7 jest na polu x: 1 y: 3
+Jednostka z gildii luczników nr 2 jest na polu x: 2 y: 1
 Jednostka z gildii wojowników nr 9 jest na polu x: 2 y: 1
-Jednostka z gildii wojowników nr 20 jest na polu x: 2 y: 1
-Jednostka z gildii wojowników nr 10 jest na polu x: 3 y: 3
-Jednostka z gildii Magów nr 20 jest na polu x: 3 y: 3
+Jednostka z gildii Magów nr 2 jest na polu x: 2 y: 2
+Jednostka z gildii Magów nr 1 jest na polu x: 2 y: 3
+Jednostka z gildii Magów nr 6 jest na polu x: 2 y: 3
+Jednostka z gildii Magów nr 7 jest na polu x: 2 y: 3
+Jednostka z gildii Magów nr 9 jest na polu x: 2 y: 3
+Jednostka z gildii Magów nr 10 jest na polu x: 2 y: 3
+Jednostka z gildii wojowników nr 3 jest na polu x: 3 y: 1
+Jednostka z gildii luczników nr 5 jest na polu x: 3 y: 1
+Jednostka z gildii luczników nr 7 jest na polu x: 3 y: 1
+Jednostka z gildii luczników nr 6 jest na polu x: 3 y: 2
+Jednostka z gildii luczników nr 9 jest na polu x: 3 y: 2
+Jednostka z gildii wojowników nr 1 jest na polu x: 3 y: 3
+Jednostka z gildii wojowników nr 2 jest na polu x: 3 y: 3
+Jednostka z gildii wojowników nr 8 jest na polu x: 3 y: 3
  
 ITERACJA NR 5
  
-Liczba jednostek gildii wojownikow: 20
-Ilosc zywych jednostek = 3
-Ilosc martwych jednostek = 17
-Liczba jednostek gildii łuczników: 20
-Ilosc zywych jednostek = 0
-Ilosc martwych jednostek = 20
-Liczba jednostek gildii magów: 20
-Ilosc zywych jednostek = 1
-Ilosc martwych jednostek = 19
-Jednostka z gildii wojowników nr 7 jest na polu x: 2 y: 1
+Liczba jednostek gildii wojownikow: 10
+Ilosc zywych jednostek = 6
+Ilosc martwych jednostek = 4
+Liczba jednostek gildii łuczników: 10
+Ilosc zywych jednostek = 8
+Ilosc martwych jednostek = 2
+Liczba jednostek gildii magów: 10
+Ilosc zywych jednostek = 6
+Ilosc martwych jednostek = 4
+Jednostka z gildii wojowników nr 5 jest na polu x: 1 y: 1
+Jednostka z gildii Magów nr 8 jest na polu x: 1 y: 2
+Jednostka z gildii luczników nr 10 jest na polu x: 1 y: 2
+Jednostka z gildii luczników nr 3 jest na polu x: 1 y: 3
+Jednostka z gildii luczników nr 4 jest na polu x: 1 y: 3
+Jednostka z gildii wojowników nr 7 jest na polu x: 1 y: 3
+Jednostka z gildii luczników nr 2 jest na polu x: 2 y: 1
 Jednostka z gildii wojowników nr 9 jest na polu x: 2 y: 1
-Jednostka z gildii wojowników nr 10 jest na polu x: 3 y: 3
-Jednostka z gildii Magów nr 20 jest na polu x: 3 y: 3
+Jednostka z gildii Magów nr 1 jest na polu x: 2 y: 3
+Jednostka z gildii Magów nr 6 jest na polu x: 2 y: 3
+Jednostka z gildii Magów nr 7 jest na polu x: 2 y: 3
+Jednostka z gildii Magów nr 9 jest na polu x: 2 y: 3
+Jednostka z gildii Magów nr 10 jest na polu x: 2 y: 3
+Jednostka z gildii luczników nr 5 jest na polu x: 3 y: 1
+Jednostka z gildii luczników nr 7 jest na polu x: 3 y: 1
+Jednostka z gildii luczników nr 6 jest na polu x: 3 y: 2
+Jednostka z gildii luczników nr 9 jest na polu x: 3 y: 2
+Jednostka z gildii wojowników nr 1 jest na polu x: 3 y: 3
+Jednostka z gildii wojowników nr 2 jest na polu x: 3 y: 3
+Jednostka z gildii wojowników nr 8 jest na polu x: 3 y: 3
  
 ITERACJA NR 6
  
-Liczba jednostek gildii wojownikow: 20
-Ilosc zywych jednostek = 1
-Ilosc martwych jednostek = 19
-Liczba jednostek gildii łuczników: 20
-Ilosc zywych jednostek = 0
-Ilosc martwych jednostek = 20
-Liczba jednostek gildii magów: 20
-Ilosc zywych jednostek = 1
-Ilosc martwych jednostek = 19
-Jednostka z gildii wojowników nr 10 jest na polu x: 3 y: 3
-Jednostka z gildii Magów nr 20 jest na polu x: 3 y: 3
+Liczba jednostek gildii wojownikow: 10
+Ilosc zywych jednostek = 4
+Ilosc martwych jednostek = 6
+Liczba jednostek gildii łuczników: 10
+Ilosc zywych jednostek = 8
+Ilosc martwych jednostek = 2
+Liczba jednostek gildii magów: 10
+Ilosc zywych jednostek = 6
+Ilosc martwych jednostek = 4
+Jednostka z gildii Magów nr 8 jest na polu x: 1 y: 2
+Jednostka z gildii luczników nr 10 jest na polu x: 1 y: 2
+Jednostka z gildii luczników nr 3 jest na polu x: 1 y: 3
+Jednostka z gildii luczników nr 4 jest na polu x: 1 y: 3
+Jednostka z gildii luczników nr 2 jest na polu x: 2 y: 1
+Jednostka z gildii wojowników nr 9 jest na polu x: 2 y: 1
+Jednostka z gildii Magów nr 1 jest na polu x: 2 y: 3
+Jednostka z gildii Magów nr 6 jest na polu x: 2 y: 3
+Jednostka z gildii Magów nr 7 jest na polu x: 2 y: 3
+Jednostka z gildii Magów nr 9 jest na polu x: 2 y: 3
+Jednostka z gildii Magów nr 10 jest na polu x: 2 y: 3
+Jednostka z gildii luczników nr 5 jest na polu x: 3 y: 1
+Jednostka z gildii luczników nr 7 jest na polu x: 3 y: 1
+Jednostka z gildii luczników nr 6 jest na polu x: 3 y: 2
+Jednostka z gildii luczników nr 9 jest na polu x: 3 y: 2
+Jednostka z gildii wojowników nr 1 jest na polu x: 3 y: 3
+Jednostka z gildii wojowników nr 2 jest na polu x: 3 y: 3
+Jednostka z gildii wojowników nr 8 jest na polu x: 3 y: 3
  
 ITERACJA NR 7
  
-Liczba jednostek gildii wojownikow: 20
-Ilosc zywych jednostek = 1
-Ilosc martwych jednostek = 19
-Liczba jednostek gildii łuczników: 20
-Ilosc zywych jednostek = 0
-Ilosc martwych jednostek = 20
-Liczba jednostek gildii magów: 20
-Ilosc zywych jednostek = 1
-Ilosc martwych jednostek = 19
-Jednostka z gildii wojowników nr 10 jest na polu x: 3 y: 3
-Jednostka z gildii Magów nr 20 jest na polu x: 3 y: 3
+Liczba jednostek gildii wojownikow: 10
+Ilosc zywych jednostek = 4
+Ilosc martwych jednostek = 6
+Liczba jednostek gildii łuczników: 10
+Ilosc zywych jednostek = 6
+Ilosc martwych jednostek = 4
+Liczba jednostek gildii magów: 10
+Ilosc zywych jednostek = 4
+Ilosc martwych jednostek = 6
+Jednostka z gildii luczników nr 3 jest na polu x: 1 y: 3
+Jednostka z gildii luczników nr 2 jest na polu x: 2 y: 1
+Jednostka z gildii wojowników nr 9 jest na polu x: 2 y: 1
+Jednostka z gildii Magów nr 6 jest na polu x: 2 y: 3
+Jednostka z gildii Magów nr 7 jest na polu x: 2 y: 3
+Jednostka z gildii Magów nr 9 jest na polu x: 2 y: 3
+Jednostka z gildii Magów nr 10 jest na polu x: 2 y: 3
+Jednostka z gildii luczników nr 5 jest na polu x: 3 y: 1
+Jednostka z gildii luczników nr 7 jest na polu x: 3 y: 1
+Jednostka z gildii luczników nr 6 jest na polu x: 3 y: 2
+Jednostka z gildii luczników nr 9 jest na polu x: 3 y: 2
+Jednostka z gildii wojowników nr 1 jest na polu x: 3 y: 3
+Jednostka z gildii wojowników nr 2 jest na polu x: 3 y: 3
+Jednostka z gildii wojowników nr 8 jest na polu x: 3 y: 3
  
 ITERACJA NR 8
  
-Liczba jednostek gildii wojownikow: 20
-Ilosc zywych jednostek = 0
-Ilosc martwych jednostek = 20
-Liczba jednostek gildii łuczników: 20
-Ilosc zywych jednostek = 0
-Ilosc martwych jednostek = 20
-Liczba jednostek gildii magów: 20
+Liczba jednostek gildii wojownikow: 10
+Ilosc zywych jednostek = 4
+Ilosc martwych jednostek = 6
+Liczba jednostek gildii łuczników: 10
+Ilosc zywych jednostek = 6
+Ilosc martwych jednostek = 4
+Liczba jednostek gildii magów: 10
+Ilosc zywych jednostek = 3
+Ilosc martwych jednostek = 7
+Jednostka z gildii luczników nr 3 jest na polu x: 1 y: 3
+Jednostka z gildii luczników nr 2 jest na polu x: 2 y: 1
+Jednostka z gildii wojowników nr 9 jest na polu x: 2 y: 1
+Jednostka z gildii Magów nr 6 jest na polu x: 2 y: 3
+Jednostka z gildii Magów nr 9 jest na polu x: 2 y: 3
+Jednostka z gildii Magów nr 10 jest na polu x: 2 y: 3
+Jednostka z gildii luczników nr 5 jest na polu x: 3 y: 1
+Jednostka z gildii luczników nr 7 jest na polu x: 3 y: 1
+Jednostka z gildii luczników nr 6 jest na polu x: 3 y: 2
+Jednostka z gildii luczników nr 9 jest na polu x: 3 y: 2
+Jednostka z gildii wojowników nr 1 jest na polu x: 3 y: 3
+Jednostka z gildii wojowników nr 2 jest na polu x: 3 y: 3
+Jednostka z gildii wojowników nr 8 jest na polu x: 3 y: 3
+ 
+ITERACJA NR 9
+ 
+Liczba jednostek gildii wojownikow: 10
+Ilosc zywych jednostek = 4
+Ilosc martwych jednostek = 6
+Liczba jednostek gildii łuczników: 10
+Ilosc zywych jednostek = 3
+Ilosc martwych jednostek = 7
+Liczba jednostek gildii magów: 10
 Ilosc zywych jednostek = 1
-Ilosc martwych jednostek = 19
-Jednostka z gildii Magów nr 20 jest na polu x: 3 y: 3
+Ilosc martwych jednostek = 9
+Jednostka z gildii luczników nr 2 jest na polu x: 2 y: 1
+Jednostka z gildii wojowników nr 9 jest na polu x: 2 y: 1
+Jednostka z gildii Magów nr 9 jest na polu x: 2 y: 3
+Jednostka z gildii luczników nr 5 jest na polu x: 3 y: 1
+Jednostka z gildii luczników nr 7 jest na polu x: 3 y: 1
+Jednostka z gildii wojowników nr 1 jest na polu x: 3 y: 3
+Jednostka z gildii wojowników nr 2 jest na polu x: 3 y: 3
+Jednostka z gildii wojowników nr 8 jest na polu x: 3 y: 3
+ 
+ITERACJA NR 10
+ 
+Liczba jednostek gildii wojownikow: 10
+Ilosc zywych jednostek = 4
+Ilosc martwych jednostek = 6
+Liczba jednostek gildii łuczników: 10
+Ilosc zywych jednostek = 2
+Ilosc martwych jednostek = 8
+Liczba jednostek gildii magów: 10
+Ilosc zywych jednostek = 0
+Ilosc martwych jednostek = 10
+Jednostka z gildii wojowników nr 9 jest na polu x: 2 y: 1
+Jednostka z gildii luczników nr 5 jest na polu x: 3 y: 1
+Jednostka z gildii luczników nr 7 jest na polu x: 3 y: 1
+Jednostka z gildii wojowników nr 1 jest na polu x: 3 y: 3
+Jednostka z gildii wojowników nr 2 jest na polu x: 3 y: 3
+Jednostka z gildii wojowników nr 8 jest na polu x: 3 y: 3
+ 
+ITERACJA NR 11
+ 
+Liczba jednostek gildii wojownikow: 10
+Ilosc zywych jednostek = 3
+Ilosc martwych jednostek = 7
+Liczba jednostek gildii łuczników: 10
+Ilosc zywych jednostek = 2
+Ilosc martwych jednostek = 8
+Liczba jednostek gildii magów: 10
+Ilosc zywych jednostek = 0
+Ilosc martwych jednostek = 10
+Jednostka z gildii luczników nr 7 jest na polu x: 2 y: 1
+Jednostka z gildii luczników nr 5 jest na polu x: 3 y: 1
+Jednostka z gildii wojowników nr 2 jest na polu x: 3 y: 2
+Jednostka z gildii wojowników nr 1 jest na polu x: 3 y: 3
+Jednostka z gildii wojowników nr 8 jest na polu x: 3 y: 3
+ 
+ITERACJA NR 12
+ 
+Liczba jednostek gildii wojownikow: 10
+Ilosc zywych jednostek = 3
+Ilosc martwych jednostek = 7
+Liczba jednostek gildii łuczników: 10
+Ilosc zywych jednostek = 2
+Ilosc martwych jednostek = 8
+Liczba jednostek gildii magów: 10
+Ilosc zywych jednostek = 0
+Ilosc martwych jednostek = 10
+Jednostka z gildii luczników nr 7 jest na polu x: 2 y: 1
+Jednostka z gildii luczników nr 5 jest na polu x: 3 y: 1
+Jednostka z gildii wojowników nr 2 jest na polu x: 3 y: 2
+Jednostka z gildii wojowników nr 1 jest na polu x: 3 y: 3
+Jednostka z gildii wojowników nr 8 jest na polu x: 3 y: 3
+ 
+ITERACJA NR 13
+ 
+Liczba jednostek gildii wojownikow: 10
+Ilosc zywych jednostek = 3
+Ilosc martwych jednostek = 7
+Liczba jednostek gildii łuczników: 10
+Ilosc zywych jednostek = 1
+Ilosc martwych jednostek = 9
+Liczba jednostek gildii magów: 10
+Ilosc zywych jednostek = 0
+Ilosc martwych jednostek = 10
+Jednostka z gildii luczników nr 7 jest na polu x: 2 y: 1
+Jednostka z gildii wojowników nr 2 jest na polu x: 3 y: 2
+Jednostka z gildii wojowników nr 1 jest na polu x: 3 y: 3
+Jednostka z gildii wojowników nr 8 jest na polu x: 3 y: 3
+ 
+ITERACJA NR 14
+ 
+Liczba jednostek gildii wojownikow: 10
+Ilosc zywych jednostek = 2
+Ilosc martwych jednostek = 8
+Liczba jednostek gildii łuczników: 10
+Ilosc zywych jednostek = 1
+Ilosc martwych jednostek = 9
+Liczba jednostek gildii magów: 10
+Ilosc zywych jednostek = 0
+Ilosc martwych jednostek = 10
+Jednostka z gildii luczników nr 7 jest na polu x: 2 y: 1
+Jednostka z gildii wojowników nr 1 jest na polu x: 3 y: 3
+Jednostka z gildii wojowników nr 8 jest na polu x: 3 y: 3
+ 
+ITERACJA NR 15
+ 
+Liczba jednostek gildii wojownikow: 10
+Ilosc zywych jednostek = 2
+Ilosc martwych jednostek = 8
+Liczba jednostek gildii łuczników: 10
+Ilosc zywych jednostek = 1
+Ilosc martwych jednostek = 9
+Liczba jednostek gildii magów: 10
+Ilosc zywych jednostek = 0
+Ilosc martwych jednostek = 10
+Jednostka z gildii luczników nr 7 jest na polu x: 2 y: 1
+Jednostka z gildii wojowników nr 1 jest na polu x: 3 y: 3
+Jednostka z gildii wojowników nr 8 jest na polu x: 3 y: 3
+ 
+ITERACJA NR 16
+ 
+Liczba jednostek gildii wojownikow: 10
+Ilosc zywych jednostek = 2
+Ilosc martwych jednostek = 8
+Liczba jednostek gildii łuczników: 10
+Ilosc zywych jednostek = 1
+Ilosc martwych jednostek = 9
+Liczba jednostek gildii magów: 10
+Ilosc zywych jednostek = 0
+Ilosc martwych jednostek = 10
+Jednostka z gildii luczników nr 7 jest na polu x: 2 y: 1
+Jednostka z gildii wojowników nr 1 jest na polu x: 3 y: 3
+Jednostka z gildii wojowników nr 8 jest na polu x: 3 y: 3
+ 
+ITERACJA NR 17
+ 
+Liczba jednostek gildii wojownikow: 10
+Ilosc zywych jednostek = 2
+Ilosc martwych jednostek = 8
+Liczba jednostek gildii łuczników: 10
+Ilosc zywych jednostek = 0
+Ilosc martwych jednostek = 10
+Liczba jednostek gildii magów: 10
+Ilosc zywych jednostek = 0
+Ilosc martwych jednostek = 10
+Jednostka z gildii wojowników nr 1 jest na polu x: 3 y: 3
+Jednostka z gildii wojowników nr 8 jest na polu x: 3 y: 3
