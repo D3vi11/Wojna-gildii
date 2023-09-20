@@ -12,8 +12,8 @@ public class MyFrame extends JFrame implements ActionListener {
     JPanel panel= new JPanel();
     JButton button= new JButton("Rozpocznij symulacje");
     JTextField [] field= new JTextField[3];
-    JLabel [] tekst= new JLabel[3];
-    Gildia gildia;
+    JLabel [] inscription = new JLabel[3];
+    Guild guild;
     public MyFrame()
     {
         super("Wojna-Gildii");
@@ -33,15 +33,15 @@ public class MyFrame extends JFrame implements ActionListener {
 
         for(int i=0;i<3;i++) {
             if(i==0) {
-                tekst[i] = new JLabel("Liczba Jednostek: ");
+                inscription[i] = new JLabel("Liczba Jednostek: ");
             }
             else if(i==1){
-                tekst[i]= new JLabel("Liczba iteracji: ");
+                inscription[i]= new JLabel("Liczba iteracji: ");
             }else if(i==2){
-                tekst[i]= new JLabel("Rozmiar Mapy: ");
+                inscription[i]= new JLabel("Rozmiar Mapy: ");
             }
-            tekst[i].setBounds(10, 10+((i+1)*40), 200, 25);
-            panel.add(tekst[i]);
+            inscription[i].setBounds(10, 10+((i+1)*40), 200, 25);
+            panel.add(inscription[i]);
         }
 
         for(int i=0;i<3;i++)
@@ -65,9 +65,9 @@ public class MyFrame extends JFrame implements ActionListener {
         if(ewt.getSource()==button) {
 
             try {
-              new Gildia(Integer.valueOf(field[0].getText()), Integer.valueOf(field[1].getText()), Integer.valueOf(field[2].getText()));
+              new Guild(Integer.valueOf(field[0].getText()), Integer.valueOf(field[1].getText()), Integer.valueOf(field[2].getText()));
             }catch(FileNotFoundException exeption){}
-            JOptionPane.showMessageDialog(gildia.frame,gildia.getNapis().napis,"ZWYCIESTWO",JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(guild.frame, guild.getInscription().inscription,"ZWYCIESTWO",JOptionPane.INFORMATION_MESSAGE);
         }
     }
 

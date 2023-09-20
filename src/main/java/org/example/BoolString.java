@@ -1,13 +1,13 @@
 package org.example;
 
 public class BoolString {
-    public static String napis= new String();
+    public static String inscription;
     private boolean x;
 
 
 
-    public void setNapis(String napis){
-        this.napis=napis;
+    public void setInscription(String inscription){
+        this.inscription =inscription;
     }
     public boolean getX(){
         return x;

@@ -8,16 +8,16 @@ import java.util.Random;
  *
  *  klasa jednostek po której dziedziczą klasy Wojownik, Lucznkik oraz Mag
  */
-public abstract class Jednostka implements I_Jednostka {
+public abstract class Entity implements EntityInterface {
 
 
     private int hp; /**< liczba punktów życia */
-    private int pancerz;  /**< ilosc pancerza 1 pancerza redukuje podstawowe obrażenia o 0,1% */
-    private int kryt; /**< szanse na trafienie krytyczne % (nie wpływa na dodatkowe obrażenia maga) */
-    private int mod_kryt; /**< modyfikator trafienia krytycznego jest to liczba przez którą zostaną pomnożone obrażenia w razie trafienia krytycznego */
-    private int atak; /**< bazowa wartość ataku */
-    private final int nr_jednostki; /**< numer jednostki */
-    private boolean czy_zywy; /**< flaga stanu życia */
+    private int armor;  /**< ilosc pancerza 1 pancerza redukuje podstawowe obrażenia o 0,1% */
+    private int crit; /**< szanse na trafienie krytyczne % (nie wpływa na dodatkowe obrażenia maga) */
+    private int critModifier; /**< modyfikator trafienia krytycznego jest to liczba przez którą zostaną pomnożone obrażenia w razie trafienia krytycznego */
+    private int attack; /**< bazowa wartość ataku */
+    private final int entityNumber; /**< numer jednostki */
+    private boolean isAlive; /**< flaga stanu życia */
 
 
     /**
@@ -26,8 +26,8 @@ public abstract class Jednostka implements I_Jednostka {
      * @return metoda zwraca numer jednostki
      */
     @Override
-    public int getNr_jednostki() {
-        return nr_jednostki;
+    public int getEntityNumber() {
+        return entityNumber;
     }
 
     /**
@@ -36,30 +36,30 @@ public abstract class Jednostka implements I_Jednostka {
      * @return metoda zwraca true jeśli obiekt jest żywy i false jeśli obiekt jest martwy
      */
     @Override
-    public boolean getCzy_zywy() {
-        return czy_zywy;
+    public boolean getAlive() {
+        return isAlive;
     }
 
     /**
      * metoda setCzy_zywy
      *
      * metoda pozwala zmienić parametr czy_zywy
-     * @param czy_zywy zmienna typu boolean na którą zostanie zmieniona oryginalna zmienna czy_zywy
+     * @param alive zmienna typu boolean na którą zostanie zmieniona oryginalna zmienna czy_zywy
      */
     @Override
-    public void setCzy_zywy(boolean czy_zywy) {
-        this.czy_zywy = czy_zywy;
+    public void setAlive(boolean alive) {
+        this.isAlive = alive;
     }
 
     /**
      * Konstruktor Jednostka
      *
      * konstruktor przy tworzeniu jednostki ustawia jej położenie oraz numer
-     * @param nr_jednostki numer jednostki
+     * @param entityNumber numer jednostki
      */
-    Jednostka(int nr_jednostki)
+    Entity(int entityNumber)
     {
-        this.nr_jednostki=nr_jednostki;
+        this.entityNumber =entityNumber;
     }
 
 
@@ -89,18 +89,18 @@ public abstract class Jednostka implements I_Jednostka {
      * @return metoda zwraca wartość pancerza
      */
     @Override
-    public int getPancerz() {
-        return pancerz;
+    public int getArmor() {
+        return armor;
     }
 
     /**
      * metoda setPancerz
      *
-     * @param pancerz zmienna na którą zostanie zamieniona oryginalna zmienna pancerz
+     * @param armor zmienna na którą zostanie zamieniona oryginalna zmienna pancerz
      */
     @Override
-    public void setPancerz(int pancerz) {
-        this.pancerz=pancerz;
+    public void setArmor(int armor) {
+        this.armor = armor;
     }
 
 
@@ -110,18 +110,18 @@ public abstract class Jednostka implements I_Jednostka {
      * @return zwraca wartość ataku
      */
     @Override
-    public int getAtak() {
-        return atak;
+    public int getAttack() {
+        return attack;
     }
 
     /**
      *  metoda setAtak
      *
-     * @param atak zmienna na którą zostanie zamieniona oryginalna zmienna atak
+     * @param attack zmienna na którą zostanie zamieniona oryginalna zmienna atak
      */
     @Override
-    public void setAtak(int atak) {
-        this.atak=atak;
+    public void setAttack(int attack) {
+        this.attack = attack;
     }
 
     /**
@@ -130,18 +130,18 @@ public abstract class Jednostka implements I_Jednostka {
      * @return zwraca szanse na trafienie krytyczne w procentach
      */
     @Override
-    public int getKryt() {
-        return kryt;
+    public int getCrit() {
+        return crit;
     }
 
     /**
      *  metoda setKryt
      *
-     * @param kryt zmienna na którą zostanie zamieniona oryginalna zmienna kryt
+     * @param crit zmienna na którą zostanie zamieniona oryginalna zmienna kryt
      */
     @Override
-    public void setKryt(int kryt) {
-        this.kryt=kryt;
+    public void setCrit(int crit) {
+        this.crit = crit;
     }
 
     /**
@@ -150,18 +150,18 @@ public abstract class Jednostka implements I_Jednostka {
      * @return zwraca modyfikator trafienia krytycznego
      */
     @Override
-    public int getMod_kryt() {
-        return mod_kryt;
+    public int getCritModifier() {
+        return critModifier;
     }
 
     /**
      * metoda setMod_kryt
      *
-     * @param mod_kryt zmienna na którą zostanie zamieniona oryginalna zmienna mod_kryt
+     * @param critModifier zmienna na którą zostanie zamieniona oryginalna zmienna mod_kryt
      */
     @Override
-    public void setMod_kryt(int mod_kryt) {
-        this.mod_kryt=mod_kryt;
+    public void setCritModifier(int critModifier) {
+        this.critModifier = critModifier;
     }
 
 
@@ -172,7 +172,7 @@ public abstract class Jednostka implements I_Jednostka {
      * @param wrog obiekt na którym zostanie wykonana operacja zadania obrażeń krytycznych
      * @param mod_kryt modyfikator trafienia krytycznego
      */
-    public abstract void kryt(I_Jednostka wrog, int mod_kryt);
+    public abstract void crit(EntityInterface wrog, int mod_kryt);
 
     /**
      * metoda smierc
@@ -182,40 +182,40 @@ public abstract class Jednostka implements I_Jednostka {
      */
 
     @Override
-    public void smierc(int hp)
+    public void death(int hp)
     {
-        czy_zywy = hp > 0;
+        isAlive = hp > 0;
     }
 
     @Override
-    public boolean losuj_kryt() {
+    public boolean getCriticalStrikeChance() {
         Random generator=new Random();
         int x = generator.nextInt(100);
-        return x < getKryt();
+        return x < getCrit();
     }
     //zwraca true jeśli jednostki są tym samym typem i false jeśli nie są
-    protected boolean checkInstance(I_Jednostka jednostka){
-        boolean woj = false, luk = false, m = false;
-        boolean woj2 = false, luk2 = false, m2 = false;
-        if(this instanceof Wojownik){
-            woj = true;
+    protected boolean checkInstance(EntityInterface entity){
+        boolean warrior = false, archer = false, mage = false;
+        boolean warrior2 = false, archer2 = false, mage2 = false;
+        if(this instanceof Warrior){
+            warrior = true;
         }
-        if(this instanceof Lucznik){
-            luk = true;
+        if(this instanceof Archer){
+            archer = true;
         }
-        if(this instanceof Mag){
-            m = true;
+        if(this instanceof Mage){
+            mage = true;
         }
-        if(jednostka instanceof Wojownik){
-            woj2 = true;
+        if(entity instanceof Warrior){
+            warrior2 = true;
         }
-        if(jednostka instanceof Lucznik){
-            luk2 = true;
+        if(entity instanceof Archer){
+            archer2 = true;
         }
-        if(jednostka instanceof Mag){
-            m2 = true;
+        if(entity instanceof Mage){
+            mage2 = true;
         }
-        if(woj && woj2 || luk && luk2 || m && m2 )
+        if(warrior && warrior2 || archer && archer2 || mage && mage2 )
         return true;
         else return false;
     }

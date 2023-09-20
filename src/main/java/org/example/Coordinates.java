@@ -5,17 +5,17 @@ package org.example;
  * Interfejs zawierajacy metody uzywane w klasie Pole.
  */
 
-public interface I_Wspolrzedne {
+public interface Coordinates {
 
     /**
      * Metoda zwraca wspolrzedna x.
      * @return wspolrzedna x.
      */
-    int getWsp_x();
+    int getX();
 
     /**
      * Metoda zwraca wspolrzedna y.
      * @return wspolrzedna y.
      */
-    int getWsp_y();
+    int getY();
 }

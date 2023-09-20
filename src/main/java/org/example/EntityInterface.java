@@ -6,14 +6,14 @@ package org.example;
  *
  *  interfejs zawierający metody używane w klasie Jednostka
  */
-public interface I_Jednostka {
+public interface EntityInterface {
     /**
      * metoda atak
      *
      * metoda odbiera punkty zdrowia wrogowi w zależności od punktów ataku
-     * @param wrog obiekt któremu zostanią odebrane punkty zdrowia
+     * @param enemy obiekt któremu zostanią odebrane punkty zdrowia
      */
-    void atak(I_Jednostka wrog);
+    void attack(EntityInterface enemy);
     /**
      * metoda getHp
      *
@@ -31,68 +31,68 @@ public interface I_Jednostka {
      *
      * @return metoda zwraca wartość pancerza
      */
-    int getPancerz();
+    int getArmor();
     /**
      * metoda setPancerz
      *
-     * @param pancerz zmienna na którą zostanie zamieniona oryginalna zmienna pancerz
+     * @param armor zmienna na którą zostanie zamieniona oryginalna zmienna pancerz
      */
-    void setPancerz(int pancerz);
+    void setArmor(int armor);
     /**
      * metoda getAtak
      *
      * @return zwraca wartość ataku
      */
-    int getAtak();
+    int getAttack();
     /**
      * metoda setAtak
      *
-     * @param atak zmienna na którą zostanie zamieniona oryginalna zmienna atak
+     * @param attack zmienna na którą zostanie zamieniona oryginalna zmienna atak
      */
-    void setAtak(int atak);
+    void setAttack(int attack);
     /**
      * metoda getKryt
      *
      * @return zwraca szanse na trafienie krytyczne w procentach
      */
-    int getKryt();
+    int getCrit();
     /**
      * metoda setKryt
      *
-     * @param kryt zmienna na którą zostanie zamieniona oryginalna zmienna kryt
+     * @param crit zmienna na którą zostanie zamieniona oryginalna zmienna kryt
      */
-    void setKryt(int kryt);
+    void setCrit(int crit);
     /**
      * metoda getMod_kryt
      *
      * @return zwraca modyfikator trafienia krytycznego
      */
-    int getMod_kryt();
+    int getCritModifier();
     /**
      * metoda setMod_kryt
      *
-     * @param mod_kryt zmienna na którą zostanie zamieniona oryginalna zmienna mod_kryt
+     * @param critModifier zmienna na którą zostanie zamieniona oryginalna zmienna mod_kryt
      */
-    void setMod_kryt(int mod_kryt);
+    void setCritModifier(int critModifier);
     /**
      * metoda getCzy_zywy
      *
      * @return metoda zwraca true jeśli obiekt jest żywy i false jeśli obiekt jest martwy
      */
-    boolean getCzy_zywy();
+    boolean getAlive();
     /**
      * metoda setCzy_zywy
      *
      * metoda pozwala zmienić parametr czy_zywy
-     * @param czy_zywy zmienna typu boolean na którą zostanie zmieniona oryginalna zmienna czy_zywy
+     * @param alive zmienna typu boolean na którą zostanie zmieniona oryginalna zmienna czy_zywy
      */
-    void setCzy_zywy(boolean czy_zywy);
+    void setAlive(boolean alive);
     /**
      * metoda getNr_jednostki
      *
      * @return metoda zwraca numer jednostki
      */
-    int getNr_jednostki();
+    int getEntityNumber();
 
     /**
      * metoda losuj_kryt
@@ -101,8 +101,8 @@ public interface I_Jednostka {
      * im większa szansa na trafienie krytyczne tym większy zakres liczb uruchomi to trafienie
      * @return zwraca true jeśli trafienie krytyczne i false jeśli nie
      */
-    boolean losuj_kryt();
+    boolean getCriticalStrikeChance();
 
-    void smierc(int hp);
+    void death(int hp);
 
 }
