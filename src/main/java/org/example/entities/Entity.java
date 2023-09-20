@@ -2,7 +2,7 @@ package org.example.entities;
 
 import java.util.Random;
 
-public abstract class Entity implements EntityInterface {
+public abstract class Entity {
 
 
     private int hp;
@@ -13,17 +13,16 @@ public abstract class Entity implements EntityInterface {
     private final int entityNumber;
     private boolean isAlive;
 
-    @Override
+    public abstract void attack(Entity enemy);
+
     public int getEntityNumber() {
         return entityNumber;
     }
 
-    @Override
     public boolean getAlive() {
         return isAlive;
     }
 
-    @Override
     public void setAlive(boolean alive) {
         this.isAlive = alive;
     }
@@ -32,72 +31,60 @@ public abstract class Entity implements EntityInterface {
         this.entityNumber = entityNumber;
     }
 
-    @Override
     public int getHp() {
         return hp;
     }
 
-    @Override
     public void setHp(int hp) {
         this.hp = hp;
     }
 
-    @Override
     public int getArmor() {
         return armor;
     }
 
-    @Override
     public void setArmor(int armor) {
         this.armor = armor;
     }
 
-    @Override
     public int getAttack() {
         return attack;
     }
 
-    @Override
     public void setAttack(int attack) {
         this.attack = attack;
     }
 
-    @Override
     public int getCrit() {
         return crit;
     }
 
-    @Override
     public void setCrit(int crit) {
         this.crit = crit;
     }
 
-    @Override
     public int getCritModifier() {
         return critModifier;
     }
 
-    @Override
     public void setCritModifier(int critModifier) {
         this.critModifier = critModifier;
     }
 
-    public abstract void crit(EntityInterface wrog, int mod_kryt);
+    public abstract void crit(Entity enemy, int critModifier);
 
-    @Override
     public void death(int hp) {
         isAlive = hp > 0;
     }
 
-    @Override
-    public boolean getCriticalStrikeChance() {
+    public boolean rollCrit() {
         Random generator = new Random();
         int x = generator.nextInt(100);
         return x < getCrit();
     }
 
     //zwraca true jeśli jednostki są tym samym typem i false jeśli nie są
-    protected boolean checkInstance(EntityInterface entity) {
+    protected boolean checkInstance(Entity entity) {
         boolean warrior = false, archer = false, mage = false;
         boolean warrior2 = false, archer2 = false, mage2 = false;
         if (this instanceof Warrior) {

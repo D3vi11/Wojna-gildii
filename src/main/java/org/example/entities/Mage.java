@@ -18,9 +18,9 @@ public class Mage extends Entity {
     private int manaDmg;
 
     @Override
-    public void attack(EntityInterface enemy) {
+    public void attack(Entity enemy) {
         if (!checkInstance(enemy)) {
-            if (getCriticalStrikeChance()) {
+            if (rollCrit()) {
                 crit(enemy, getCritModifier());
             } else {
                 if (mana == 0) {
@@ -36,7 +36,7 @@ public class Mage extends Entity {
     }
 
     @Override
-    public void crit(EntityInterface enemy, int critModifier) {
+    public void crit(Entity enemy, int critModifier) {
         if (mana == 0) {
             enemy.setHp((enemy.getHp() - critModifier * getAttack() + enemy.getArmor() / 10));
         } else {

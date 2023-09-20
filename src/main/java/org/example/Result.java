@@ -1,7 +1,7 @@
 package org.example;
 
 import org.example.entities.Archer;
-import org.example.entities.EntityInterface;
+import org.example.entities.Entity;
 import org.example.entities.Mage;
 import org.example.entities.Warrior;
 import org.example.map.Field;
@@ -22,7 +22,7 @@ class Result {
         int magesAlive = entityNumber;
         for (int i = 0; i < size; i++)
             for (int j = 0; j < size; j++)
-                for (EntityInterface entity : field[i][j].get_list()) {
+                for (Entity entity : field[i][j].get_list()) {
                     if (!entity.getAlive() && entity instanceof Warrior) warriorsAlive--;
                     if (!entity.getAlive() && entity instanceof Archer) archersAlive--;
                     if (!entity.getAlive() && entity instanceof Mage) magesAlive--;
