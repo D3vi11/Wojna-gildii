@@ -1,140 +1,98 @@
 package org.example;
 
 import org.example.entities.Archer;
-import org.example.entities.EntityInterface;
+import org.example.entities.Entity;
 import org.example.entities.Mage;
 import org.example.entities.Warrior;
 import org.example.map.Field;
-import org.example.map.Map;
-
+import org.example.map.Ground;
 import java.io.PrintWriter;
-
-/**
- * \class Wynik
- * Klasa licząca i wypisująca wyniki.
- *
- * Klasa pobiera dane opisujące stan gildii oraz poszczegolnych jednostek i wypisuje je w wynikach.
- */
+import java.util.ArrayList;
+import java.util.List;
 
 class Result {
 
-    private int warriors; /**< Zmienna przechowuje dane na temat liczby zywych wojownikow. */
-    private int archers;  /**< Zmienna przechowuje dane na temat liczby zywych lucznikow. */
-    private int mages;   /**< Zmienna przechowuje dane na temat liczby zywych magow. */
+    private int warriors;
+    private int archers;
+    private int mages;
 
-    /**
-     * Metoda zlicza liczbe zywych wojownikow.
-     *
-     * Metoda pobiera poczatkowa liczbe jednostek zadana przez uzytkownika oraz tablice przechowujaca obiekty z klasy wojownik i zlicza liczbe zywych jednostek z tej gildii.
-     *
-     * @param entityNumber parametr przechowuje ilosc jednostek zadanych na starcie przez uzytkownika.
-     */
 
-     void count(int entityNumber, Field[][] field, int size){
-        int warriorsAlive=entityNumber;
-        int archersAlive=entityNumber;
-        int magesAlive=entityNumber;
-        for(int i=0; i<size;i++)
-            for (int j = 0;j<size;j++)
-                for(EntityInterface entity: field[i][j].get_list())
-                    {
-                         if(!entity.getAlive() && entity instanceof Warrior) warriorsAlive--;
-                         if(!entity.getAlive() && entity instanceof Archer) archersAlive--;
-                         if(!entity.getAlive() && entity instanceof Mage) magesAlive--;
-                    }
+    void count(int entityNumber, Field[][] field, int size) {
+        int warriorsAlive = entityNumber;
+        int archersAlive = entityNumber;
+        int magesAlive = entityNumber;
+        for (int i = 0; i < size; i++)
+            for (int j = 0; j < size; j++)
+                for (Entity entity : field[i][j].getEntities()) {
+                    if (!entity.getAlive() && entity instanceof Warrior) warriorsAlive--;
+                    if (!entity.getAlive() && entity instanceof Archer) archersAlive--;
+                    if (!entity.getAlive() && entity instanceof Mage) magesAlive--;
+                }
 
-        warriors =warriorsAlive;
+        warriors = warriorsAlive;
         archers = archersAlive;
         mages = magesAlive;
     }
 
-
-    /**
-     *  Metoda zapisuje wyniki w pliku.
-     *
-     *  Metoda zapisuje paramtry w pliku. Wypisyje liczbe zywych jednotsek, liczbe martwych jednostek oraz ilosc Hp i polozenie kazdej jednostki.
-     *
-     * @param entityNumber  parametr przechowuje ilosc jednostek zadanych na starcie przez uzytkownika.
-     * @param output obiekt umozliwiajacy zapisanie wynikow  w pliku
-     */
-
-    public void writeOutput(int entityNumber, int warriorsAlive, int archersAlive, int magesAlive, PrintWriter output, Map map){
-        int ilosc_martwychW=entityNumber-warriorsAlive;
-        int ilosc_martwychL=entityNumber-archersAlive;
-        int ilosc_martwychM=entityNumber-magesAlive;
-        output.println( "Liczba jednostek gildii wojownikow: " + entityNumber);
+    public void writeOutput(int entityNumber, int warriorsAlive, int archersAlive, int magesAlive, PrintWriter output, Ground ground) {
+        int ilosc_martwychW = entityNumber - warriorsAlive;
+        int ilosc_martwychL = entityNumber - archersAlive;
+        int ilosc_martwychM = entityNumber - magesAlive;
+        output.println("Liczba jednostek gildii wojownikow: " + entityNumber);
         output.println("Ilosc zywych jednostek = " + warriorsAlive);
         output.println("Ilosc martwych jednostek = " + ilosc_martwychW);
-        output.println( "Liczba jednostek gildii łuczników: " + entityNumber);
+        output.println("Liczba jednostek gildii łuczników: " + entityNumber);
         output.println("Ilosc zywych jednostek = " + archersAlive);
         output.println("Ilosc martwych jednostek = " + ilosc_martwychL);
-        output.println( "Liczba jednostek gildii magów: " + entityNumber);
+        output.println("Liczba jednostek gildii magów: " + entityNumber);
         output.println("Ilosc zywych jednostek = " + magesAlive);
         output.println("Ilosc martwych jednostek = " + ilosc_martwychM);
 
-        for(int i = 0; i< map.getSize(); i++){
-            for(int j = 0; j< map.getSize(); j++){
-                for(int k = 0; k< map.getField(i,j).get_list().size(); k++){
-                    if(map.getField(i,j).getUnit(k).getAlive()) {
-                        if (map.getField(i, j).getUnit(k) instanceof Warrior)
-                            output.println("Jednostka z gildii wojowników nr " + map.getField(i, j).getUnit(k).getEntityNumber() + " jest na polu x: " + map.getField(i, j).getX() + " y: " + map.getField(i, j).getY());
-                        if (map.getField(i, j).getUnit(k) instanceof Archer)
-                            output.println("Jednostka z gildii luczników nr " + map.getField(i, j).getUnit(k).getEntityNumber() + " jest na polu x: " + map.getField(i, j).getX() + " y: " + map.getField(i, j).getY());
-                        if (map.getField(i, j).getUnit(k) instanceof Mage)
-                            output.println("Jednostka z gildii Magów nr " + map.getField(i, j).getUnit(k).getEntityNumber() + " jest na polu x: " + map.getField(i, j).getX() + " y: " + map.getField(i, j).getY());
+        for (int i = 0; i < ground.getSize(); i++) {
+            for (int j = 0; j < ground.getSize(); j++) {
+                for (int k = 0; k < ground.getField(i, j).getEntities().size(); k++) {
+                    if (ground.getField(i, j).getUnit(k).getAlive()) {
+                        if (ground.getField(i, j).getUnit(k) instanceof Warrior)
+                            output.println("Jednostka z gildii wojowników nr " + ground.getField(i, j).getUnit(k).getEntityNumber() + " jest na polu x: " + i + " y: " + j);
+                        if (ground.getField(i, j).getUnit(k) instanceof Archer)
+                            output.println("Jednostka z gildii luczników nr " + ground.getField(i, j).getUnit(k).getEntityNumber() + " jest na polu x: " + i+ " y: " + j);
+                        if (ground.getField(i, j).getUnit(k) instanceof Mage)
+                            output.println("Jednostka z gildii Magów nr " + ground.getField(i, j).getUnit(k).getEntityNumber() + " jest na polu x: " + i + " y: " + j);
                     }
                 }
-             }
+            }
         }
     }
 
-    /**
-     * Metoda zwraca aktualna liczbe zywych wojownikow.
-     * @return aktualna liczbe zywych wojownikow.
-     */
+    public List<String> victory(int entityNumber, Field[][] field, int size) {
+
+        List<String> list = new ArrayList<>();
+        count(entityNumber, field, size);
+        if (warriors == 0 && archers == 0) {
+            list.add("WYGRALI MAGOWIE");
+            return list;
+        }
+        if (warriors == 0 && mages == 0) {
+            list.add("WYGRALI LUCZNICY");
+            return list;
+        }
+        if (archers == 0 && mages == 0) {
+            list.add("WYGRALI WOJOWNICY");
+            return list;
+        }
+        list.add("WALKA NIEROZSTRZYGNIĘTA");
+        return list;
+    }
+
     int getWarriors() {
         return warriors;
     }
-
-    /**
-     *  Metoda zwraca aktualna liczbe zywych wojownikow.
-     * @return aktualna liczbe zywych lucznikow.
-     */
 
     int getArchers() {
         return archers;
     }
 
-    /**
-     * Metoda zwraca aktualna liczbe zywych wojownikow.
-     * @return aktualna liczbe zywych magow.
-     */
-
     int getMages() {
         return mages;
-    }
-    public BoolString victory(int entityNumber, BoolString inscription, Field[][] field, int size){
-
-        count(entityNumber, field, size);
-        if(warriors ==0&& archers ==0) {
-            inscription.setInscription("WYGRALI MAGOWIE");
-            inscription.setX(true);
-            return inscription;
-        }
-        if(warriors ==0&& mages ==0)
-        {
-            inscription.setInscription("WYGRALI LUCZNICY");
-            inscription.setX(true);
-            return inscription;
-        }
-        if(archers ==0&& mages ==0)
-        {
-            inscription.setInscription("WYGRALI WOJOWNICY");
-            inscription.setX(true);
-            return inscription;
-        }
-        inscription.setX(false);
-        inscription.setInscription("WALKA NIEROZSTRZYGNIĘTA");
-        return inscription;
     }
 }
