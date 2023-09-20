@@ -47,7 +47,7 @@ public class Guild {
         for (int i = 0; i < iterationNumber; i++) {
             for (int j = 0; j < mapSize; j++) {
                 for (int k = 0; k < mapSize; k++) {
-                    if (ground.getField(j, k).checkInstance()) {
+                    if (ground.getField(j, k).checkIfShouldFight()) {
                         iter++;
                     } else {
                         iter = 0;

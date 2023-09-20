@@ -6,13 +6,18 @@ import org.example.entities.Mage;
 import org.example.entities.Warrior;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class Field {
-    List<Entity> entities = new ArrayList<>();
+    private static final List<Entity> entities = new ArrayList<>();
 
     public void addUnit(Entity entity) {
         entities.add(entity);
+    }
+
+    public List<Entity> getEntities() {
+        return entities;
     }
 
     public Entity getUnit(int index) {
@@ -24,17 +29,20 @@ public class Field {
     }
 
     // zwraca true jeśli tylko jeden typ jednostki jest na danym polu i false jeśli jest więcej niż 1 typ
-    public boolean checkInstance() {
+    public boolean checkIfShouldFight() {
         boolean warrior = false, archer = false, mage = false;
         for (Entity entity : entities) {
             if (entity instanceof Warrior && entity.getAlive()) {
                 warrior = true;
+                System.out.println("Warrior "+warrior);
             }
             if (entity instanceof Archer && entity.getAlive()) {
                 archer = true;
+                System.out.println("Archer "+archer);
             }
             if (entity instanceof Mage && entity.getAlive()) {
                 mage = true;
+                System.out.println("Mage"+ mage);
             }
         }
         if (warrior && archer || warrior && mage || archer && mage) {
@@ -42,7 +50,4 @@ public class Field {
         } else return true;
     }
 
-    public List<Entity> getEntities() {
-        return entities;
-    }
 }

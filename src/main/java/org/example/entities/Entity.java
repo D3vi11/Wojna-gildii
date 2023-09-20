@@ -14,6 +14,7 @@ public abstract class Entity {
     private boolean isAlive;
     public Entity(int entityNumber) {
         this.entityNumber = entityNumber;
+        setAlive(true);
     }
     public abstract void attack(Entity enemy);
     public abstract void crit(Entity enemy, int critModifier);

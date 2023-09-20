@@ -9,7 +9,6 @@ public class Archer extends Entity {
         setArmor(60);
         setCrit(30);
         setCritModifier(3);
-        setAlive(true);
     }
     @Override
     public void attack(Entity enemy) {

@@ -13,7 +13,6 @@ public class Mage extends Entity {
         manaDmg = 30;
         setCrit(25);
         setCritModifier(2);
-        setAlive(true);
     }
 
     @Override

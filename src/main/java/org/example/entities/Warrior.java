@@ -9,7 +9,6 @@ public class Warrior extends Entity {
         setArmor(70);
         setCrit(35);
         setCritModifier(2);
-        setAlive(true);
     }
 
     @Override
