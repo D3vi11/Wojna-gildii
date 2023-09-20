@@ -14,7 +14,7 @@ public class Archer extends Entity {
      * konstruktor ustawia współrzędne, numer jednostki a także statystyki jednostek w tej gildii
      * @param entityNumber numer jednostki
      */
-    Archer(int entityNumber)
+    public Archer(int entityNumber)
     {
         super(entityNumber);
         setAttack(70);

@@ -15,7 +15,7 @@ public class Mage extends Entity {
      * konstruktor ustawia współrzędne, numer jednostki a także statystyki jednostek w tej gildii
      * @param entityNumber numer jednostki
      */
-    Mage(int entityNumber)
+    public Mage(int entityNumber)
     {
         super(entityNumber);
         setAttack(80);

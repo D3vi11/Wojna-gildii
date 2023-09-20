@@ -17,7 +17,7 @@ public class Warrior extends Entity {
      * @param entityNumber parametr zawierajacy numer jednostki.
      */
 
-    Warrior(int entityNumber)
+    public Warrior(int entityNumber)
     {
         super(entityNumber);
         setAttack(65);

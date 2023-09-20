@@ -26,7 +26,7 @@ public class Field {
      * @param yCoordinate parametr przechowujacy wspolrzedna y.
      */
 
-    Field(int xCoorinate, int yCoordinate)
+    public Field(int xCoorinate, int yCoordinate)
     {
         this.xCoorinate = xCoorinate;
         this.yCoordinate = yCoordinate;

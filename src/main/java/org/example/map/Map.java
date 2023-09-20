@@ -22,7 +22,7 @@ public class Map {
      * @param size parametr przechowujace rozmiar mapy.
      */
 
-    Map(int size)
+    public Map(int size)
     {
         this.size = size;
         fieldTable = new Field[size][size];
