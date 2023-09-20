@@ -1,27 +1,28 @@
 package org.example.map;
 
-import java.util.Random;
+import org.example.entities.Archer;
+import org.example.entities.Entity;
+import org.example.entities.Mage;
+import org.example.entities.Warrior;
+
+import java.util.*;
 
 public class Ground {
 
-    private final Field[][] fieldTable;
+    private final Map<String, List<Entity>> fieldMap;
     private final int size;
 
     public Ground(int size) {
+        fieldMap = new HashMap<>();
         this.size = size;
-        fieldTable = new Field[size][size];
         for (int i = 0; i < size; i++)
             for (int j = 0; j < size; j++) {
-                fieldTable[i][j] = new Field();
+                fieldMap.put(i+"|"+j,new ArrayList<>());
             }
     }
 
-    public Field[][] getFieldTable() {
-        return fieldTable;
-    }
-
-    public Field getField(int x, int y) {
-        return fieldTable[x][y];
+    public Map<String, List<Entity>> getFieldMap() {
+        return fieldMap;
     }
 
     public int getSize() {
@@ -33,8 +34,8 @@ public class Ground {
         int r;
         for (int i = 0; i < size; i++)
             for (int j = 0; j < size; j++)
-                for (int k = 0; k < fieldTable[i][j].getEntities().size(); k++) {
-                    if(fieldTable[i][j].canMove()){
+                for (int k = 0; k < fieldMap.get(i+"|"+j).size(); k++) {
+                    if(canMove(i,j)){
                         r = generator.nextInt(4);
                         switch (r) {
                             case 0-> moveRight(i,j,k);
@@ -47,26 +48,44 @@ public class Ground {
     }
     public void moveUp(int x, int y, int k){
         if (y < size-1) {
-            fieldTable[x][y + 1].addUnit(fieldTable[x][y].getUnit(k));
-            fieldTable[x][y].removeUnit(k);
+            fieldMap.get(x+"|"+(y+1)).add(fieldMap.get(x+"|"+y).get(k));
+            fieldMap.get(x+"|"+y).remove(k);
         }
     }
     public void moveDown(int x, int y, int k){
         if (y > 0) {
-            fieldTable[x][y - 1].addUnit(fieldTable[x][y].getUnit(k));
-            fieldTable[x][y].removeUnit(k);
+            fieldMap.get(x+"|"+(y-1)).add(fieldMap.get(x+"|"+y).get(k));
+            fieldMap.get(x+"|"+y).remove(k);
         }
     }
     public void moveLeft(int x, int y, int k){
         if (x > 0) {
-            fieldTable[x - 1][y].addUnit(fieldTable[x][y].getUnit(k));
-            fieldTable[x][y].removeUnit(k);
+            fieldMap.get((x-1)+"|"+y).add(fieldMap.get(x+"|"+y).get(k));
+            fieldMap.get(x+"|"+y).remove(k);
         }
     }
     public void moveRight(int x, int y, int k){
         if (x < size-1) {
-            fieldTable[x + 1][y].addUnit(fieldTable[x][y].getUnit(k));
-            fieldTable[x][y].removeUnit(k);
+            fieldMap.get((x+1)+"|"+y).add(fieldMap.get(x+"|"+y).get(k));
+            fieldMap.get(x+"|"+y).remove(k);
         }
+    }
+    // zwraca true jeśli tylko jeden typ jednostki jest na danym polu i false jeśli jest więcej niż 1 typ
+    public boolean canMove(int x, int y) {
+        boolean warrior = false, archer = false, mage = false;
+        for (Entity entity : fieldMap.get(x+"|"+y)) {
+            if (entity instanceof Warrior && entity.getAlive()) {
+                warrior = true;
+            }
+            if (entity instanceof Archer && entity.getAlive()) {
+                archer = true;
+            }
+            if (entity instanceof Mage && entity.getAlive()) {
+                mage = true;
+            }
+        }
+        if (warrior && archer || warrior && mage || archer && mage) {
+            return false;
+        } else return true;
     }
 }
