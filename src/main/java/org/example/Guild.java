@@ -53,7 +53,7 @@ public class Guild {
                         iter = 0;
                     }
                     if (iter == entityNumber) {
-                        ground.move(mapSize);
+                        ground.move();
                     }
                 }
             }

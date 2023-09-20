@@ -1,10 +1,12 @@
 package org.example.map;
 
+import org.example.entities.Mage;
+
 import java.util.Random;
 
 public class Ground {
 
-    private Field[][] fieldTable;
+    private final Field[][] fieldTable;
     private final int size;
 
     public Ground(int size) {
@@ -24,15 +26,11 @@ public class Ground {
         return fieldTable[x][y];
     }
 
-    public int gerNumberOfFields() {
-        return size ^ 2;
-    }
-
     public int getSize() {
         return size;
     }
 
-    public void move(int size) {
+    public void move() {
         Random generator = new Random();
         int r;
         for (int i = 0; i < size; i++)
@@ -40,35 +38,35 @@ public class Ground {
                 for (int k = 0; k < fieldTable[i][j].getEntities().size(); k++) {
                     r = generator.nextInt(4);
                     switch (r) {
-                        case 0: {
-                            if (i < size-1) {
-                                fieldTable[i + 1][j].addUnit(fieldTable[i][j].getUnit(k));
-                                fieldTable[i][j].removeUnit(k);
-                            }
-                        }
-                        break;
-                        case 1: {
-                            if (i > 0) {
-                                fieldTable[i - 1][j].addUnit(fieldTable[i][j].getUnit(k));
-                                fieldTable[i][j].removeUnit(k);
-                            }
-                        }
-                        break;
-                        case 2: {
-                            if (j < size-1) {
-                                fieldTable[i][j + 1].addUnit(fieldTable[i][j].getUnit(k));
-                                fieldTable[i][j].removeUnit(k);
-                            }
-                        }
-                        break;
-                        case 3: {
-                            if (j > 0) {
-                                fieldTable[i][j - 1].addUnit(fieldTable[i][j].getUnit(k));
-                                fieldTable[i][j].removeUnit(k);
-                            }
-                        }
-                        break;
+                        case 0-> moveRight(i,j,k);
+                        case 1-> moveLeft(i,j,k);
+                        case 2-> moveUp(i,j,k);
+                        case 3-> moveDown(i,j,k);
                     }
                 }
+    }
+    public void moveUp(int x, int y, int k){
+        if (y < size-1) {
+            fieldTable[x][y + 1].addUnit(fieldTable[x][y].getUnit(k));
+            fieldTable[x][y].removeUnit(k);
+        }
+    }
+    public void moveDown(int x, int y, int k){
+        if (y > 0) {
+            fieldTable[x][y - 1].addUnit(fieldTable[x][y].getUnit(k));
+            fieldTable[x][y].removeUnit(k);
+        }
+    }
+    public void moveLeft(int x, int y, int k){
+        if (x > 0) {
+            fieldTable[x - 1][y].addUnit(fieldTable[x][y].getUnit(k));
+            fieldTable[x][y].removeUnit(k);
+        }
+    }
+    public void moveRight(int x, int y, int k){
+        if (x < size-1) {
+            fieldTable[x + 1][y].addUnit(fieldTable[x][y].getUnit(k));
+            fieldTable[x][y].removeUnit(k);
+        }
     }
 }

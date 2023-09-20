@@ -10,7 +10,7 @@ import java.util.Comparator;
 import java.util.List;
 
 public class Field {
-    private static final List<Entity> entities = new ArrayList<>();
+    private final List<Entity> entities = new ArrayList<>();
 
     public void addUnit(Entity entity) {
         entities.add(entity);
