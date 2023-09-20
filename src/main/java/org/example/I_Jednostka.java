@@ -1,3 +1,5 @@
+package org.example;
+
 /**
  *  \interface I_Jednostka
  *  interfejs I_Jednostka

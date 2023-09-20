@@ -1,3 +1,5 @@
+package org.example;
+
 /**
  * \interface I_Wspolrzedne
  * Interfejs zawierajacy metody uzywane w klasie Pole.

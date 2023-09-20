@@ -1,3 +1,5 @@
+package org.example;
+
 import java.awt.*;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;

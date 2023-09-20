@@ -1,3 +1,5 @@
+package org.example;
+
 import java.util.Random;
 
 /**
@@ -9,7 +11,7 @@ import java.util.Random;
 
 public class Mapa {
 
-    private Pole [][] tablica_pol; /**< Tablica przechowujaca pola o wspolrzednych x i y. */
+    private Pole[][] tablica_pol; /**< Tablica przechowujaca pola o wspolrzednych x i y. */
     private final int rozmiar;
 
     /**
