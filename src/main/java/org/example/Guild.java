@@ -16,20 +16,16 @@ public class Guild {
     private static List<String> inscription;
 
     public static void main(String[] args) {
-
-        EventQueue.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                frame = new MyFrame();
-            }
-        });
-
-
+        EventQueue.invokeLater(()-> frame = new MyFrame());
     }
 
     Guild(int entityNumber, int iterationNumber, int mapSize) throws FileNotFoundException {
+
+        //create map
         Ground ground = new Ground(mapSize);
         int x, y;
+
+        //fill map with entities
         for (int i = 0; i < entityNumber; i++) {
             x = randomize(mapSize);
             y = randomize(mapSize);
@@ -41,39 +37,33 @@ public class Guild {
             y = randomize(mapSize);
             ground.getField(x, y).addUnit(new Mage(i + 1));
         }
+
+        //initialize file
         Result result = new Result();
         PrintWriter output = new PrintWriter("Wyniki.txt");
-        int iter = 0;
+
+        //move entities
         for (int i = 0; i < iterationNumber; i++) {
-            for (int j = 0; j < mapSize; j++) {
-                for (int k = 0; k < mapSize; k++) {
-                    if (ground.getField(j, k).checkIfShouldFight()) {
-                        iter++;
-                    } else {
-                        iter = 0;
-                    }
-                    if (iter == entityNumber) {
-                        ground.move();
-                    }
-                }
-            }
+            ground.moveEntities();
 
-
+            //attack
             for (int j = 0; j < mapSize; j++)
                 for (int k = 0; k < mapSize; k++)
                     for (int g = 0; g < ground.getField(j, k).getEntities().size(); g++)
                         for (int z = 0; z < ground.getField(j, k).getEntities().size(); z++) {
                             ground.getField(j, k).getUnit(g).attack(ground.getField(j, k).getUnit(z));
                         }
+            //write to file
             result.count(entityNumber, ground.getFieldTable(), mapSize);
             output.println(" ");
             output.println("ITERACJA NR " + (i + 1));
             output.println(" ");
             result.writeOutput(entityNumber, result.getWarriors(), result.getArchers(), result.getMages(), output, ground);
             inscription = result.victory(entityNumber, ground.getFieldTable(), mapSize);
-            if (!inscription.isEmpty()&&!inscription.get(0).equals("WALKA NIEROZSTRZYGNIĘTA")) break;
+            if (!inscription.isEmpty() && !inscription.get(0).equals("WALKA NIEROZSTRZYGNIĘTA")) break;
         }
 
+        //close file
         output.close();
     }
 

@@ -20,7 +20,7 @@ public class FieldTests {
     public void shouldFight() {
         field.addUnit(new Warrior(1));
         field.addUnit(new Archer(2));
-        boolean result = field.checkIfShouldFight();
+        boolean result = field.canMove();
         Assertions.assertFalse(result);
     }
 
@@ -28,7 +28,7 @@ public class FieldTests {
     public void shouldntFight() {
         field.addUnit(new Warrior(1));
         field.addUnit(new Warrior(2));
-        boolean result = field.checkIfShouldFight();
+        boolean result = field.canMove();
         Assertions.assertTrue(result);
     }
 
@@ -37,7 +37,7 @@ public class FieldTests {
         field.addUnit(new Warrior(1));
         field.addUnit(new Archer(2));
         field.getUnit(0).setAlive(false);
-        boolean result = field.checkIfShouldFight();
+        boolean result = field.canMove();
         Assertions.assertTrue(result);
     }
 }

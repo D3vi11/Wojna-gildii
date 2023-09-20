@@ -1,7 +1,5 @@
 package org.example.map;
 
-import org.example.entities.Mage;
-
 import java.util.Random;
 
 public class Ground {
@@ -30,18 +28,20 @@ public class Ground {
         return size;
     }
 
-    public void move() {
+    public void moveEntities() {
         Random generator = new Random();
         int r;
         for (int i = 0; i < size; i++)
             for (int j = 0; j < size; j++)
                 for (int k = 0; k < fieldTable[i][j].getEntities().size(); k++) {
-                    r = generator.nextInt(4);
-                    switch (r) {
-                        case 0-> moveRight(i,j,k);
-                        case 1-> moveLeft(i,j,k);
-                        case 2-> moveUp(i,j,k);
-                        case 3-> moveDown(i,j,k);
+                    if(fieldTable[i][j].canMove()){
+                        r = generator.nextInt(4);
+                        switch (r) {
+                            case 0-> moveRight(i,j,k);
+                            case 1-> moveLeft(i,j,k);
+                            case 2-> moveUp(i,j,k);
+                            case 3-> moveDown(i,j,k);
+                        }
                     }
                 }
     }

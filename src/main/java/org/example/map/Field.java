@@ -6,7 +6,6 @@ import org.example.entities.Mage;
 import org.example.entities.Warrior;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 
 public class Field {
@@ -29,7 +28,7 @@ public class Field {
     }
 
     // zwraca true jeśli tylko jeden typ jednostki jest na danym polu i false jeśli jest więcej niż 1 typ
-    public boolean checkIfShouldFight() {
+    public boolean canMove() {
         boolean warrior = false, archer = false, mage = false;
         for (Entity entity : entities) {
             if (entity instanceof Warrior && entity.getAlive()) {
