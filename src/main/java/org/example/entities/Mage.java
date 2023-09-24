@@ -22,9 +22,9 @@ public class Mage extends Entity {
                 crit(enemy, getCritModifier());
             } else {
                 if (mana == 0) {
-                    enemy.setHp((enemy.getHp() - getAttack()) + enemy.getArmor() / 10);
+                    enemy.takeDamage(getAttack());
                 } else {
-                    enemy.setHp(enemy.getHp() - (getAttack() + manaDmg) + getArmor() / 10);
+                    enemy.takeDamage(getAttack()+manaDmg);
                     mana -= 10;
                 }
 
@@ -36,9 +36,9 @@ public class Mage extends Entity {
     @Override
     public void crit(Entity enemy, int critModifier) {
         if (mana == 0) {
-            enemy.setHp((enemy.getHp() - critModifier * getAttack() + enemy.getArmor() / 10));
+            enemy.takeDamage(getAttack()*critModifier);
         } else {
-            enemy.setHp(enemy.getHp() - (critModifier * getAttack() + manaDmg) + getArmor() / 10);
+            enemy.takeDamage(getAttack()*critModifier+manaDmg);
             mana -= 10;
         }
     }

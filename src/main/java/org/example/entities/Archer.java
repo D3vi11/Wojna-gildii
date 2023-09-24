@@ -10,21 +10,10 @@ public class Archer extends Entity {
         setCrit(30);
         setCritModifier(3);
     }
-    @Override
-    public void attack(Entity enemy) {
-        if (checkInstance(enemy)) {
-            if (rollCrit()) {
-                crit(enemy, getCritModifier());
-            } else
-                enemy.setHp((enemy.getHp() - getAttack()) + enemy.getArmor() / 10);
-            enemy.death(enemy.getHp());
-        }
-
-    }
 
     @Override
     public void crit(Entity enemy, int critModifier) {
-        enemy.setHp((enemy.getHp() - critModifier * getAttack()) + enemy.getArmor() / 10);
+        enemy.takeDamage(getAttack()*critModifier);
         if (enemy.getAttack() >= 10) enemy.setAttack(enemy.getAttack() - 5);
     }
 }

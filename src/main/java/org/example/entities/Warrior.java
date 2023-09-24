@@ -12,19 +12,8 @@ public class Warrior extends Entity {
     }
 
     @Override
-    public void attack(Entity enemy) {
-        if (checkInstance(enemy)) {
-            if (rollCrit())
-                crit(enemy, getCritModifier());
-            else
-                enemy.setHp((enemy.getHp() - getAttack()) + enemy.getArmor() / 10);
-            enemy.death(enemy.getHp());
-        }
-    }
-
-    @Override
     public void crit(Entity enemy, int critModifier) {
-        enemy.setHp((enemy.getHp() - critModifier * getAttack()) + enemy.getArmor() / 10);
+        enemy.takeDamage(getAttack()*critModifier);
     }
 
 }
