@@ -1,10 +1,7 @@
 package org.example.map;
 
 import lombok.Getter;
-import org.example.entities.Archer;
 import org.example.entities.Entity;
-import org.example.entities.Mage;
-import org.example.entities.Warrior;
 
 import java.util.*;
 
@@ -19,54 +16,65 @@ public class Ground {
         this.size = size;
         for (int i = 0; i < size; i++)
             for (int j = 0; j < size; j++) {
-                fieldMap.put(i+"|"+j,new ArrayList<>());
+                fieldMap.put(i + "|" + j, new ArrayList<>());
             }
     }
+
     public void moveEntities() {
         Random generator = new Random();
         int r;
         for (int i = 0; i < size; i++)
             for (int j = 0; j < size; j++)
-                for (int k = 0; k < fieldMap.get(i+"|"+j).size(); k++) {
-                    if(canMove(i,j)){
+                for (Entity entity : fieldMap.get(i + "|" + j)) {
+                    if (canMove(i, j)) {
                         r = generator.nextInt(4);
                         switch (r) {
-                            case 0-> moveRight(i,j,k);
-                            case 1-> moveLeft(i,j,k);
-                            case 2-> moveUp(i,j,k);
-                            case 3-> moveDown(i,j,k);
+                            case 0 -> moveRight(i, j, entity);
+                            case 1 -> moveLeft(i, j, entity);
+                            case 2 -> moveUp(i, j, entity);
+                            case 3 -> moveDown(i, j, entity);
                         }
                     }
                 }
     }
-    public void moveUp(int x, int y, int k){
-        if (y < size-1) {
-            fieldMap.get(x+"|"+(y+1)).add(fieldMap.get(x+"|"+y).get(k));
-            fieldMap.get(x+"|"+y).remove(k);
+
+    public void moveUp(int x, int y, Entity entity) {
+        if (y < size - 1) {
+            fieldMap.get(x + "|" + (y + 1)).add(entity);
+            fieldMap.get(x + "|" + y).remove(entity);
         }
     }
-    public void moveDown(int x, int y, int k){
+
+    public void moveDown(int x, int y, Entity entity) {
         if (y > 0) {
-            fieldMap.get(x+"|"+(y-1)).add(fieldMap.get(x+"|"+y).get(k));
-            fieldMap.get(x+"|"+y).remove(k);
+            fieldMap.get(x + "|" + (y - 1)).add(entity);
+            fieldMap.get(x + "|" + y).remove(entity);
         }
     }
-    public void moveLeft(int x, int y, int k){
+
+    public void moveLeft(int x, int y, Entity entity) {
         if (x > 0) {
-            fieldMap.get((x-1)+"|"+y).add(fieldMap.get(x+"|"+y).get(k));
-            fieldMap.get(x+"|"+y).remove(k);
+            fieldMap.get((x - 1) + "|" + y).add(entity);
+            fieldMap.get(x + "|" + y).remove(entity);
         }
     }
-    public void moveRight(int x, int y, int k){
-        if (x < size-1) {
-            fieldMap.get((x+1)+"|"+y).add(fieldMap.get(x+"|"+y).get(k));
-            fieldMap.get(x+"|"+y).remove(k);
+
+    public void moveRight(int x, int y, Entity entity) {
+        if (x < size - 1) {
+            fieldMap.get((x + 1) + "|" + y).add(entity);
+            fieldMap.get(x + "|" + y).remove(entity);
         }
     }
+
     // zwraca true jeśli tylko jeden typ jednostki jest na danym polu i false jeśli jest więcej niż 1 typ
     public boolean canMove(int xCoordinate, int yCoordinate) {
-        for(Entity entity:fieldMap.get(xCoordinate+"|"+yCoordinate)){
-            if(fieldMap.get(xCoordinate+"|"+yCoordinate).get(0).getClass()!=entity.getClass()){
+        List<Entity> entities = fieldMap.get(xCoordinate + "|" + yCoordinate);
+        int index = 0;
+        for (Entity entity : entities) {
+            if(!entities.get(index).isAlive()&&index<entities.size()-1){
+                index++;
+            }
+            if (entities.get(index).getClass() != entity.getClass()&&entity.isAlive()&&entities.get(index).isAlive()) {
                 return false;
             }
         }

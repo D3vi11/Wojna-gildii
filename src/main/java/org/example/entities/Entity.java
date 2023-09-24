@@ -15,7 +15,7 @@ public abstract class Entity {
     private int crit;
     private int critModifier;
     private int attack;
-    private boolean isAlive;
+    private boolean isAlive=true;
 
     public Entity(int entityNumber) {
         this.entityNumber = entityNumber;
