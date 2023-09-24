@@ -1,5 +1,6 @@
 package org.example;
 
+import lombok.Getter;
 import org.example.entities.Archer;
 import org.example.entities.Entity;
 import org.example.entities.Mage;
@@ -10,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+@Getter
 class Result {
 
     private int warriors;
@@ -24,9 +26,9 @@ class Result {
         for (int i = 0; i < size; i++)
             for (int j = 0; j < size; j++)
                 for (Entity entity : field.get(i+"|"+j)) {
-                    if (!entity.getAlive() && entity instanceof Warrior) warriorsAlive--;
-                    if (!entity.getAlive() && entity instanceof Archer) archersAlive--;
-                    if (!entity.getAlive() && entity instanceof Mage) magesAlive--;
+                    if (!entity.isAlive() && entity instanceof Warrior) warriorsAlive--;
+                    if (!entity.isAlive() && entity instanceof Archer) archersAlive--;
+                    if (!entity.isAlive() && entity instanceof Mage) magesAlive--;
                 }
 
         warriors = warriorsAlive;
@@ -51,7 +53,7 @@ class Result {
         for (int i = 0; i < ground.getSize(); i++) {
             for (int j = 0; j < ground.getSize(); j++) {
                 for (int k = 0; k < ground.getFieldMap().get(i+"|"+j).size(); k++) {
-                    if (ground.getFieldMap().get(i+"|"+j).get(k).getAlive()) {
+                    if (ground.getFieldMap().get(i+"|"+j).get(k).isAlive()) {
                         if (ground.getFieldMap().get(i+"|"+j).get(k) instanceof Warrior)
                             output.println("Jednostka z gildii wojowników nr " + ground.getFieldMap().get(i+"|"+j).get(k).getEntityNumber() + " jest na polu x: " + i + " y: " + j);
                         if (ground.getFieldMap().get(i+"|"+j).get(k) instanceof Archer)
@@ -82,17 +84,5 @@ class Result {
         }
         list.add("WALKA NIEROZSTRZYGNIĘTA");
         return list;
-    }
-
-    int getWarriors() {
-        return warriors;
-    }
-
-    int getArchers() {
-        return archers;
-    }
-
-    int getMages() {
-        return mages;
     }
 }

@@ -1,76 +1,27 @@
 package org.example.entities;
 
+import lombok.Data;
+import lombok.NonNull;
+
 import java.util.Random;
 
+@Data
 public abstract class Entity {
 
-
+    @NonNull
+    private final int entityNumber;
     private int hp;
     private int armor;
     private int crit;
     private int critModifier;
     private int attack;
-    private final int entityNumber;
     private boolean isAlive;
+
     public Entity(int entityNumber) {
         this.entityNumber = entityNumber;
-        setAlive(true);
     }
     public abstract void attack(Entity enemy);
     public abstract void crit(Entity enemy, int critModifier);
-
-    public int getEntityNumber() {
-        return entityNumber;
-    }
-
-    public boolean getAlive() {
-        return isAlive;
-    }
-
-    public void setAlive(boolean alive) {
-        this.isAlive = alive;
-    }
-
-    public int getHp() {
-        return hp;
-    }
-
-    public void setHp(int hp) {
-        this.hp = hp;
-    }
-
-    public int getArmor() {
-        return armor;
-    }
-
-    public void setArmor(int armor) {
-        this.armor = armor;
-    }
-
-    public int getAttack() {
-        return attack;
-    }
-
-    public void setAttack(int attack) {
-        this.attack = attack;
-    }
-
-    public int getCrit() {
-        return crit;
-    }
-
-    public void setCrit(int crit) {
-        this.crit = crit;
-    }
-
-    public int getCritModifier() {
-        return critModifier;
-    }
-
-    public void setCritModifier(int critModifier) {
-        this.critModifier = critModifier;
-    }
-
     public void death(int hp) {
         isAlive = hp > 0;
     }

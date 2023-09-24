@@ -1,5 +1,6 @@
 package org.example.map;
 
+import lombok.Getter;
 import org.example.entities.Archer;
 import org.example.entities.Entity;
 import org.example.entities.Mage;
@@ -7,6 +8,7 @@ import org.example.entities.Warrior;
 
 import java.util.*;
 
+@Getter
 public class Ground {
 
     private final Map<String, List<Entity>> fieldMap;
@@ -20,15 +22,6 @@ public class Ground {
                 fieldMap.put(i+"|"+j,new ArrayList<>());
             }
     }
-
-    public Map<String, List<Entity>> getFieldMap() {
-        return fieldMap;
-    }
-
-    public int getSize() {
-        return size;
-    }
-
     public void moveEntities() {
         Random generator = new Random();
         int r;
@@ -74,13 +67,13 @@ public class Ground {
     public boolean canMove(int x, int y) {
         boolean warrior = false, archer = false, mage = false;
         for (Entity entity : fieldMap.get(x+"|"+y)) {
-            if (entity instanceof Warrior && entity.getAlive()) {
+            if (entity instanceof Warrior && entity.isAlive()) {
                 warrior = true;
             }
-            if (entity instanceof Archer && entity.getAlive()) {
+            if (entity instanceof Archer && entity.isAlive()) {
                 archer = true;
             }
-            if (entity instanceof Mage && entity.getAlive()) {
+            if (entity instanceof Mage && entity.isAlive()) {
                 mage = true;
             }
         }

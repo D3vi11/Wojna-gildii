@@ -1,5 +1,6 @@
 package org.example;
 
+import lombok.Getter;
 import org.example.entities.Archer;
 import org.example.entities.Mage;
 import org.example.entities.Warrior;
@@ -10,6 +11,7 @@ import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.*;
 
+@Getter
 public class Guild {
     public static MyFrame frame;
 
@@ -70,10 +72,6 @@ public class Guild {
     private static int randomize(int mapSize) {
         Random random = new Random();
         return random.nextInt(mapSize);
-    }
-
-    public static List<String> getInscription() {
-        return inscription;
     }
 }
 
