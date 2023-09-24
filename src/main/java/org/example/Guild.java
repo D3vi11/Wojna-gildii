@@ -11,11 +11,10 @@ import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.*;
 
-@Getter
 public class Guild {
     public static MyFrame frame;
 
-    private static List<String> inscription;
+    public static List<String> inscription;
 
     public static void main(String[] args) {
         EventQueue.invokeLater(()-> frame = new MyFrame());
