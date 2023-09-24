@@ -29,13 +29,13 @@ public class Guild {
         for (int i = 0; i < entityNumber; i++) {
             x = randomize(mapSize);
             y = randomize(mapSize);
-            ground.getField(x, y).addUnit(new Warrior(i + 1));
+            ground.getFieldMap().get(x+"|"+y).add(new Warrior(i + 1));
             x = randomize(mapSize);
             y = randomize(mapSize);
-            ground.getField(x, y).addUnit(new Archer(i + 1));
+            ground.getFieldMap().get(x+"|"+y).add(new Archer(i + 1));
             x = randomize(mapSize);
             y = randomize(mapSize);
-            ground.getField(x, y).addUnit(new Mage(i + 1));
+            ground.getFieldMap().get(x+"|"+y).add(new Mage(i + 1));
         }
 
         //initialize file
@@ -49,17 +49,17 @@ public class Guild {
             //attack
             for (int j = 0; j < mapSize; j++)
                 for (int k = 0; k < mapSize; k++)
-                    for (int g = 0; g < ground.getField(j, k).getEntities().size(); g++)
-                        for (int z = 0; z < ground.getField(j, k).getEntities().size(); z++) {
-                            ground.getField(j, k).getUnit(g).attack(ground.getField(j, k).getUnit(z));
+                    for (int g = 0; g < ground.getFieldMap().get(j+"|"+k).size(); g++)
+                        for (int z = 0; z < ground.getFieldMap().get(j+"|"+k).size(); z++) {
+                            ground.getFieldMap().get(j+"|"+k).get(g).attack(ground.getFieldMap().get(j+"|"+k).get(z));
                         }
             //write to file
-            result.count(entityNumber, ground.getFieldTable(), mapSize);
+            result.count(entityNumber, ground.getFieldMap(), mapSize);
             output.println(" ");
             output.println("ITERACJA NR " + (i + 1));
             output.println(" ");
             result.writeOutput(entityNumber, result.getWarriors(), result.getArchers(), result.getMages(), output, ground);
-            inscription = result.victory(entityNumber, ground.getFieldTable(), mapSize);
+            inscription = result.victory(entityNumber, ground.getFieldMap(), mapSize);
             if (!inscription.isEmpty() && !inscription.get(0).equals("WALKA NIEROZSTRZYGNIĘTA")) break;
         }
 

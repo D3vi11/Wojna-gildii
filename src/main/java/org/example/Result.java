@@ -4,11 +4,11 @@ import org.example.entities.Archer;
 import org.example.entities.Entity;
 import org.example.entities.Mage;
 import org.example.entities.Warrior;
-import org.example.map.Field;
 import org.example.map.Ground;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 class Result {
 
@@ -17,13 +17,13 @@ class Result {
     private int mages;
 
 
-    void count(int entityNumber, Field[][] field, int size) {
+    void count(int entityNumber, Map<String,List<Entity>> field, int size) {
         int warriorsAlive = entityNumber;
         int archersAlive = entityNumber;
         int magesAlive = entityNumber;
         for (int i = 0; i < size; i++)
             for (int j = 0; j < size; j++)
-                for (Entity entity : field[i][j].getEntities()) {
+                for (Entity entity : field.get(i+"|"+j)) {
                     if (!entity.getAlive() && entity instanceof Warrior) warriorsAlive--;
                     if (!entity.getAlive() && entity instanceof Archer) archersAlive--;
                     if (!entity.getAlive() && entity instanceof Mage) magesAlive--;
@@ -50,21 +50,21 @@ class Result {
 
         for (int i = 0; i < ground.getSize(); i++) {
             for (int j = 0; j < ground.getSize(); j++) {
-                for (int k = 0; k < ground.getField(i, j).getEntities().size(); k++) {
-                    if (ground.getField(i, j).getUnit(k).getAlive()) {
-                        if (ground.getField(i, j).getUnit(k) instanceof Warrior)
-                            output.println("Jednostka z gildii wojowników nr " + ground.getField(i, j).getUnit(k).getEntityNumber() + " jest na polu x: " + i + " y: " + j);
-                        if (ground.getField(i, j).getUnit(k) instanceof Archer)
-                            output.println("Jednostka z gildii luczników nr " + ground.getField(i, j).getUnit(k).getEntityNumber() + " jest na polu x: " + i+ " y: " + j);
-                        if (ground.getField(i, j).getUnit(k) instanceof Mage)
-                            output.println("Jednostka z gildii Magów nr " + ground.getField(i, j).getUnit(k).getEntityNumber() + " jest na polu x: " + i + " y: " + j);
+                for (int k = 0; k < ground.getFieldMap().get(i+"|"+j).size(); k++) {
+                    if (ground.getFieldMap().get(i+"|"+j).get(k).getAlive()) {
+                        if (ground.getFieldMap().get(i+"|"+j).get(k) instanceof Warrior)
+                            output.println("Jednostka z gildii wojowników nr " + ground.getFieldMap().get(i+"|"+j).get(k).getEntityNumber() + " jest na polu x: " + i + " y: " + j);
+                        if (ground.getFieldMap().get(i+"|"+j).get(k) instanceof Archer)
+                            output.println("Jednostka z gildii luczników nr " + ground.getFieldMap().get(i+"|"+j).get(k).getEntityNumber() + " jest na polu x: " + i+ " y: " + j);
+                        if (ground.getFieldMap().get(i+"|"+j).get(k) instanceof Mage)
+                            output.println("Jednostka z gildii Magów nr " + ground.getFieldMap().get(i+"|"+j).get(k).getEntityNumber() + " jest na polu x: " + i + " y: " + j);
                     }
                 }
             }
         }
     }
 
-    public List<String> victory(int entityNumber, Field[][] field, int size) {
+    public List<String> victory(int entityNumber, Map<String,List<Entity>> field, int size) {
 
         List<String> list = new ArrayList<>();
         count(entityNumber, field, size);
