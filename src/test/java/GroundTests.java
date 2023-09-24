@@ -7,7 +7,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class GroundTests {
-    static Ground ground;
+    private static Ground ground;
 
     @BeforeEach
     public void prepareData() {

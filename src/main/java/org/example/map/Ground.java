@@ -64,21 +64,12 @@ public class Ground {
         }
     }
     // zwraca true jeśli tylko jeden typ jednostki jest na danym polu i false jeśli jest więcej niż 1 typ
-    public boolean canMove(int x, int y) {
-        boolean warrior = false, archer = false, mage = false;
-        for (Entity entity : fieldMap.get(x+"|"+y)) {
-            if (entity instanceof Warrior && entity.isAlive()) {
-                warrior = true;
-            }
-            if (entity instanceof Archer && entity.isAlive()) {
-                archer = true;
-            }
-            if (entity instanceof Mage && entity.isAlive()) {
-                mage = true;
+    public boolean canMove(int xCoordinate, int yCoordinate) {
+        for(Entity entity:fieldMap.get(xCoordinate+"|"+yCoordinate)){
+            if(fieldMap.get(xCoordinate+"|"+yCoordinate).get(0).getClass()!=entity.getClass()){
+                return false;
             }
         }
-        if (warrior && archer || warrior && mage || archer && mage) {
-            return false;
-        } else return true;
+        return true;
     }
 }
