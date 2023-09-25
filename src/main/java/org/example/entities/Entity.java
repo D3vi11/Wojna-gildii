@@ -17,7 +17,7 @@ public abstract class Entity {
     private int attack;
     private boolean isAlive=true;
     public abstract void crit(Entity enemy, int critModifier);
-    public void death(int hp) {
+    public void death() {
         isAlive = hp > 0;
     }
 
@@ -32,7 +32,6 @@ public abstract class Entity {
                 crit(enemy, getCritModifier());
             } else
                 enemy.takeDamage(getAttack());
-            enemy.death(enemy.getHp());
         }
     }
 
@@ -43,6 +42,7 @@ public abstract class Entity {
 
     public void takeDamage(int damage){
         hp-=(damage-armor/10);
+        death();
     }
 
 

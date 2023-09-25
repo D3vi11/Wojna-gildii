@@ -1,5 +1,8 @@
 package org.example.entities;
 
+import lombok.Getter;
+
+@Getter
 public class Mage extends Entity {
     private int mana;
     private final int manaDmg;
@@ -27,9 +30,7 @@ public class Mage extends Entity {
                     enemy.takeDamage(getAttack()+manaDmg);
                     mana -= 10;
                 }
-
             }
-            enemy.death(enemy.getHp());
         }
     }
 
