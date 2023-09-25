@@ -14,41 +14,19 @@ import java.util.Map;
 @Getter
 class Result {
 
-    private int warriors;
-    private int archers;
-    private int mages;
-
-
-    void count(int entityNumber, Map<String,List<Entity>> field, int size) {
-        int warriorsAlive = entityNumber;
-        int archersAlive = entityNumber;
-        int magesAlive = entityNumber;
-        for (int i = 0; i < size; i++)
-            for (int j = 0; j < size; j++)
-                for (Entity entity : field.get(i+"|"+j)) {
-                    if (!entity.isAlive() && entity instanceof Warrior) warriorsAlive--;
-                    if (!entity.isAlive() && entity instanceof Archer) archersAlive--;
-                    if (!entity.isAlive() && entity instanceof Mage) magesAlive--;
-                }
-
-        warriors = warriorsAlive;
-        archers = archersAlive;
-        mages = magesAlive;
-    }
-
-    public void writeOutput(int entityNumber, int warriorsAlive, int archersAlive, int magesAlive, PrintWriter output, Ground ground) {
-        int ilosc_martwychW = entityNumber - warriorsAlive;
-        int ilosc_martwychL = entityNumber - archersAlive;
-        int ilosc_martwychM = entityNumber - magesAlive;
+    public void writeOutput(int entityNumber, PrintWriter output, Ground ground) {
+        int deadWarriorsCount = entityNumber - Entity.getWarriorCount();
+        int deadArchersCount = entityNumber - Entity.getArcherCount();
+        int deadMagesCount = entityNumber - Entity.getMageCount();
         output.println("Liczba jednostek gildii wojownikow: " + entityNumber);
-        output.println("Ilosc zywych jednostek = " + warriorsAlive);
-        output.println("Ilosc martwych jednostek = " + ilosc_martwychW);
+        output.println("Ilosc zywych jednostek = " + Entity.getWarriorCount());
+        output.println("Ilosc martwych jednostek = " + deadWarriorsCount);
         output.println("Liczba jednostek gildii łuczników: " + entityNumber);
-        output.println("Ilosc zywych jednostek = " + archersAlive);
-        output.println("Ilosc martwych jednostek = " + ilosc_martwychL);
+        output.println("Ilosc zywych jednostek = " + Entity.getArcherCount());
+        output.println("Ilosc martwych jednostek = " + deadArchersCount);
         output.println("Liczba jednostek gildii magów: " + entityNumber);
-        output.println("Ilosc zywych jednostek = " + magesAlive);
-        output.println("Ilosc martwych jednostek = " + ilosc_martwychM);
+        output.println("Ilosc zywych jednostek = " + Entity.getMageCount());
+        output.println("Ilosc martwych jednostek = " + deadMagesCount);
 
         for (int i = 0; i < ground.getSize(); i++) {
             for (int j = 0; j < ground.getSize(); j++) {
@@ -66,23 +44,16 @@ class Result {
         }
     }
 
-    public List<String> victory(int entityNumber, Map<String,List<Entity>> field, int size) {
-
-        List<String> list = new ArrayList<>();
-        count(entityNumber, field, size);
-        if (warriors == 0 && archers == 0) {
-            list.add("WYGRALI MAGOWIE");
-            return list;
+    public String victory() {
+        if (Entity.getWarriorCount() == 0 && Entity.getArcherCount() == 0) {
+            return "WYGRALI MAGOWIE";
         }
-        if (warriors == 0 && mages == 0) {
-            list.add("WYGRALI LUCZNICY");
-            return list;
+        if (Entity.getWarriorCount() == 0 && Entity.getMageCount() == 0) {
+            return "WYGRALI LUCZNICY";
         }
-        if (archers == 0 && mages == 0) {
-            list.add("WYGRALI WOJOWNICY");
-            return list;
+        if (Entity.getArcherCount() == 0 && Entity.getMageCount() == 0) {
+            return "WYGRALI WOJOWNICY";
         }
-        list.add("WALKA NIEROZSTRZYGNIĘTA");
-        return list;
+        return "WALKA NIEROZSTRZYGNIĘTA";
     }
 }

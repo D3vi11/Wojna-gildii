@@ -4,11 +4,12 @@ import lombok.Getter;
 
 @Getter
 public class Mage extends Entity {
+
     private int mana;
     private final int manaDmg;
 
-    public Mage(int entityNumber) {
-        super(entityNumber);
+    public Mage() {
+        super();
         setAttack(80);
         setHp(700);
         setArmor(40);
@@ -16,6 +17,8 @@ public class Mage extends Entity {
         manaDmg = 30;
         setCrit(25);
         setCritModifier(2);
+        mageCount++;
+        setEntityNumber(mageCount);
     }
 
     @Override

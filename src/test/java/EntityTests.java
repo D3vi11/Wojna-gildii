@@ -19,9 +19,9 @@ public class EntityTests {
     @BeforeEach
     public void prepareData(){
         entities.clear();
-        entities.add(new Mage(1));
-        entities.add(new Mage(2));
-        entities.add(new Warrior(3));
+        entities.add(new Mage());
+        entities.add(new Mage());
+        entities.add(new Warrior());
     }
 
     @Test
@@ -45,5 +45,6 @@ public class EntityTests {
         //700 mage max hp, 40 armor- dmg reduced by 4;
         entity.takeDamage(704);
         Assertions.assertFalse(entity.isAlive());
+        System.out.println();
     }
 }

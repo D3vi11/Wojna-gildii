@@ -23,43 +23,51 @@ public class Ground {
     public void moveEntities() {
         Random generator = new Random();
         int r;
-        for (int i = 0; i < size; i++)
-            for (int j = 0; j < size; j++)
-                for (Entity entity : fieldMap.get(i + "|" + j)) {
+        for (int i = 0; i < size; i++){
+            for (int j = 0; j < size; j++){
+                int enitiesSize = fieldMap.get(i + "|" + j).size();
+                for(int k=0;k<enitiesSize;k++){
                     if (canMove(i, j)) {
                         r = generator.nextInt(4);
                         switch (r) {
-                            case 0 -> moveRight(i, j, entity);
-                            case 1 -> moveLeft(i, j, entity);
-                            case 2 -> moveUp(i, j, entity);
-                            case 3 -> moveDown(i, j, entity);
+                            case 0 -> moveRight(i, j, k);
+                            case 1 -> moveLeft(i, j, k);
+                            case 2 -> moveUp(i, j, k);
+                            case 3 -> moveDown(i, j, k);
                         }
                     }
                 }
+            }
+        }
+
     }
 
-    public void moveUp(int x, int y, Entity entity) {
+    public void moveUp(int x, int y, int entityIndex) {
+        Entity entity = fieldMap.get(x + "|" + y).get(entityIndex);
         if (y < size - 1) {
             fieldMap.get(x + "|" + (y + 1)).add(entity);
             fieldMap.get(x + "|" + y).remove(entity);
         }
     }
 
-    public void moveDown(int x, int y, Entity entity) {
+    public void moveDown(int x, int y, int entityIndex) {
+        Entity entity = fieldMap.get(x + "|" + y).get(entityIndex);
         if (y > 0) {
             fieldMap.get(x + "|" + (y - 1)).add(entity);
             fieldMap.get(x + "|" + y).remove(entity);
         }
     }
 
-    public void moveLeft(int x, int y, Entity entity) {
+    public void moveLeft(int x, int y, int entityIndex) {
+        Entity entity = fieldMap.get(x + "|" + y).get(entityIndex);
         if (x > 0) {
             fieldMap.get((x - 1) + "|" + y).add(entity);
             fieldMap.get(x + "|" + y).remove(entity);
         }
     }
 
-    public void moveRight(int x, int y, Entity entity) {
+    public void moveRight(int x, int y, int entityIndex) {
+        Entity entity = fieldMap.get(x + "|" + y).get(entityIndex);
         if (x < size - 1) {
             fieldMap.get((x + 1) + "|" + y).add(entity);
             fieldMap.get(x + "|" + y).remove(entity);

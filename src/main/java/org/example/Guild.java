@@ -2,6 +2,7 @@ package org.example;
 
 import lombok.Getter;
 import org.example.entities.Archer;
+import org.example.entities.Entity;
 import org.example.entities.Mage;
 import org.example.entities.Warrior;
 import org.example.map.Ground;
@@ -14,7 +15,7 @@ import java.util.*;
 public class Guild {
     public static MyFrame frame;
 
-    public static List<String> inscription;
+    public static String inscription;
 
     public static void main(String[] args) {
         EventQueue.invokeLater(()-> frame = new MyFrame());
@@ -30,13 +31,13 @@ public class Guild {
         for (int i = 0; i < entityNumber; i++) {
             x = randomize(mapSize);
             y = randomize(mapSize);
-            ground.getFieldMap().get(x+"|"+y).add(new Warrior(i + 1));
+            ground.getFieldMap().get(x+"|"+y).add(new Warrior());
             x = randomize(mapSize);
             y = randomize(mapSize);
-            ground.getFieldMap().get(x+"|"+y).add(new Archer(i + 1));
+            ground.getFieldMap().get(x+"|"+y).add(new Archer());
             x = randomize(mapSize);
             y = randomize(mapSize);
-            ground.getFieldMap().get(x+"|"+y).add(new Mage(i + 1));
+            ground.getFieldMap().get(x+"|"+y).add(new Mage());
         }
 
         //initialize file
@@ -48,20 +49,22 @@ public class Guild {
             ground.moveEntities();
 
             //attack
-            for (int j = 0; j < mapSize; j++)
-                for (int k = 0; k < mapSize; k++)
-                    for (int g = 0; g < ground.getFieldMap().get(j+"|"+k).size(); g++)
+            for (int j = 0; j < mapSize; j++){
+                for (int k = 0; k < mapSize; k++){
+                    for (int g = 0; g < ground.getFieldMap().get(j+"|"+k).size(); g++){
                         for (int z = 0; z < ground.getFieldMap().get(j+"|"+k).size(); z++) {
                             ground.getFieldMap().get(j+"|"+k).get(g).attack(ground.getFieldMap().get(j+"|"+k).get(z));
                         }
-            //write to file
-            result.count(entityNumber, ground.getFieldMap(), mapSize);
+                    }
+                }
+            }
+           // write to file
             output.println(" ");
             output.println("ITERACJA NR " + (i + 1));
             output.println(" ");
-            result.writeOutput(entityNumber, result.getWarriors(), result.getArchers(), result.getMages(), output, ground);
-            inscription = result.victory(entityNumber, ground.getFieldMap(), mapSize);
-            if (!inscription.isEmpty() && !inscription.get(0).equals("WALKA NIEROZSTRZYGNIĘTA")) break;
+            result.writeOutput(entityNumber, output, ground);
+            inscription = result.victory();
+            if (!inscription.isEmpty() && !inscription.equals("WALKA NIEROZSTRZYGNIĘTA")) break;
         }
 
         //close file

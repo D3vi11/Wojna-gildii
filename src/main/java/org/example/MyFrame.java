@@ -65,7 +65,7 @@ public class MyFrame extends JFrame implements ActionListener {
                 new Guild(Integer.parseInt(field[0].getText()), Integer.parseInt(field[1].getText()), Integer.parseInt(field[2].getText()));
             } catch (FileNotFoundException exeption) {
             }
-            JOptionPane.showMessageDialog(guild.frame, guild.inscription.get(0), "ZWYCIESTWO", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(guild.frame, guild.inscription, "ZWYCIESTWO", JOptionPane.INFORMATION_MESSAGE);
         }
     }
 
