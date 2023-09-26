@@ -60,12 +60,9 @@ public class MyFrame extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent ewt) {
 
         if (ewt.getSource() == button) {
-
-            try {
-                new Guild(Integer.parseInt(field[0].getText()), Integer.parseInt(field[1].getText()), Integer.parseInt(field[2].getText()));
-            } catch (FileNotFoundException exeption) {
-            }
-            JOptionPane.showMessageDialog(guild.frame, guild.inscription, "ZWYCIESTWO", JOptionPane.INFORMATION_MESSAGE);
+            guild = new Guild(Integer.parseInt(field[0].getText()), Integer.parseInt(field[1].getText()), Integer.parseInt(field[2].getText()));
+            guild.run();
+            JOptionPane.showMessageDialog(Application.frame, Result.inscription, "ZWYCIESTWO", JOptionPane.INFORMATION_MESSAGE);
         }
     }
 

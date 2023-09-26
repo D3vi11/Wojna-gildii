@@ -1,6 +1,7 @@
 package org.example;
 
-import lombok.Getter;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 import org.example.entities.Archer;
 import org.example.entities.Entity;
 import org.example.entities.Mage;
@@ -11,69 +12,73 @@ import java.awt.EventQueue;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.*;
-
+@RequiredArgsConstructor
 public class Guild {
-    public static MyFrame frame;
+    Ground ground;
+    @NonNull
+    int entityNumber;
+    @NonNull
+    int iterationNumber;
+    @NonNull
+    int mapSize;
+    Result result;
 
-    public static String inscription;
-
-    public static void main(String[] args) {
-        EventQueue.invokeLater(()-> frame = new MyFrame());
-    }
-
-    Guild(int entityNumber, int iterationNumber, int mapSize) throws FileNotFoundException {
-
-        //create map
-        Ground ground = new Ground(mapSize);
-        int x, y;
-
+    public void run(){
         //fill map with entities
-        for (int i = 0; i < entityNumber; i++) {
-            x = randomize(mapSize);
-            y = randomize(mapSize);
-            ground.getFieldMap().get(x+"|"+y).add(new Warrior());
-            x = randomize(mapSize);
-            y = randomize(mapSize);
-            ground.getFieldMap().get(x+"|"+y).add(new Archer());
-            x = randomize(mapSize);
-            y = randomize(mapSize);
-            ground.getFieldMap().get(x+"|"+y).add(new Mage());
-        }
+        fillGround();
 
         //initialize file
-        Result result = new Result();
-        PrintWriter output = new PrintWriter("Wyniki.txt");
+        try{
+            result= new Result(new PrintWriter("Wyniki.txt"));
+        }catch (FileNotFoundException e){
+            System.out.println("File not found");
+            e.printStackTrace();
+        }
 
-        //move entities
+
         for (int i = 0; i < iterationNumber; i++) {
-            ground.moveEntities();
-
-            //attack
-            for (int j = 0; j < mapSize; j++){
-                for (int k = 0; k < mapSize; k++){
-                    for (int g = 0; g < ground.getFieldMap().get(j+"|"+k).size(); g++){
-                        for (int z = 0; z < ground.getFieldMap().get(j+"|"+k).size(); z++) {
-                            ground.getFieldMap().get(j+"|"+k).get(g).attack(ground.getFieldMap().get(j+"|"+k).get(z));
-                        }
-                    }
-                }
-            }
-           // write to file
-            output.println(" ");
-            output.println("ITERACJA NR " + (i + 1));
-            output.println(" ");
-            result.writeOutput(entityNumber, output, ground);
-            inscription = result.victory();
-            if (!inscription.isEmpty() && !inscription.equals("WALKA NIEROZSTRZYGNIĘTA")) break;
+            moveAndFight();
+            // write to file
+            result.writeBasicOutput(entityNumber,ground,i);
         }
 
         //close file
-        output.close();
+        result.closeFile();
     }
 
     private static int randomize(int mapSize) {
         Random random = new Random();
         return random.nextInt(mapSize);
+    }
+
+    public void moveAndFight() {
+        ground.resetEntitiesMovement();
+        for (String key : ground.getFieldMap().keySet()) {
+            //move entities
+            ground.moveEntities(key);
+            //attack
+            //ground.attack(key);
+        }
+    }
+
+    public void fillGround() {
+        ground = new Ground(mapSize);
+        int x, y;
+        for (int i = 0; i < entityNumber; i++) {
+            System.out.println(i);
+            x = randomize(mapSize);
+            y = randomize(mapSize);
+            ground.getFieldMap().get(x + "|" + y).add(new Warrior());
+            System.out.println(Entity.getWarriorCount());
+            x = randomize(mapSize);
+            y = randomize(mapSize);
+            ground.getFieldMap().get(x + "|" + y).add(new Archer());
+            System.out.println(Entity.getArcherCount());
+            x = randomize(mapSize);
+            y = randomize(mapSize);
+            ground.getFieldMap().get(x + "|" + y).add(new Mage());
+            System.out.println(Entity.getMageCount());
+        }
     }
 }
 

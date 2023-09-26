@@ -20,6 +20,7 @@ public abstract class Entity {
     private int crit;
     private int critModifier;
     private int attack;
+    private boolean wasMoved = false;
     private boolean isAlive = true;
 
     public abstract void crit(Entity enemy, int critModifier);
@@ -48,9 +49,15 @@ public abstract class Entity {
         hp -= (damage - armor / 10);
         isAlive = hp > 0;
         if(!isAlive) {
-            if(this instanceof Warrior) warriorCount--;
-            else if(this instanceof Archer) archerCount--;
-            else if(this instanceof Mage) mageCount--;
+            if(this instanceof Warrior) {
+                warriorCount--;
+            }
+            else if(this instanceof Archer) {
+                archerCount--;
+            }
+            else if(this instanceof Mage) {
+                mageCount--;
+            }
         }
     }
 

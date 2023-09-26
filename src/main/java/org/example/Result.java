@@ -1,18 +1,21 @@
 package org.example;
 
 import lombok.Getter;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 import org.example.entities.Archer;
 import org.example.entities.Entity;
 import org.example.entities.Mage;
 import org.example.entities.Warrior;
 import org.example.map.Ground;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @Getter
+@RequiredArgsConstructor
 class Result {
+    @NonNull
+    private PrintWriter output;
+    public static String inscription;
 
     public void writeOutput(int entityNumber, PrintWriter output, Ground ground) {
         int deadWarriorsCount = entityNumber - Entity.getWarriorCount();
@@ -55,5 +58,18 @@ class Result {
             return "WYGRALI WOJOWNICY";
         }
         return "WALKA NIEROZSTRZYGNIĘTA";
+    }
+
+    public void writeBasicOutput(int entityNumber,Ground ground,int currentIteration){
+        output.println(" ");
+        output.println("ITERACJA NR " + (currentIteration + 1));
+        output.println(" ");
+        writeOutput(entityNumber, output, ground);
+        inscription = victory();
+        //if (!inscription.isEmpty() && !inscription.equals("WALKA NIEROZSTRZYGNIĘTA")) break;
+    }
+
+    public void closeFile(){
+        output.close();
     }
 }
