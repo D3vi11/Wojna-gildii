@@ -2,29 +2,20 @@ package org.example.entities;
 
 public class Warrior extends Entity {
 
-    public Warrior(int entityNumber) {
-        super(entityNumber);
+    public Warrior() {
+        super();
         setAttack(65);
         setHp(1000);
         setArmor(70);
         setCrit(35);
         setCritModifier(2);
-    }
-
-    @Override
-    public void attack(Entity enemy) {
-        if (checkInstance(enemy)) {
-            if (rollCrit())
-                crit(enemy, getCritModifier());
-            else
-                enemy.setHp((enemy.getHp() - getAttack()) + enemy.getArmor() / 10);
-            enemy.death(enemy.getHp());
-        }
+        warriorCount++;
+        setEntityNumber(warriorCount);
     }
 
     @Override
     public void crit(Entity enemy, int critModifier) {
-        enemy.setHp((enemy.getHp() - critModifier * getAttack()) + enemy.getArmor() / 10);
+        enemy.takeDamage(getAttack()*critModifier);
     }
 
 }

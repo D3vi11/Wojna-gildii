@@ -1,12 +1,11 @@
 package org.example.map;
 
-import org.example.entities.Archer;
+import lombok.Getter;
 import org.example.entities.Entity;
-import org.example.entities.Mage;
-import org.example.entities.Warrior;
 
 import java.util.*;
 
+@Getter
 public class Ground {
 
     private final Map<String, List<Entity>> fieldMap;
@@ -17,75 +16,104 @@ public class Ground {
         this.size = size;
         for (int i = 0; i < size; i++)
             for (int j = 0; j < size; j++) {
-                fieldMap.put(i+"|"+j,new ArrayList<>());
+                fieldMap.put(i + "|" + j, new ArrayList<>());
             }
     }
 
-    public Map<String, List<Entity>> getFieldMap() {
-        return fieldMap;
+    public void attack(String key) {
+        for (int g = 0; g < fieldMap.get(key).size(); g++) {
+            for (int z = 0; z < fieldMap.get(key).size(); z++) {
+                fieldMap.get(key).get(g).attack(fieldMap.get(key).get(z));
+            }
+        }
     }
 
-    public int getSize() {
-        return size;
-    }
-
-    public void moveEntities() {
+    public boolean moveEntities(String key) {
         Random generator = new Random();
         int r;
-        for (int i = 0; i < size; i++)
-            for (int j = 0; j < size; j++)
-                for (int k = 0; k < fieldMap.get(i+"|"+j).size(); k++) {
-                    if(canMove(i,j)){
-                        r = generator.nextInt(4);
-                        switch (r) {
-                            case 0-> moveRight(i,j,k);
-                            case 1-> moveLeft(i,j,k);
-                            case 2-> moveUp(i,j,k);
-                            case 3-> moveDown(i,j,k);
-                        }
-                    }
+        for (int k = 0; k < fieldMap.get(key).size(); k++) {
+            if (!canMove(key)) {
+                return false;
+            } else {
+                r = generator.nextInt(4);
+                switch (r) {
+                    case 0 -> moveRight(key, k);
+                    case 1 -> moveLeft(key, k);
+                    case 2 -> moveUp(key, k);
+                    case 3 -> moveDown(key, k);
                 }
-    }
-    public void moveUp(int x, int y, int k){
-        if (y < size-1) {
-            fieldMap.get(x+"|"+(y+1)).add(fieldMap.get(x+"|"+y).get(k));
-            fieldMap.get(x+"|"+y).remove(k);
+            }
         }
+        return true;
     }
-    public void moveDown(int x, int y, int k){
-        if (y > 0) {
-            fieldMap.get(x+"|"+(y-1)).add(fieldMap.get(x+"|"+y).get(k));
-            fieldMap.get(x+"|"+y).remove(k);
+
+    public void moveUp(String key, int entityIndex) {
+        Entity entity = fieldMap.get(key).get(entityIndex);
+        if (Integer.parseInt(key.split("\\|")[1]) < size - 1) {
+            String[] splitKey = key.split("\\|");
+            int changedValue = Integer.parseInt(splitKey[1]) + 1;
+            fieldMap.get(splitKey[0]+"|"+changedValue).add(entity);
+            fieldMap.get(key).remove(entity);
         }
+        entity.setWasMoved(true);
     }
-    public void moveLeft(int x, int y, int k){
-        if (x > 0) {
-            fieldMap.get((x-1)+"|"+y).add(fieldMap.get(x+"|"+y).get(k));
-            fieldMap.get(x+"|"+y).remove(k);
+
+    public void moveDown(String key, int entityIndex) {
+        Entity entity = fieldMap.get(key).get(entityIndex);
+        if (Integer.parseInt(key.split("\\|")[1]) > 0) {
+            String[] splitKey = key.split("\\|");
+            int changedValue = Integer.parseInt(splitKey[1]) - 1;
+            fieldMap.get(splitKey[0]+"|"+changedValue).add(entity);
+            fieldMap.get(key).remove(entity);
         }
+        entity.setWasMoved(true);
     }
-    public void moveRight(int x, int y, int k){
-        if (x < size-1) {
-            fieldMap.get((x+1)+"|"+y).add(fieldMap.get(x+"|"+y).get(k));
-            fieldMap.get(x+"|"+y).remove(k);
+
+    public void moveLeft(String key, int entityIndex) {
+        Entity entity = fieldMap.get(key).get(entityIndex);
+        if (Integer.parseInt(key.split("\\|")[0]) > 0) {
+            String[] splitKey = key.split("\\|");
+            int changedValue = Integer.parseInt(splitKey[0]) - 1;
+            fieldMap.get(changedValue+"|"+splitKey[1]).add(entity);
+            fieldMap.get(key).remove(entity);
         }
+        entity.setWasMoved(true);
     }
+
+    public void moveRight(String key, int entityIndex) {
+        Entity entity = fieldMap.get(key).get(entityIndex);
+        if (Integer.parseInt(key.split("\\|")[0]) < size - 1) {
+            String[] splitKey = key.split("\\|");
+            int changedValue = Integer.parseInt(splitKey[0]) + 1;
+            fieldMap.get(changedValue+"|"+splitKey[1]).add(entity);
+            fieldMap.get(key).remove(entity);
+        }
+        entity.setWasMoved(true);
+    }
+
     // zwraca true jeśli tylko jeden typ jednostki jest na danym polu i false jeśli jest więcej niż 1 typ
-    public boolean canMove(int x, int y) {
-        boolean warrior = false, archer = false, mage = false;
-        for (Entity entity : fieldMap.get(x+"|"+y)) {
-            if (entity instanceof Warrior && entity.getAlive()) {
-                warrior = true;
+    public boolean canMove(String key) {
+        List<Entity> entities = fieldMap.get(key);
+        int index = 0;
+        for (Entity entity : entities) {
+            if(entity.isWasMoved()){
+                return false;
             }
-            if (entity instanceof Archer && entity.getAlive()) {
-                archer = true;
+            if (!entities.get(index).isAlive() && index < entities.size() - 1) {
+                index++;
             }
-            if (entity instanceof Mage && entity.getAlive()) {
-                mage = true;
+            if (entities.get(index).getClass() != entity.getClass() && entity.isAlive() && entities.get(index).isAlive()) {
+                return false;
             }
         }
-        if (warrior && archer || warrior && mage || archer && mage) {
-            return false;
-        } else return true;
+        return true;
+    }
+
+    public void resetEntitiesMovement(){
+        for (String keys:fieldMap.keySet()) {
+            for (Entity entity:fieldMap.get(keys)){
+                entity.setWasMoved(false);
+            }
+        }
     }
 }

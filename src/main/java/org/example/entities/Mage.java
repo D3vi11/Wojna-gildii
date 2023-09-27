@@ -1,11 +1,15 @@
 package org.example.entities;
 
+import lombok.Getter;
+
+@Getter
 public class Mage extends Entity {
+
     private int mana;
     private final int manaDmg;
 
-    public Mage(int entityNumber) {
-        super(entityNumber);
+    public Mage() {
+        super();
         setAttack(80);
         setHp(700);
         setArmor(40);
@@ -13,6 +17,8 @@ public class Mage extends Entity {
         manaDmg = 30;
         setCrit(25);
         setCritModifier(2);
+        mageCount++;
+        setEntityNumber(mageCount);
     }
 
     @Override
@@ -22,23 +28,21 @@ public class Mage extends Entity {
                 crit(enemy, getCritModifier());
             } else {
                 if (mana == 0) {
-                    enemy.setHp((enemy.getHp() - getAttack()) + enemy.getArmor() / 10);
+                    enemy.takeDamage(getAttack());
                 } else {
-                    enemy.setHp(enemy.getHp() - (getAttack() + manaDmg) + getArmor() / 10);
+                    enemy.takeDamage(getAttack()+manaDmg);
                     mana -= 10;
                 }
-
             }
-            enemy.death(enemy.getHp());
         }
     }
 
     @Override
     public void crit(Entity enemy, int critModifier) {
         if (mana == 0) {
-            enemy.setHp((enemy.getHp() - critModifier * getAttack() + enemy.getArmor() / 10));
+            enemy.takeDamage(getAttack()*critModifier);
         } else {
-            enemy.setHp(enemy.getHp() - (critModifier * getAttack() + manaDmg) + getArmor() / 10);
+            enemy.takeDamage(getAttack()*critModifier+manaDmg);
             mana -= 10;
         }
     }

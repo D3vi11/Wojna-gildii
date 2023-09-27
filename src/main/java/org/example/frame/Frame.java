@@ -1,12 +1,15 @@
-package org.example;
+package org.example.frame;
+
+import org.example.Application;
+import org.example.Guild;
+import org.example.Result;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.FileNotFoundException;
 
-public class MyFrame extends JFrame implements ActionListener {
+public class Frame extends JFrame implements ActionListener {
 
     JLabel label = new JLabel("Wojna-Gildii");
     JPanel panel = new JPanel();
@@ -15,7 +18,7 @@ public class MyFrame extends JFrame implements ActionListener {
     JLabel[] inscription = new JLabel[3];
     Guild guild;
 
-    public MyFrame() {
+    public Frame() {
         super("Wojna-Gildii");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
@@ -31,19 +34,13 @@ public class MyFrame extends JFrame implements ActionListener {
         label.setForeground(Color.RED.darker());
         panel.add(label);
 
-        for (int i = 0; i < 3; i++) {
-            if (i == 0) {
-                inscription[i] = new JLabel("Liczba Jednostek: ");
-            } else if (i == 1) {
-                inscription[i] = new JLabel("Liczba iteracji: ");
-            } else if (i == 2) {
-                inscription[i] = new JLabel("Rozmiar Mapy: ");
-            }
+        for (int i = 0; i < FrameEnum.getAll().size(); i++) {
+            inscription[i] = new JLabel(FrameEnum.getAll().get(i).getValue());
             inscription[i].setBounds(10, 10 + ((i + 1) * 40), 200, 25);
             panel.add(inscription[i]);
         }
 
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < FrameEnum.getAll().size(); i++) {
             field[i] = new JTextField();
             field[i].setBounds(210, 10 + ((i + 1) * 40), 200, 25);
             panel.add(field[i]);
@@ -60,12 +57,12 @@ public class MyFrame extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent ewt) {
 
         if (ewt.getSource() == button) {
-
-            try {
-                new Guild(Integer.parseInt(field[0].getText()), Integer.parseInt(field[1].getText()), Integer.parseInt(field[2].getText()));
-            } catch (FileNotFoundException exeption) {
+            if(guild!=null){
+                guild.resetStaticData();
             }
-            JOptionPane.showMessageDialog(guild.frame, guild.getInscription().get(0), "ZWYCIESTWO", JOptionPane.INFORMATION_MESSAGE);
+            guild = new Guild(Integer.parseInt(field[0].getText()), Integer.parseInt(field[1].getText()), Integer.parseInt(field[2].getText()));
+            guild.run();
+            JOptionPane.showMessageDialog(Application.frame, Result.inscription, "ZWYCIESTWO", JOptionPane.INFORMATION_MESSAGE);
         }
     }
 
