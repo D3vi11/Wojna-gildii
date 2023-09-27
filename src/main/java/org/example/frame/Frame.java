@@ -1,4 +1,8 @@
-package org.example;
+package org.example.frame;
+
+import org.example.Application;
+import org.example.Guild;
+import org.example.Result;
 
 import javax.swing.*;
 import java.awt.*;
@@ -30,19 +34,13 @@ public class Frame extends JFrame implements ActionListener {
         label.setForeground(Color.RED.darker());
         panel.add(label);
 
-        for (int i = 0; i < 3; i++) {
-            if (i == 0) {
-                inscription[i] = new JLabel("Liczba Jednostek: ");
-            } else if (i == 1) {
-                inscription[i] = new JLabel("Liczba iteracji: ");
-            } else if (i == 2) {
-                inscription[i] = new JLabel("Rozmiar Mapy: ");
-            }
+        for (int i = 0; i < FrameEnum.getAll().size(); i++) {
+            inscription[i] = new JLabel(FrameEnum.getAll().get(i).getValue());
             inscription[i].setBounds(10, 10 + ((i + 1) * 40), 200, 25);
             panel.add(inscription[i]);
         }
 
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < FrameEnum.getAll().size(); i++) {
             field[i] = new JTextField();
             field[i].setBounds(210, 10 + ((i + 1) * 40), 200, 25);
             panel.add(field[i]);

@@ -8,7 +8,6 @@ import org.example.entities.Mage;
 import org.example.entities.Warrior;
 import org.example.map.Ground;
 
-import java.awt.EventQueue;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.*;
@@ -39,8 +38,8 @@ public class Guild {
         for (int i = 0; i < iterationNumber; i++) {
             moveAndFight();
             // write to file
-            result.writeBasicOutput(entityNumber,ground,i);
-            if(Entity.getMageCount()==0&&Entity.getArcherCount()==0||Entity.getWarriorCount()==0&&Entity.getArcherCount()==0||Entity.getMageCount()==0&&Entity.getWarriorCount()==0) break;
+            result.writeOutput(entityNumber,ground,i);
+            if(result.victory()) break;
         }
 
         //close file

@@ -8,16 +8,18 @@ import org.example.entities.Entity;
 import org.example.entities.Mage;
 import org.example.entities.Warrior;
 import org.example.map.Ground;
+
 import java.io.PrintWriter;
+import java.util.List;
 
 @Getter
 @RequiredArgsConstructor
-class Result {
+public class Result {
     @NonNull
     private PrintWriter output;
     public static String inscription;
 
-    public void writeOutput(int entityNumber, PrintWriter output, Ground ground) {
+    public void writeEntitiesLifeStatus(int entityNumber, Ground ground) {
         int deadWarriorsCount = entityNumber - Entity.getWarriorCount();
         int deadArchersCount = entityNumber - Entity.getArcherCount();
         int deadMagesCount = entityNumber - Entity.getMageCount();
@@ -30,45 +32,50 @@ class Result {
         output.println("Liczba jednostek gildii magów: " + entityNumber);
         output.println("Ilosc zywych jednostek = " + Entity.getMageCount());
         output.println("Ilosc martwych jednostek = " + deadMagesCount);
+    }
 
-        for (int i = 0; i < ground.getSize(); i++) {
-            for (int j = 0; j < ground.getSize(); j++) {
-                for (int k = 0; k < ground.getFieldMap().get(i+"|"+j).size(); k++) {
-                    if (ground.getFieldMap().get(i+"|"+j).get(k).isAlive()) {
-                        if (ground.getFieldMap().get(i+"|"+j).get(k) instanceof Warrior)
-                            output.println("Jednostka z gildii wojowników nr " + ground.getFieldMap().get(i+"|"+j).get(k).getEntityNumber() + " jest na polu x: " + i + " y: " + j);
-                        if (ground.getFieldMap().get(i+"|"+j).get(k) instanceof Archer)
-                            output.println("Jednostka z gildii luczników nr " + ground.getFieldMap().get(i+"|"+j).get(k).getEntityNumber() + " jest na polu x: " + i+ " y: " + j);
-                        if (ground.getFieldMap().get(i+"|"+j).get(k) instanceof Mage)
-                            output.println("Jednostka z gildii Magów nr " + ground.getFieldMap().get(i+"|"+j).get(k).getEntityNumber() + " jest na polu x: " + i + " y: " + j);
-                    }
+    public void writeEntitiesPosition(Ground ground) {
+        for (String key : ground.getFieldMap().keySet()) {
+            for (Entity entity : ground.getFieldMap().get(key)) {
+                if (entity.isAlive()) {
+                    String[] coordinates = key.split("\\|");
+                    if (entity instanceof Warrior)
+                        output.println("Jednostka z gildii wojowników nr " + entity.getEntityNumber() + " jest na polu x: " + coordinates[0] + " y: " + coordinates[1]);
+                    if (entity instanceof Archer)
+                        output.println("Jednostka z gildii luczników nr " + entity.getEntityNumber() + " jest na polu x: " + coordinates[0] + " y: " + coordinates[1]);
+                    if (entity instanceof Mage)
+                        output.println("Jednostka z gildii Magów nr " + entity.getEntityNumber() + " jest na polu x: " + coordinates[0] + " y: " + coordinates[1]);
                 }
             }
         }
     }
 
-    public String victory() {
+    public boolean victory() {
         if (Entity.getWarriorCount() == 0 && Entity.getArcherCount() == 0) {
-            return "WYGRALI MAGOWIE";
+            inscription = "WYGRALI MAGOWIE";
+            return true;
         }
         if (Entity.getWarriorCount() == 0 && Entity.getMageCount() == 0) {
-            return "WYGRALI LUCZNICY";
+            inscription = "WYGRALI LUCZNICY";
+            return true;
         }
         if (Entity.getArcherCount() == 0 && Entity.getMageCount() == 0) {
-            return "WYGRALI WOJOWNICY";
+            inscription = "WYGRALI WOJOWNICY";
+            return true;
         }
-        return "WALKA NIEROZSTRZYGNIĘTA";
+        inscription = "WALKA NIEROZSTRZYGNIĘTA";
+        return false;
     }
 
-    public void writeBasicOutput(int entityNumber,Ground ground,int currentIteration){
+    public void writeOutput(int entityNumber, Ground ground, int currentIteration) {
         output.println(" ");
         output.println("ITERACJA NR " + (currentIteration + 1));
         output.println(" ");
-        writeOutput(entityNumber, output, ground);
-        inscription = victory();
+        writeEntitiesLifeStatus(entityNumber, ground);
+        writeEntitiesPosition(ground);
     }
 
-    public void closeFile(){
+    public void closeFile() {
         output.close();
     }
 }
