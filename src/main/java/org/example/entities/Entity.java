@@ -8,10 +8,13 @@ import java.util.Random;
 public abstract class Entity {
 
     @Getter
+    @Setter
     protected static int warriorCount = 0;
     @Getter
+    @Setter
     protected static int mageCount = 0;
     @Getter
+    @Setter
     protected static int archerCount = 0;
 
     private int entityNumber;
@@ -32,11 +35,13 @@ public abstract class Entity {
     }
 
     public void attack(Entity enemy) {
-        if (checkInstance(enemy)&&enemy.isAlive) {
-            if (rollCrit()) {
-                crit(enemy, getCritModifier());
-            } else
-                enemy.takeDamage(getAttack());
+        if(isAlive){
+            if (checkInstance(enemy)) {
+                if (rollCrit()) {
+                    crit(enemy, getCritModifier());
+                } else
+                    enemy.takeDamage(getAttack());
+            }
         }
     }
 
@@ -46,17 +51,19 @@ public abstract class Entity {
     }
 
     public void takeDamage(int damage) {
-        hp -= (damage - armor / 10);
-        isAlive = hp > 0;
-        if(!isAlive) {
-            if(this instanceof Warrior) {
-                warriorCount--;
-            }
-            else if(this instanceof Archer) {
-                archerCount--;
-            }
-            else if(this instanceof Mage) {
-                mageCount--;
+        if(isAlive){
+            hp -= (damage - armor / 10);
+            isAlive = hp > 0;
+            if(!isAlive) {
+                if(this instanceof Warrior) {
+                    warriorCount--;
+                }
+                else if(this instanceof Archer) {
+                    archerCount--;
+                }
+                else if(this instanceof Mage) {
+                    mageCount--;
+                }
             }
         }
     }

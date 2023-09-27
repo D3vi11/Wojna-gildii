@@ -27,9 +27,9 @@ public class Guild {
         //fill map with entities
         fillGround();
 
-        //initialize file
+//        //initialize file
         try{
-            result= new Result(new PrintWriter("Wyniki.txt"));
+            result= new Result(new PrintWriter("Output.txt"));
         }catch (FileNotFoundException e){
             System.out.println("File not found");
             e.printStackTrace();
@@ -40,6 +40,7 @@ public class Guild {
             moveAndFight();
             // write to file
             result.writeBasicOutput(entityNumber,ground,i);
+            if(Entity.getMageCount()==0&&Entity.getArcherCount()==0||Entity.getWarriorCount()==0&&Entity.getArcherCount()==0||Entity.getMageCount()==0&&Entity.getWarriorCount()==0) break;
         }
 
         //close file
@@ -57,7 +58,7 @@ public class Guild {
             //move entities
             ground.moveEntities(key);
             //attack
-            //ground.attack(key);
+            ground.attack(key);
         }
     }
 
@@ -65,20 +66,23 @@ public class Guild {
         ground = new Ground(mapSize);
         int x, y;
         for (int i = 0; i < entityNumber; i++) {
-            System.out.println(i);
             x = randomize(mapSize);
             y = randomize(mapSize);
             ground.getFieldMap().get(x + "|" + y).add(new Warrior());
-            System.out.println(Entity.getWarriorCount());
             x = randomize(mapSize);
             y = randomize(mapSize);
             ground.getFieldMap().get(x + "|" + y).add(new Archer());
-            System.out.println(Entity.getArcherCount());
             x = randomize(mapSize);
             y = randomize(mapSize);
             ground.getFieldMap().get(x + "|" + y).add(new Mage());
-            System.out.println(Entity.getMageCount());
         }
+    }
+
+    public void resetStaticData(){
+        Result.inscription=null;
+        Entity.setArcherCount(0);
+        Entity.setWarriorCount(0);
+        Entity.setMageCount(0);
     }
 }
 

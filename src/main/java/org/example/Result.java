@@ -66,7 +66,6 @@ class Result {
         output.println(" ");
         writeOutput(entityNumber, output, ground);
         inscription = victory();
-        //if (!inscription.isEmpty() && !inscription.equals("WALKA NIEROZSTRZYGNIĘTA")) break;
     }
 
     public void closeFile(){

@@ -31,8 +31,7 @@ public class Ground {
     public boolean moveEntities(String key) {
         Random generator = new Random();
         int r;
-        int enitiesSize = fieldMap.get(key).size();
-        for (int k = 0; k < enitiesSize; k++) {
+        for (int k = 0; k < fieldMap.get(key).size(); k++) {
             if (!canMove(key)) {
                 return false;
             } else {
@@ -50,10 +49,10 @@ public class Ground {
 
     public void moveUp(String key, int entityIndex) {
         Entity entity = fieldMap.get(key).get(entityIndex);
-        char[] keyArray = key.toCharArray();
-        keyArray[2] = Character.toChars(keyArray[2] + 1)[0];
         if (Integer.parseInt(key.split("\\|")[1]) < size - 1) {
-            fieldMap.get(String.valueOf(keyArray)).add(entity);
+            String[] splitKey = key.split("\\|");
+            int changedValue = Integer.parseInt(splitKey[1]) + 1;
+            fieldMap.get(splitKey[0]+"|"+changedValue).add(entity);
             fieldMap.get(key).remove(entity);
         }
         entity.setWasMoved(true);
@@ -61,10 +60,10 @@ public class Ground {
 
     public void moveDown(String key, int entityIndex) {
         Entity entity = fieldMap.get(key).get(entityIndex);
-        char[] keyArray = key.toCharArray();
-        keyArray[2] = Character.toChars(keyArray[2] - 1)[0];
         if (Integer.parseInt(key.split("\\|")[1]) > 0) {
-            fieldMap.get(String.valueOf(keyArray)).add(entity);
+            String[] splitKey = key.split("\\|");
+            int changedValue = Integer.parseInt(splitKey[1]) - 1;
+            fieldMap.get(splitKey[0]+"|"+changedValue).add(entity);
             fieldMap.get(key).remove(entity);
         }
         entity.setWasMoved(true);
@@ -72,10 +71,10 @@ public class Ground {
 
     public void moveLeft(String key, int entityIndex) {
         Entity entity = fieldMap.get(key).get(entityIndex);
-        char[] keyArray = key.toCharArray();
-        keyArray[0] = Character.toChars(keyArray[0] - 1)[0];
         if (Integer.parseInt(key.split("\\|")[0]) > 0) {
-            fieldMap.get(String.valueOf(keyArray)).add(entity);
+            String[] splitKey = key.split("\\|");
+            int changedValue = Integer.parseInt(splitKey[0]) - 1;
+            fieldMap.get(changedValue+"|"+splitKey[1]).add(entity);
             fieldMap.get(key).remove(entity);
         }
         entity.setWasMoved(true);
@@ -83,10 +82,10 @@ public class Ground {
 
     public void moveRight(String key, int entityIndex) {
         Entity entity = fieldMap.get(key).get(entityIndex);
-        char[] keyArray = key.toCharArray();
-        keyArray[0] = Character.toChars(keyArray[0] + 1)[0];
         if (Integer.parseInt(key.split("\\|")[0]) < size - 1) {
-            fieldMap.get(String.valueOf(keyArray)).add(entity);
+            String[] splitKey = key.split("\\|");
+            int changedValue = Integer.parseInt(splitKey[0]) + 1;
+            fieldMap.get(changedValue+"|"+splitKey[1]).add(entity);
             fieldMap.get(key).remove(entity);
         }
         entity.setWasMoved(true);

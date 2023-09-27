@@ -4,9 +4,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.FileNotFoundException;
 
-public class MyFrame extends JFrame implements ActionListener {
+public class Frame extends JFrame implements ActionListener {
 
     JLabel label = new JLabel("Wojna-Gildii");
     JPanel panel = new JPanel();
@@ -15,7 +14,7 @@ public class MyFrame extends JFrame implements ActionListener {
     JLabel[] inscription = new JLabel[3];
     Guild guild;
 
-    public MyFrame() {
+    public Frame() {
         super("Wojna-Gildii");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
@@ -60,6 +59,9 @@ public class MyFrame extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent ewt) {
 
         if (ewt.getSource() == button) {
+            if(guild!=null){
+                guild.resetStaticData();
+            }
             guild = new Guild(Integer.parseInt(field[0].getText()), Integer.parseInt(field[1].getText()), Integer.parseInt(field[2].getText()));
             guild.run();
             JOptionPane.showMessageDialog(Application.frame, Result.inscription, "ZWYCIESTWO", JOptionPane.INFORMATION_MESSAGE);
