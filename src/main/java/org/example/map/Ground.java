@@ -90,7 +90,6 @@ public class Ground {
         entity.setWasMoved(true);
     }
 
-    // zwraca true jeśli tylko jeden typ jednostki jest na danym polu i false jeśli jest więcej niż 1 typ
     public boolean canMove(String key) {
         List<Entity> entities = fieldMap.get(key);
         int index = 0;

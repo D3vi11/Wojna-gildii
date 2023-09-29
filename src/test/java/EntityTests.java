@@ -34,8 +34,8 @@ public class EntityTests {
 
     @Test
     public void isSameType() {
-        boolean shouldBeTrue = entities.get(0).checkInstance(entities.get(1));
-        boolean shouldBeFalse = entities.get(0).checkInstance(entities.get(2));
+        boolean shouldBeTrue = entities.get(0).checkIfInstanceIsSame(entities.get(1));
+        boolean shouldBeFalse = entities.get(0).checkIfInstanceIsSame(entities.get(2));
         Assertions.assertTrue(shouldBeTrue);
         Assertions.assertFalse(shouldBeFalse);
     }
@@ -79,5 +79,13 @@ public class EntityTests {
         Assertions.assertEquals(1, Entity.getWarriorCount());
         Assertions.assertEquals(2, Entity.getMageCount());
 
+    }
+
+    @Test
+    public void shouldOrShouldntAttack(){
+        entities.get(0).attack(entities.get(1));
+        Assertions.assertEquals(entities.get(1).getMaxHp(), entities.get(1).getHp());
+        entities.get(0).attack(entities.get(2));
+        Assertions.assertTrue(entities.get(2).getMaxHp()>entities.get(2).getHp());
     }
 }

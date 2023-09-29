@@ -37,7 +37,7 @@ public abstract class Entity {
 
     public void attack(Entity enemy) {
         if (isAlive) {
-            if (!checkInstance(enemy)) {
+            if (!checkIfInstanceIsSame(enemy)) {
                 if (rollCrit()) {
                     crit(enemy, getCritModifier());
                 } else
@@ -46,8 +46,7 @@ public abstract class Entity {
         }
     }
 
-    //zwraca true jeśli jednostki są tym samym typem i false jeśli nie są
-    public boolean checkInstance(Entity entity) {
+    public boolean checkIfInstanceIsSame(Entity entity) {
         return this.getClass() == entity.getClass();
     }
 

@@ -23,7 +23,7 @@ public class Mage extends Entity {
 
     @Override
     public void attack(Entity enemy) {
-        if (!checkInstance(enemy)) {
+        if (!checkIfInstanceIsSame(enemy)) {
             if (rollCrit()) {
                 crit(enemy, getCritModifier());
             } else {
