@@ -18,10 +18,10 @@ public class EntityTests {
     static List<Entity> entities = new ArrayList<>();
 
     @BeforeEach
-    public void prepareData(){
-        for (Entity e :entities) {
+    public void prepareData() {
+        for (Entity e : entities) {
             System.out.println(e);
-            if(e.isAlive()){
+            if (e.isAlive()) {
                 e.setHp(0);
                 e.takeDamage(40);
             }
@@ -33,7 +33,7 @@ public class EntityTests {
     }
 
     @Test
-    public void isSameType(){
+    public void isSameType() {
         boolean shouldBeTrue = entities.get(0).checkInstance(entities.get(1));
         boolean shouldBeFalse = entities.get(0).checkInstance(entities.get(2));
         Assertions.assertTrue(shouldBeTrue);
@@ -41,13 +41,13 @@ public class EntityTests {
     }
 
     @Test
-    public void mageAttackOrCrit(){
+    public void mageAttackOrCrit() {
         entities.get(0).attack(entities.get(1));
-        assertThat(entities.get(1).getHp(),anyOf(equalTo(514),equalTo(594)));
+        assertThat(entities.get(1).getHp(), anyOf(equalTo(514), equalTo(594)));
     }
 
     @Test
-    public void isDead(){
+    public void isDead() {
         Entity entity = entities.get(0);
         Assertions.assertTrue(entity.isAlive());
         //700 mage max hp, 40 armor- dmg reduced by 4;
@@ -57,16 +57,16 @@ public class EntityTests {
     }
 
     @Test
-    public void isCountCorrect(){
+    public void isCountCorrect() {
         Mage mage = new Mage();
         Warrior warrior = new Warrior();
         Archer archer = new Archer();
         entities.add(mage);
         entities.add(warrior);
         entities.add(archer);
-        Assertions.assertEquals(1,Entity.getArcherCount());
-        Assertions.assertEquals(2,Entity.getWarriorCount());
-        Assertions.assertEquals(3,Entity.getMageCount());
+        Assertions.assertEquals(1, Entity.getArcherCount());
+        Assertions.assertEquals(2, Entity.getWarriorCount());
+        Assertions.assertEquals(3, Entity.getMageCount());
 
         mage.setHp(0);
         warrior.setHp(0);
@@ -75,9 +75,9 @@ public class EntityTests {
         warrior.takeDamage(40);
         archer.takeDamage(40);
 
-        Assertions.assertEquals(0,Entity.getArcherCount());
-        Assertions.assertEquals(1,Entity.getWarriorCount());
-        Assertions.assertEquals(2,Entity.getMageCount());
+        Assertions.assertEquals(0, Entity.getArcherCount());
+        Assertions.assertEquals(1, Entity.getWarriorCount());
+        Assertions.assertEquals(2, Entity.getMageCount());
 
     }
 }

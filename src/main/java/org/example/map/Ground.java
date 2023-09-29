@@ -8,11 +8,10 @@ import java.util.*;
 @Getter
 public class Ground {
 
-    private final Map<String, List<Entity>> fieldMap;
+    private final Map<String, List<Entity>> fieldMap = new HashMap<>();
     private final int size;
 
     public Ground(int size) {
-        fieldMap = new HashMap<>();
         this.size = size;
         for (int i = 0; i < size; i++)
             for (int j = 0; j < size; j++) {
@@ -52,7 +51,7 @@ public class Ground {
         if (Integer.parseInt(key.split("\\|")[1]) < size - 1) {
             String[] splitKey = key.split("\\|");
             int changedValue = Integer.parseInt(splitKey[1]) + 1;
-            fieldMap.get(splitKey[0]+"|"+changedValue).add(entity);
+            fieldMap.get(splitKey[0] + "|" + changedValue).add(entity);
             fieldMap.get(key).remove(entity);
         }
         entity.setWasMoved(true);
@@ -63,7 +62,7 @@ public class Ground {
         if (Integer.parseInt(key.split("\\|")[1]) > 0) {
             String[] splitKey = key.split("\\|");
             int changedValue = Integer.parseInt(splitKey[1]) - 1;
-            fieldMap.get(splitKey[0]+"|"+changedValue).add(entity);
+            fieldMap.get(splitKey[0] + "|" + changedValue).add(entity);
             fieldMap.get(key).remove(entity);
         }
         entity.setWasMoved(true);
@@ -74,7 +73,7 @@ public class Ground {
         if (Integer.parseInt(key.split("\\|")[0]) > 0) {
             String[] splitKey = key.split("\\|");
             int changedValue = Integer.parseInt(splitKey[0]) - 1;
-            fieldMap.get(changedValue+"|"+splitKey[1]).add(entity);
+            fieldMap.get(changedValue + "|" + splitKey[1]).add(entity);
             fieldMap.get(key).remove(entity);
         }
         entity.setWasMoved(true);
@@ -85,7 +84,7 @@ public class Ground {
         if (Integer.parseInt(key.split("\\|")[0]) < size - 1) {
             String[] splitKey = key.split("\\|");
             int changedValue = Integer.parseInt(splitKey[0]) + 1;
-            fieldMap.get(changedValue+"|"+splitKey[1]).add(entity);
+            fieldMap.get(changedValue + "|" + splitKey[1]).add(entity);
             fieldMap.get(key).remove(entity);
         }
         entity.setWasMoved(true);
@@ -96,7 +95,7 @@ public class Ground {
         List<Entity> entities = fieldMap.get(key);
         int index = 0;
         for (Entity entity : entities) {
-            if(entity.isWasMoved()){
+            if (entity.isWasMoved()) {
                 return false;
             }
             if (!entities.get(index).isAlive() && index < entities.size() - 1) {
@@ -109,9 +108,9 @@ public class Ground {
         return true;
     }
 
-    public void resetEntitiesMovement(){
-        for (String keys:fieldMap.keySet()) {
-            for (Entity entity:fieldMap.get(keys)){
+    public void resetEntitiesMovement() {
+        for (String keys : fieldMap.keySet()) {
+            for (Entity entity : fieldMap.get(keys)) {
                 entity.setWasMoved(false);
             }
         }

@@ -9,9 +9,9 @@ public class Mage extends Entity {
     private final int manaDmg;
 
     public Mage() {
-        super();
+        super(700);
         setAttack(80);
-        setHp(700);
+        setHp(getMaxHp());
         setArmor(40);
         mana = 200;
         manaDmg = 30;
@@ -23,14 +23,14 @@ public class Mage extends Entity {
 
     @Override
     public void attack(Entity enemy) {
-        if (checkInstance(enemy)) {
+        if (!checkInstance(enemy)) {
             if (rollCrit()) {
                 crit(enemy, getCritModifier());
             } else {
                 if (mana == 0) {
                     enemy.takeDamage(getAttack());
                 } else {
-                    enemy.takeDamage(getAttack()+manaDmg);
+                    enemy.takeDamage(getAttack() + manaDmg);
                     mana -= 10;
                 }
             }
@@ -40,9 +40,9 @@ public class Mage extends Entity {
     @Override
     public void crit(Entity enemy, int critModifier) {
         if (mana == 0) {
-            enemy.takeDamage(getAttack()*critModifier);
+            enemy.takeDamage(getAttack() * critModifier);
         } else {
-            enemy.takeDamage(getAttack()*critModifier+manaDmg);
+            enemy.takeDamage(getAttack() * critModifier + manaDmg);
             mana -= 10;
         }
     }

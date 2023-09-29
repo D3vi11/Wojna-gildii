@@ -3,14 +3,10 @@ package org.example;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
-import org.example.entities.Archer;
-import org.example.entities.Entity;
-import org.example.entities.Mage;
-import org.example.entities.Warrior;
+import org.example.entities.*;
 import org.example.map.Ground;
 
 import java.io.PrintWriter;
-import java.util.List;
 
 @Getter
 @RequiredArgsConstructor
@@ -19,7 +15,7 @@ public class Result {
     private PrintWriter output;
     public static String inscription;
 
-    public void writeEntitiesLifeStatus(int entityNumber, Ground ground) {
+    public void writeEntitiesLifeStatus(int entityNumber) {
         int deadWarriorsCount = entityNumber - Entity.getWarriorCount();
         int deadArchersCount = entityNumber - Entity.getArcherCount();
         int deadMagesCount = entityNumber - Entity.getMageCount();
@@ -34,17 +30,20 @@ public class Result {
         output.println("Ilosc martwych jednostek = " + deadMagesCount);
     }
 
-    public void writeEntitiesPosition(Ground ground) {
+    public void writeEntitiesPositionAndHp(Ground ground) {
         for (String key : ground.getFieldMap().keySet()) {
             for (Entity entity : ground.getFieldMap().get(key)) {
                 if (entity.isAlive()) {
                     String[] coordinates = key.split("\\|");
-                    if (entity instanceof Warrior)
-                        output.println("Jednostka z gildii wojowników nr " + entity.getEntityNumber() + " jest na polu x: " + coordinates[0] + " y: " + coordinates[1]);
-                    if (entity instanceof Archer)
-                        output.println("Jednostka z gildii luczników nr " + entity.getEntityNumber() + " jest na polu x: " + coordinates[0] + " y: " + coordinates[1]);
-                    if (entity instanceof Mage)
-                        output.println("Jednostka z gildii Magów nr " + entity.getEntityNumber() + " jest na polu x: " + coordinates[0] + " y: " + coordinates[1]);
+                    EntityTypeEnum entityTypeEnum = EntityTypeEnum.WARRIOR;
+                    if (entity instanceof Warrior){
+                        entityTypeEnum = EntityTypeEnum.WARRIOR;
+                    }else if (entity instanceof Archer){
+                        entityTypeEnum = EntityTypeEnum.ARCHER;
+                    }else if (entity instanceof Mage){
+                        entityTypeEnum = EntityTypeEnum.MAGE;
+                    }
+                    output.println("Jednostka z gildii "+ entityTypeEnum.getValue() +" nr " + entity.getEntityNumber() + " jest na polu x: " + coordinates[0] + " y: " + coordinates[1]+" i ma: "+entity.getHp()+"/"+entity.getMaxHp()+" Hp");
                 }
             }
         }
@@ -71,8 +70,8 @@ public class Result {
         output.println(" ");
         output.println("ITERACJA NR " + (currentIteration + 1));
         output.println(" ");
-        writeEntitiesLifeStatus(entityNumber, ground);
-        writeEntitiesPosition(ground);
+        writeEntitiesLifeStatus(entityNumber);
+        writeEntitiesPositionAndHp(ground);
     }
 
     public void closeFile() {

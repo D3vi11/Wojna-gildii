@@ -18,6 +18,7 @@ public abstract class Entity {
     protected static int archerCount = 0;
 
     private int entityNumber;
+    private final int maxHp;
     private int hp;
     private int armor;
     private int crit;
@@ -35,8 +36,8 @@ public abstract class Entity {
     }
 
     public void attack(Entity enemy) {
-        if(isAlive){
-            if (checkInstance(enemy)) {
+        if (isAlive) {
+            if (!checkInstance(enemy)) {
                 if (rollCrit()) {
                     crit(enemy, getCritModifier());
                 } else
@@ -51,17 +52,15 @@ public abstract class Entity {
     }
 
     public void takeDamage(int damage) {
-        if(isAlive){
+        if (isAlive) {
             hp -= (damage - armor / 10);
             isAlive = hp > 0;
-            if(!isAlive) {
-                if(this instanceof Warrior) {
+            if (!isAlive) {
+                if (this instanceof Warrior) {
                     warriorCount--;
-                }
-                else if(this instanceof Archer) {
+                } else if (this instanceof Archer) {
                     archerCount--;
-                }
-                else if(this instanceof Mage) {
+                } else if (this instanceof Mage) {
                     mageCount--;
                 }
             }

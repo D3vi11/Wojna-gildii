@@ -11,6 +11,7 @@ import org.example.map.Ground;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.*;
+
 @RequiredArgsConstructor
 public class Guild {
     Ground ground;
@@ -22,14 +23,12 @@ public class Guild {
     int mapSize;
     Result result;
 
-    public void run(){
-        //fill map with entities
+    public void run() {
         fillGround();
 
-//        //initialize file
-        try{
-            result= new Result(new PrintWriter("Output.txt"));
-        }catch (FileNotFoundException e){
+        try {
+            result = new Result(new PrintWriter("Output.txt"));
+        } catch (FileNotFoundException e) {
             System.out.println("File not found");
             e.printStackTrace();
         }
@@ -37,12 +36,10 @@ public class Guild {
 
         for (int i = 0; i < iterationNumber; i++) {
             moveAndFight();
-            // write to file
-            result.writeOutput(entityNumber,ground,i);
-            if(result.victory()) break;
+            result.writeOutput(entityNumber, ground, i);
+            if (result.victory()) break;
         }
 
-        //close file
         result.closeFile();
     }
 
@@ -54,9 +51,7 @@ public class Guild {
     public void moveAndFight() {
         ground.resetEntitiesMovement();
         for (String key : ground.getFieldMap().keySet()) {
-            //move entities
             ground.moveEntities(key);
-            //attack
             ground.attack(key);
         }
     }
@@ -77,8 +72,8 @@ public class Guild {
         }
     }
 
-    public void resetStaticData(){
-        Result.inscription=null;
+    public void resetStaticData() {
+        Result.inscription = null;
         Entity.setArcherCount(0);
         Entity.setWarriorCount(0);
         Entity.setMageCount(0);

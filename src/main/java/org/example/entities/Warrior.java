@@ -3,9 +3,9 @@ package org.example.entities;
 public class Warrior extends Entity {
 
     public Warrior() {
-        super();
+        super(1000);
         setAttack(65);
-        setHp(1000);
+        setHp(getMaxHp());
         setArmor(70);
         setCrit(35);
         setCritModifier(2);
@@ -15,7 +15,7 @@ public class Warrior extends Entity {
 
     @Override
     public void crit(Entity enemy, int critModifier) {
-        enemy.takeDamage(getAttack()*critModifier);
+        enemy.takeDamage(getAttack() * critModifier);
     }
 
 }
